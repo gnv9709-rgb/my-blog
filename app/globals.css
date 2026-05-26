@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-playfair);
+}
+
+:root {
+  --background: #0c0c0c;
+  --foreground: #ece8e1;
+  --surface: #141414;
+  --surface-hover: #1c1c1c;
+  --muted: #5e5a55;
+  --accent: #c4965a;
+  --accent-dim: rgba(196, 150, 90, 0.15);
+  --border: #232323;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans, system-ui, sans-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hide scrollbar for category strip */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Aspect ratio for thumbnails */
+.aspect-video-custom {
+  position: relative;
+  padding-bottom: 56.25%;
+}
+.aspect-video-custom > * {
+  position: absolute;
+  inset: 0;
+}
+
+/* Category filter active underline */
+.cat-btn {
+  position: relative;
+  padding-bottom: 2px;
+}
+.cat-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms var(--ease-out-expo);
+}
+.cat-btn.active::after {
+  transform: scaleX(1);
+}
