@@ -118,6 +118,31 @@ export default function VideoModal({ video, onClose }: VideoModalProps) {
               </p>
             )}
 
+            {/* Details (기여도, 사용 장비 등) */}
+            {video.details && video.details.length > 0 && (
+              <>
+                <div className="mt-8 mb-6" style={{ height: '1px', background: 'var(--border)' }} />
+                <dl className="flex flex-col gap-5">
+                  {video.details.map((detail) => (
+                    <div key={detail.label}>
+                      <dt
+                        className="text-[9px] tracking-[0.3em] uppercase mb-1.5"
+                        style={{ color: 'var(--muted)' }}
+                      >
+                        {detail.label}
+                      </dt>
+                      <dd
+                        className="text-sm leading-relaxed"
+                        style={{ color: 'var(--foreground)' }}
+                      >
+                        {detail.value}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </>
+            )}
+
             {/* Credits */}
             {video.credits && video.credits.length > 0 && (
               <>
