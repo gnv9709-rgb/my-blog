@@ -8,7 +8,8 @@ export type Category =
 
 export interface Video {
   id: string;
-  youtubeId: string;
+  youtubeId?: string;
+  externalUrl?: string;
   title: string;
   client?: string;
   category: Exclude<Category, 'ALL'>;
