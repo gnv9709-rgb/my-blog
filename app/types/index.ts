@@ -11,6 +11,11 @@ export interface Credit {
   name: string;
 }
 
+export interface Detail {
+  label: string;
+  value: string;
+}
+
 export interface Video {
   id: string;
   youtubeId?: string;
@@ -21,5 +26,6 @@ export interface Video {
   year: number;
   featured?: boolean;
   description?: string;
+  details?: Detail[];
   credits?: Credit[];
 }
