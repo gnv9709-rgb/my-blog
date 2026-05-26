@@ -44,16 +44,18 @@ export default function VideoModal({ video, onClose }: VideoModalProps) {
           </svg>
         </button>
 
-        {/* Video embed */}
-        <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-          <iframe
-            className="absolute inset-0 w-full h-full"
-            src={`https://www.youtube.com/embed/${video.youtubeId}?autoplay=1&rel=0&modestbranding=1`}
-            title={video.title}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          />
-        </div>
+        {/* YouTube embed */}
+        {video.youtubeId != null && (
+          <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+            <iframe
+              className="absolute inset-0 w-full h-full"
+              src={`https://www.youtube.com/embed/${video.youtubeId}?autoplay=1&rel=0&modestbranding=1`}
+              title={video.title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
+        )}
 
         {/* Info */}
         <div
@@ -61,18 +63,12 @@ export default function VideoModal({ video, onClose }: VideoModalProps) {
           style={{ borderBottom: '1px solid var(--border)' }}
         >
           <div>
-            <h2
-              className="text-xl font-medium leading-tight"
-              style={{ color: 'var(--foreground)' }}
-            >
+            <h2 className="text-xl font-medium leading-tight" style={{ color: 'var(--foreground)' }}>
               {video.title}
             </h2>
             <div className="flex items-center gap-3 mt-2">
               {video.client && (
-                <span
-                  className="text-xs tracking-widest uppercase"
-                  style={{ color: 'var(--accent)' }}
-                >
+                <span className="text-xs tracking-widest uppercase" style={{ color: 'var(--accent)' }}>
                   {video.client}
                 </span>
               )}
