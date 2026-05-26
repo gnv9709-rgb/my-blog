@@ -1,0 +1,91 @@
+import type { Video, Category } from '../types';
+
+export const CATEGORIES: Category[] = [
+  'ALL',
+  'COMMERCIAL',
+  'MUSIC VIDEO',
+  'SHORT FILM',
+  'BRAND FILM',
+  'DOCUMENTARY',
+];
+
+// Replace youtubeId values with your actual YouTube video IDs
+export const videos: Video[] = [
+  {
+    id: '1',
+    youtubeId: 'dQw4w9WgXcW',
+    title: 'Feel the Rush',
+    client: 'Nike',
+    category: 'COMMERCIAL',
+    year: 2024,
+    featured: true,
+    description: '움직임과 야망의 본질을 포착한 브랜드 필름.',
+  },
+  {
+    id: '2',
+    youtubeId: '9bZkp7q19f0',
+    title: 'Electric Dreams',
+    client: 'Samsung',
+    category: 'COMMERCIAL',
+    year: 2024,
+    description: '미래 기술을 향한 여정을 담은 영상.',
+  },
+  {
+    id: '3',
+    youtubeId: 'ZbZSe6N_BXs',
+    title: 'Midnight Run',
+    category: 'MUSIC VIDEO',
+    year: 2023,
+    description: '도시의 밤을 배경으로 한 시네마틱 뮤직비디오.',
+  },
+  {
+    id: '4',
+    youtubeId: 'kXYiU_JCYtU',
+    title: 'Echoes',
+    category: 'MUSIC VIDEO',
+    year: 2023,
+    description: '내면의 울림을 시각적으로 표현한 작품.',
+  },
+  {
+    id: '5',
+    youtubeId: 'e-ORhEE9VVg',
+    title: 'In Between',
+    category: 'SHORT FILM',
+    year: 2023,
+    description: '일상의 간극에서 발견하는 이야기.',
+  },
+  {
+    id: '6',
+    youtubeId: 'hT_nvWreIhg',
+    title: 'Pure Water',
+    client: 'Amore Pacific',
+    category: 'BRAND FILM',
+    year: 2022,
+    description: '자연에서 영감받은 뷰티 브랜드 필름.',
+  },
+  {
+    id: '7',
+    youtubeId: 'JGwWNGJdvx8',
+    title: 'Roots & Wings',
+    category: 'DOCUMENTARY',
+    year: 2022,
+    description: '전통과 현대 사이에서 정체성을 찾아가는 다큐멘터리.',
+  },
+  {
+    id: '8',
+    youtubeId: 'uelHwf8o7_U',
+    title: 'City Lights',
+    client: 'Hyundai',
+    category: 'COMMERCIAL',
+    year: 2022,
+    description: '도시와 인간의 연결을 그린 자동차 필름.',
+  },
+  {
+    id: '9',
+    youtubeId: 'YVkUvmDQ3HY',
+    title: 'Golden Hour',
+    category: 'SHORT FILM',
+    year: 2022,
+    description: '한 낮의 빛을 따라간 16분의 여정.',
+  },
+];
