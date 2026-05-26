@@ -9,14 +9,27 @@ interface VideoCardProps {
 }
 
 export default function VideoCard({ video, onClick }: VideoCardProps) {
+  const isExternal = video.youtubeId == null;
+  const thumbnailSrc = video.youtubeId
+    ? `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`
+    : null;
+
+  const handleClick = () => {
+    if (isExternal && video.externalUrl) {
+      window.open(video.externalUrl, '_blank', 'noopener,noreferrer');
+    } else {
+      onClick(video);
+    }
+  };
+
   return (
     <article
       className="group cursor-pointer"
-      onClick={() => onClick(video)}
+      onClick={handleClick}
       role="button"
       tabIndex={0}
-      onKeyDown={(e) => e.key === 'Enter' && onClick(video)}
-      aria-label={`${video.title} 재생`}
+      onKeyDown={(e) => e.key === 'Enter' && handleClick()}
+      aria-label={`${video.title} ${isExternal ? '외부 링크로 열기' : '재생'}`}
     >
       {/* Thumbnail */}
       <div
@@ -24,21 +37,31 @@ export default function VideoCard({ video, onClick }: VideoCardProps) {
         style={{ background: 'var(--surface)', borderRadius: '1px' }}
       >
         <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-          <Image
-            src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
-            alt={video.title}
-            fill
-            className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          />
+          {thumbnailSrc ? (
+            <Image
+              src={thumbnailSrc}
+              alt={video.title}
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+          ) : (
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  'linear-gradient(135deg, var(--surface) 0%, #1a1a1a 50%, #111 100%)',
+              }}
+            />
+          )}
 
-          {/* Dark vignette on hover */}
+          {/* Hover overlay */}
           <div
             className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
             style={{ background: 'rgba(12,12,12,0.45)' }}
           />
 
-          {/* Play icon */}
+          {/* Play / External icon */}
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
             <div
               className="flex items-center justify-center w-12 h-12 rounded-full"
@@ -47,9 +70,15 @@ export default function VideoCard({ video, onClick }: VideoCardProps) {
                 boxShadow: '0 4px 24px rgba(196,150,90,0.4)',
               }}
             >
-              <svg viewBox="0 0 24 24" fill="white" className="w-5 h-5 ml-0.5">
-                <path d="M8 5v14l11-7z" />
-              </svg>
+              {isExternal ? (
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth={2} className="w-5 h-5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              ) : (
+                <svg viewBox="0 0 24 24" fill="white" className="w-5 h-5 ml-0.5">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              )}
             </div>
           </div>
 
@@ -65,6 +94,21 @@ export default function VideoCard({ video, onClick }: VideoCardProps) {
           >
             {video.category}
           </span>
+
+          {/* External link indicator */}
+          {isExternal && (
+            <span
+              className="absolute top-3 right-3 text-[9px] tracking-widest uppercase px-2 py-1"
+              style={{
+                background: 'rgba(12,12,12,0.75)',
+                backdropFilter: 'blur(8px)',
+                color: 'var(--muted)',
+                border: '1px solid var(--border)',
+              }}
+            >
+              Naver
+            </span>
+          )}
         </div>
       </div>
 
@@ -78,18 +122,12 @@ export default function VideoCard({ video, onClick }: VideoCardProps) {
             {video.title}
           </h3>
           {video.client && (
-            <p
-              className="text-xs mt-0.5 tracking-wide truncate"
-              style={{ color: 'var(--muted)' }}
-            >
+            <p className="text-xs mt-0.5 tracking-wide truncate" style={{ color: 'var(--muted)' }}>
               {video.client}
             </p>
           )}
         </div>
-        <span
-          className="shrink-0 text-xs tabular-nums mt-0.5"
-          style={{ color: 'var(--muted)' }}
-        >
+        <span className="shrink-0 text-xs tabular-nums mt-0.5" style={{ color: 'var(--muted)' }}>
           {video.year}
         </span>
       </div>
