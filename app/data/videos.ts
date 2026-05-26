@@ -1,5 +1,6 @@
 import type { Video, Category } from '../types';
 
+
 export const CATEGORIES: Category[] = [
   'ALL',
   'COMMERCIAL',
