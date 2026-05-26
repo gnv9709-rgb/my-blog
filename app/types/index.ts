@@ -6,6 +6,11 @@ export type Category =
   | 'BRAND FILM'
   | 'DOCUMENTARY';
 
+export interface Credit {
+  role: string;
+  name: string;
+}
+
 export interface Video {
   id: string;
   youtubeId?: string;
@@ -16,4 +21,5 @@ export interface Video {
   year: number;
   featured?: boolean;
   description?: string;
+  credits?: Credit[];
 }
