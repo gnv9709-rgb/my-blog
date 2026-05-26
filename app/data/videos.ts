@@ -20,13 +20,16 @@ export const videos: Video[] = [
     category: 'COMMERCIAL',
     year: 2024,
     featured: true,
-    description:
-      '여기에 영상에 대한 자세한 설명을 입력하세요. 제작 배경, 연출 의도, 촬영 방식 등 이 작업에 담긴 이야기를 자유롭게 적어주세요.',
-    credits: [
-      { role: '감독', name: '이름' },
-      { role: '촬영', name: '이름' },
-      { role: '편집', name: '이름' },
-      { role: '음악', name: '이름' },
+    details: [
+      {
+        label: '기여도',
+        value: '채널 전반적인 관리 및 기획 50%, 촬영 100%, 편집 100%',
+      },
+      {
+        label: '사용 장비',
+        value:
+          'SONY A7S III 2ea, 17인치 프롬프터 KSH17, FE 24-70mm F2.8 GM II 2ea, Sachtler Ace M MS Mk II 1001M 1ea, Nanlite Alien 150C 2ea',
+      },
     ],
   },
   {
