@@ -33,6 +33,14 @@ export default function Portfolio({
 
   const showHero = activeCategory === 'ALL' && featuredVideo != null;
 
+  const handleVideoClick = (video: Video) => {
+    if (video.externalUrl != null && video.youtubeId == null) {
+      window.open(video.externalUrl, '_blank', 'noopener,noreferrer');
+    } else {
+      setActiveVideo(video);
+    }
+  };
+
   return (
     <>
       {/* Header */}
@@ -49,7 +57,7 @@ export default function Portfolio({
         <div className="flex items-center justify-between px-6 md:px-16 h-16">
           <a
             href="/"
-            className="text-sm font-medium tracking-[0.12em] uppercase transition-colors duration-200"
+            className="transition-colors duration-200"
             style={{
               color: 'var(--foreground)',
               fontFamily: 'var(--font-playfair, Georgia, serif)',
@@ -102,19 +110,17 @@ export default function Portfolio({
 
       <main>
         {/* Hero — only in ALL view */}
-        {showHero && <Hero video={featuredVideo} onPlay={setActiveVideo} />}
+        {showHero && <Hero video={featuredVideo} onPlay={handleVideoClick} />}
 
         {/* Grid */}
         <section className="px-6 md:px-16 py-14 md:py-20">
           {filteredVideos.length > 0 ? (
             <div
               className="grid gap-x-6 gap-y-10 md:gap-x-8 md:gap-y-14"
-              style={{
-                gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-              }}
+              style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))' }}
             >
               {filteredVideos.map((video) => (
-                <VideoCard key={video.id} video={video} onClick={setActiveVideo} />
+                <VideoCard key={video.id} video={video} onClick={handleVideoClick} />
               ))}
             </div>
           ) : (
@@ -133,10 +139,7 @@ export default function Portfolio({
         className="px-6 md:px-16 py-10 flex flex-col sm:flex-row items-center justify-between gap-4"
         style={{ borderTop: '1px solid var(--border)' }}
       >
-        <p
-          className="text-[10px] tracking-[0.2em] uppercase"
-          style={{ color: 'var(--muted)' }}
-        >
+        <p className="text-[10px] tracking-[0.2em] uppercase" style={{ color: 'var(--muted)' }}>
           © {new Date().getFullYear()} {name}
         </p>
         <a
@@ -150,7 +153,7 @@ export default function Portfolio({
         </a>
       </footer>
 
-      {/* Modal */}
+      {/* Modal — YouTube only */}
       {activeVideo != null && (
         <VideoModal video={activeVideo} onClose={() => setActiveVideo(null)} />
       )}
