@@ -166,7 +166,7 @@ export default function WorkDetail({ video, prev, next }: WorkDetailProps) {
       </div>
 
       {/* Info */}
-      <div className="px-6 md:px-16 py-16 md:py-20 max-w-7xl flex flex-col lg:flex-row gap-12 lg:gap-24">
+      <div className="px-6 md:px-16 py-16 md:py-20 max-w-7xl flex flex-col lg:flex-row gap-12 lg:gap-24 work-details">
         {/* Left: Title */}
         <div className="lg:w-2/5">
           <p
