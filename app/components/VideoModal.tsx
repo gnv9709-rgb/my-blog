@@ -145,6 +145,41 @@ export default function VideoModal({ video, onClose }: VideoModalProps) {
               </>
             )}
 
+            {/* Equipment */}
+            {video.equipment && EQUIPMENT_ORDER.some((k) => video.equipment![k]?.length) && (
+              <>
+                <div className="mt-8 mb-5" style={{ height: '1px', background: 'var(--border)' }} />
+                <p
+                  className="text-[9px] tracking-[0.3em] uppercase mb-4"
+                  style={{ color: 'var(--muted)' }}
+                >
+                  사용 장비
+                </p>
+                <dl className="flex flex-col gap-3">
+                  {EQUIPMENT_ORDER.map((key) => {
+                    const items = video.equipment![key];
+                    if (!items?.length) return null;
+                    return (
+                      <div key={key} className="flex gap-4">
+                        <dt
+                          className="shrink-0 text-xs w-10"
+                          style={{ color: 'var(--muted)', paddingTop: '1px' }}
+                        >
+                          {key}
+                        </dt>
+                        <dd
+                          className="text-sm leading-relaxed"
+                          style={{ color: 'var(--foreground)' }}
+                        >
+                          {items.join(', ')}
+                        </dd>
+                      </div>
+                    );
+                  })}
+                </dl>
+              </>
+            )}
+
             {/* Credits */}
             {video.credits && video.credits.length > 0 && (
               <>
