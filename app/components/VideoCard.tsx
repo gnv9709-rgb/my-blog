@@ -6,6 +6,7 @@ import type { Video } from '../types';
 interface VideoCardProps {
   video: Video;
   onClick: (video: Video) => void;
+  large?: boolean;
 }
 
 function getPlatformLabel(url: string): string {
