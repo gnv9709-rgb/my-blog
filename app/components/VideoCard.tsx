@@ -103,7 +103,7 @@ export default function VideoCard({ video, onClick }: VideoCardProps) {
           </span>
 
           {/* External link indicator */}
-          {isExternal && (
+          {platformLabel && (
             <span
               className="absolute top-3 right-3 text-[9px] tracking-widest uppercase px-2 py-1"
               style={{
@@ -113,7 +113,7 @@ export default function VideoCard({ video, onClick }: VideoCardProps) {
                 border: '1px solid var(--border)',
               }}
             >
-              Naver
+              {platformLabel}
             </span>
           )}
         </div>
