@@ -19,7 +19,9 @@ export default function Portfolio({
   videos,
   name = '이정석',
   email = 'gnv9709@gmail.com',
+  photo,
 }: PortfolioProps) {
+  const router = useRouter();
   // 카테고리 필터 버튼 하이라이트
   const [activeCategory, setActiveCategory] = useState<Category>('ALL');
   // 실제 그리드에 표시되는 카테고리 (fade 전환 후 적용)
