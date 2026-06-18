@@ -288,7 +288,7 @@ export default function WorkDetail({ video, prev, next }: WorkDetailProps) {
 
       {/* Prev / Next */}
       <nav
-        className="px-6 md:px-16 py-12 grid grid-cols-2"
+        className="work-nav px-6 md:px-16 py-12 grid grid-cols-2"
         style={{ borderTop: '1px solid var(--border)' }}
         aria-label="작품 탐색"
       >
