@@ -168,6 +168,7 @@ export const videos: Video[] = [
   {
     id: '10',
     externalUrl: 'https://www.instagram.com/reel/DV7cmt2jzA3/',
+    // thumbnail: '/thumbnails/10.jpg',
     title: '메디우스 크롬 레이저 AI 광고영상',
     client: '메디우스',
     category: 'AI',
