@@ -10,9 +10,32 @@ const playfair = Playfair_Display({
   weight: ['400', '500', '600'],
 });
 
+const baseUrl =
+  process.env.NEXT_PUBLIC_BASE_URL ??
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+
 export const metadata: Metadata = {
-  title: '이정석 — 영상 콘텐츠 제작자',
-  description: '기획부터 촬영, 편집, 음향까지 영상 제작의 전 과정을 담당하는 영상 콘텐츠 제작자 이정석의 포트폴리오.',
+  metadataBase: new URL(baseUrl),
+  title: {
+    default: '이정석 — 영상 콘텐츠 제작자',
+    template: '%s — 이정석',
+  },
+  description:
+    '기획부터 촬영, 편집, 음향까지 영상 제작의 전 과정을 담당하는 영상 콘텐츠 제작자 이정석의 포트폴리오.',
+  openGraph: {
+    type: 'website',
+    locale: 'ko_KR',
+    siteName: '이정석 포트폴리오',
+    title: '이정석 — 영상 콘텐츠 제작자',
+    description:
+      '기획부터 촬영, 편집, 음향까지 영상 제작의 전 과정을 담당하는 영상 콘텐츠 제작자 이정석의 포트폴리오.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '이정석 — 영상 콘텐츠 제작자',
+    description:
+      '기획부터 촬영, 편집, 음향까지 영상 제작의 전 과정을 담당하는 영상 콘텐츠 제작자 이정석의 포트폴리오.',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
