@@ -92,6 +92,7 @@ export const videos: Video[] = [
     client: '박성호',
     category: '숏폼',
     year: 2025,
+    vertical: true,
     details: [
       { label: '기여도', value: '촬영 50%, 편집 100%' },
       { label: '사용 툴', value: '프리미어 프로' },
