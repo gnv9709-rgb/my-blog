@@ -50,14 +50,14 @@ export default function Hero({ video, onPlay }: HeroProps) {
       <div className="absolute inset-0 flex flex-col justify-end px-8 pb-12 md:px-16 md:pb-16">
         <div className="max-w-2xl">
           <p
-            className="text-[10px] tracking-[0.3em] uppercase mb-4"
+            className="hero-label text-[10px] tracking-[0.3em] uppercase mb-4"
             style={{ color: 'var(--accent)' }}
           >
             Featured — {video.category}
           </p>
 
           <h2
-            className="leading-[0.95] tracking-tight mb-4"
+            className="hero-title leading-[0.95] tracking-tight mb-4"
             style={{
               fontFamily: 'var(--font-playfair, Georgia, serif)',
               fontSize: 'clamp(2.8rem, 7vw, 6.5rem)',
@@ -68,7 +68,7 @@ export default function Hero({ video, onPlay }: HeroProps) {
             {video.title}
           </h2>
 
-          <div className="flex items-center gap-4">
+          <div className="hero-meta flex items-center gap-4">
             {video.client && (
               <span
                 className="text-xs tracking-widest uppercase"
@@ -85,7 +85,7 @@ export default function Hero({ video, onPlay }: HeroProps) {
       </div>
 
       {/* Play button — bottom right */}
-      <div className="absolute bottom-10 right-8 md:bottom-14 md:right-16 flex items-center gap-3">
+      <div className="hero-play absolute bottom-10 right-8 md:bottom-14 md:right-16 flex items-center gap-3">
         <span
           className="text-xs tracking-[0.25em] uppercase transition-opacity duration-300 opacity-0 group-hover:opacity-100"
           style={{ color: 'var(--foreground)' }}
