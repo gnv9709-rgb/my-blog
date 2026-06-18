@@ -31,6 +31,7 @@ export interface Video {
   id: string;
   youtubeId?: string;
   externalUrl?: string;
+  thumbnail?: string;
   title: string;
   client?: string;
   category: Exclude<Category, 'ALL'>;
