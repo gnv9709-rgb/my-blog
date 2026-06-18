@@ -64,7 +64,7 @@ export default function WorkDetail({ video, prev, next }: WorkDetailProps) {
       </header>
 
       {/* Media */}
-      <div style={{ borderBottom: '1px solid var(--border)' }}>
+      <div className="work-media" style={{ borderBottom: '1px solid var(--border)' }}>
         {video.youtubeId ? (
           <div className={video.vertical ? 'max-w-xs mx-auto py-16 px-6' : 'w-full'}>
             <div
