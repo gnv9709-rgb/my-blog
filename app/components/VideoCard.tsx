@@ -43,7 +43,10 @@ export default function VideoCard({ video, onClick }: VideoCardProps) {
         className="relative overflow-hidden"
         style={{ background: 'var(--surface)', borderRadius: '1px' }}
       >
-        <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+        <div
+          className="relative w-full"
+          style={{ paddingBottom: video.vertical ? '177.78%' : '56.25%' }}
+        >
           {thumbnailSrc ? (
             <Image
               src={thumbnailSrc}
