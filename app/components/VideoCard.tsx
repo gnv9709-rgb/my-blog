@@ -16,9 +16,9 @@ function getPlatformLabel(url: string): string {
 
 export default function VideoCard({ video, onClick }: VideoCardProps) {
   const isExternal = video.youtubeId == null;
-  const thumbnailSrc = video.youtubeId
-    ? `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`
-    : null;
+  const thumbnailSrc =
+    video.thumbnail ??
+    (video.youtubeId ? `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg` : null);
   const platformLabel = isExternal && video.externalUrl ? getPlatformLabel(video.externalUrl) : null;
 
   const handleClick = () => {
