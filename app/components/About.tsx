@@ -15,6 +15,7 @@ const skills = [
 
 interface AboutProps {
   name: string;
+  photo?: string;
 }
 
 export default function About({ name }: AboutProps) {
