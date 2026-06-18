@@ -5,8 +5,8 @@ export default function Home() {
   return (
     <Portfolio
       videos={videos}
-      name="Your Name"
-      email="your@email.com"
+      name="이름"
+      email="gnv9709@gmail.com"
     />
   );
 }
