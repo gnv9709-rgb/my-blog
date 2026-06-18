@@ -18,6 +18,7 @@
   --accent-dim: rgba(196, 150, 90, 0.15);
   --border: #232323;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --space-section: clamp(4rem, 3rem + 5vw, 10rem);
 }
 
 *,
