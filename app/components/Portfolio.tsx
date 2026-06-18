@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo, useEffect, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import type { Video, Category } from '../types';
 import { CATEGORIES } from '../data/videos';
 import Hero from './Hero';
