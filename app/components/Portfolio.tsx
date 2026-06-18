@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import type { Video, Category } from '../types';
 import { CATEGORIES } from '../data/videos';
 import Hero from './Hero';
+import About from './About';
 import VideoCard from './VideoCard';
 import VideoModal from './VideoModal';
 
@@ -15,7 +16,7 @@ interface PortfolioProps {
 
 export default function Portfolio({
   videos,
-  name = 'Your Name',
+  name = '이름',
   email = 'your@email.com',
 }: PortfolioProps) {
   const [activeCategory, setActiveCategory] = useState<Category>('ALL');
@@ -32,6 +33,23 @@ export default function Portfolio({
   );
 
   const showHero = activeCategory === 'ALL' && featuredVideo != null;
+
+  useEffect(() => {
+    const els = document.querySelectorAll<HTMLElement>('.reveal');
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, [activeCategory, showHero]);
 
   const handleVideoClick = (video: Video) => {
     if (video.externalUrl != null && video.youtubeId == null) {
@@ -112,16 +130,41 @@ export default function Portfolio({
         {/* Hero — only in ALL view */}
         {showHero && <Hero video={featuredVideo} onPlay={handleVideoClick} />}
 
-        {/* Grid */}
+        {/* About — only in ALL view */}
+        {activeCategory === 'ALL' && <About name={name} />}
+
+        {/* Works grid */}
         <section className="px-6 md:px-16 py-14 md:py-20">
-          {filteredVideos.length > 0 ? (
-            <div
-              className="grid gap-x-6 gap-y-10 md:gap-x-8 md:gap-y-14"
-              style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))' }}
+          {/* Section label */}
+          <div className="flex items-center justify-between mb-10 md:mb-14">
+            <p
+              className="reveal text-[10px] tracking-[0.35em] uppercase"
+              style={{ color: 'var(--accent)' }}
             >
-              {filteredVideos.map((video) => (
-                <VideoCard key={video.id} video={video} onClick={handleVideoClick} />
-              ))}
+              Works
+            </p>
+            <p
+              className="reveal text-[10px] tracking-[0.2em] uppercase"
+              style={{ color: 'var(--muted)', transitionDelay: '80ms' }}
+            >
+              {activeCategory !== 'ALL' ? activeCategory : `${filteredVideos.length}편`}
+            </p>
+          </div>
+
+          {filteredVideos.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10 md:gap-x-8 md:gap-y-14">
+              {filteredVideos.map((video, index) => {
+                const isBentoFirst = activeCategory === 'ALL' && index === 0;
+                return (
+                  <div
+                    key={video.id}
+                    className={`reveal${isBentoFirst ? ' sm:col-span-2' : ''}`}
+                    style={{ transitionDelay: `${(index % 9) * 60}ms` }}
+                  >
+                    <VideoCard video={video} onClick={handleVideoClick} large={isBentoFirst} />
+                  </div>
+                );
+              })}
             </div>
           ) : (
             <p
