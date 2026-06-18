@@ -159,9 +159,11 @@ export default function Portfolio({
       </header>
 
       <main>
-        {showHero && <Hero video={featuredVideo} onPlay={() => {}} />}
+        {showHero && (
+          <Hero video={featuredVideo} onPlay={(v) => router.push(`/works/${v.id}`)} />
+        )}
 
-        <About name={name} />
+        <About name={name} photo={photo} />
 
         {/* Works grid */}
         <section className="px-6 md:px-16 py-14 md:py-20">
