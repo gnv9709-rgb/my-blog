@@ -128,7 +128,7 @@ export default function VideoCard({ video, onClick, large = false }: VideoCardPr
         <div className="min-w-0">
           <h3
             className="font-medium leading-snug truncate transition-colors duration-200 group-hover:text-[var(--accent)]"
-            style={{ color: 'var(--foreground)', fontSize: '0.9375rem' }}
+            style={{ color: 'var(--foreground)', fontSize: large ? '1.0625rem' : '0.9375rem' }}
           >
             {video.title}
           </h3>
