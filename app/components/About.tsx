@@ -47,15 +47,15 @@ export default function About({ name }: AboutProps) {
             className="text-[11px] tracking-[0.3em] uppercase mb-8"
             style={{ color: 'var(--muted)' }}
           >
-            영상 감독
+            영상 콘텐츠 제작자
           </p>
           <p
             className="text-sm leading-[1.9]"
             style={{ color: 'var(--muted)', maxWidth: '36ch' }}
           >
-            기획부터 촬영, 편집, 음향까지 영상 제작의 전 과정을 담당합니다.
-            인터뷰, 예능, 모션그래픽, AI 광고 등 다양한 장르를 넘나들며
-            클라이언트의 메시지를 영상으로 구현합니다.
+            영상 한 편을 만들 때 기획부터 촬영, 편집, 음향까지 직접 챙깁니다.
+            인터뷰, 예능, 모션그래픽, AI 광고 등 장르를 가리지 않고,
+            클라이언트가 전하고 싶은 이야기를 영상으로 풀어냅니다.
           </p>
         </div>
 
