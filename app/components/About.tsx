@@ -18,7 +18,7 @@ interface AboutProps {
   photo?: string;
 }
 
-export default function About({ name }: AboutProps) {
+export default function About({ name, photo }: AboutProps) {
   return (
     <section
       className="px-6 md:px-16 py-20 md:py-28"
@@ -33,6 +33,40 @@ export default function About({ name }: AboutProps) {
           >
             About
           </p>
+
+          {/* Profile photo or initial placeholder */}
+          <div className="mb-8">
+            {photo ? (
+              <div
+                className="relative overflow-hidden"
+                style={{ width: '96px', height: '96px', borderRadius: '50%', border: '1px solid var(--border)' }}
+              >
+                <Image src={photo} alt={name} fill className="object-cover" />
+              </div>
+            ) : (
+              <div
+                className="flex items-center justify-center"
+                style={{
+                  width: '96px',
+                  height: '96px',
+                  borderRadius: '50%',
+                  border: '1px solid rgba(196,150,90,0.3)',
+                  background: 'var(--surface)',
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: 'var(--font-playfair, Georgia, serif)',
+                    fontSize: '1.75rem',
+                    color: 'var(--accent)',
+                  }}
+                >
+                  {name[0]}
+                </span>
+              </div>
+            )}
+          </div>
+
           <h2
             className="mb-4 leading-[1.05]"
             style={{
