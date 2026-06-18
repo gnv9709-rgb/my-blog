@@ -170,13 +170,13 @@ export default function WorkDetail({ video, prev, next }: WorkDetailProps) {
         {/* Left: Title */}
         <div className="lg:w-2/5">
           <p
-            className="text-[10px] tracking-[0.35em] uppercase mb-6"
+            className="work-title text-[10px] tracking-[0.35em] uppercase mb-6"
             style={{ color: 'var(--accent)' }}
           >
             {video.category}
           </p>
           <h1
-            className="mb-6 leading-[1.05]"
+            className="work-title mb-6 leading-[1.05]"
             style={{
               fontFamily: 'var(--font-playfair, Georgia, serif)',
               fontSize: 'clamp(2rem, 5vw, 4rem)',
