@@ -4,7 +4,11 @@ export type Category =
   | 'MUSIC VIDEO'
   | 'SHORT FILM'
   | 'BRAND FILM'
-  | 'DOCUMENTARY';
+  | 'DOCUMENTARY'
+  | 'VARIETY'
+  | 'LIVE'
+  | 'SHORT FORM'
+  | 'AI';
 
 export interface Credit {
   role: string;
