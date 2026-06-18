@@ -12,6 +12,7 @@ interface PortfolioProps {
   videos: Video[];
   name?: string;
   email?: string;
+  photo?: string;
 }
 
 export default function Portfolio({
