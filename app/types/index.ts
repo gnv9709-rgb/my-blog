@@ -36,6 +36,7 @@ export interface Video {
   category: Exclude<Category, 'ALL'>;
   year: number;
   featured?: boolean;
+  vertical?: boolean;
   description?: string;
   details?: Detail[];
   equipment?: Equipment;
