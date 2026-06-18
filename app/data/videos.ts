@@ -85,9 +85,12 @@ export const videos: Video[] = [
   },
 
   // ── 숏폼 ──────────────────────────────────────────────────────
+  // 외부 링크 영상: thumbnail 필드에 '/thumbnails/파일명.jpg' 경로를 추가하면 썸네일이 표시됩니다.
+  // 스크린샷을 public/thumbnails/ 폴더에 저장하세요.
   {
     id: '5',
     externalUrl: 'https://www.instagram.com/k_father_1972',
+    // thumbnail: '/thumbnails/5.jpg',
     title: '개그맨 박성호 인스타그램',
     client: '박성호',
     category: '숏폼',
