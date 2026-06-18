@@ -196,6 +196,7 @@ export const videos: Video[] = [
   {
     id: '12',
     externalUrl: 'https://www.instagram.com/reel/DXvAaPMz3Qm/',
+    // thumbnail: '/thumbnails/12.jpg',
     title: '자취 생활 꿀팁 릴스 #2',
     client: '개인 채널',
     category: 'AI',
