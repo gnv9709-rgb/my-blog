@@ -69,6 +69,24 @@ body {
   transform: translateY(0);
 }
 
+/* WorkDetail entrance animations */
+@keyframes workFadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.work-media   { animation: workFadeUp 800ms var(--ease-out-expo) 100ms both; }
+.work-title   { animation: workFadeUp 700ms var(--ease-out-expo) 280ms both; }
+.work-meta    { animation: workFadeUp 600ms var(--ease-out-expo) 420ms both; }
+.work-details { animation: workFadeUp 600ms var(--ease-out-expo) 500ms both; }
+.work-nav     { animation: workFadeUp 500ms var(--ease-out-expo) 320ms both; }
+
+/* Skeleton shimmer */
+@keyframes shimmer {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
+}
+.skeleton { animation: shimmer 1.8s ease-in-out infinite; }
+
 /* Hero entrance animations */
 @keyframes heroFadeUp {
   from { opacity: 0; transform: translateY(20px); }
