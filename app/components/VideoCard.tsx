@@ -1,11 +1,11 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import type { Video } from '../types';
 
 interface VideoCardProps {
   video: Video;
-  onClick: (video: Video) => void;
   large?: boolean;
 }
 
@@ -15,29 +15,18 @@ function getPlatformLabel(url: string): string {
   return 'External';
 }
 
-export default function VideoCard({ video, onClick, large = false }: VideoCardProps) {
+export default function VideoCard({ video, large = false }: VideoCardProps) {
   const isExternal = video.youtubeId == null;
   const thumbnailSrc =
     video.thumbnail ??
     (video.youtubeId ? `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg` : null);
   const platformLabel = isExternal && video.externalUrl ? getPlatformLabel(video.externalUrl) : null;
 
-  const handleClick = () => {
-    if (isExternal && video.externalUrl) {
-      window.open(video.externalUrl, '_blank', 'noopener,noreferrer');
-    } else {
-      onClick(video);
-    }
-  };
-
   return (
-    <article
-      className="group cursor-pointer"
-      onClick={handleClick}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => e.key === 'Enter' && handleClick()}
-      aria-label={`${video.title} ${isExternal ? '외부 링크로 열기' : '재생'}`}
+    <Link
+      href={`/works/${video.id}`}
+      className="group block"
+      aria-label={`${video.title} 상세 보기`}
     >
       {/* Thumbnail */}
       <div
@@ -106,7 +95,7 @@ export default function VideoCard({ video, onClick, large = false }: VideoCardPr
             {video.category}
           </span>
 
-          {/* External link indicator */}
+          {/* Platform badge */}
           {platformLabel && (
             <span
               className="absolute top-3 right-3 text-[9px] tracking-widest uppercase px-2 py-1"
@@ -142,6 +131,6 @@ export default function VideoCard({ video, onClick, large = false }: VideoCardPr
           {video.year}
         </span>
       </div>
-    </article>
+    </Link>
   );
 }
