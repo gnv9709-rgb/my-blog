@@ -11,8 +11,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'Portfolio — Video Director',
-  description: 'Personal video portfolio showcasing commercial, music video, and film work.',
+  title: '이름 — 영상 감독',
+  description: '기획부터 촬영, 편집까지 영상 제작 전 과정을 담당하는 영상 감독 포트폴리오.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
