@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <Portfolio
       videos={videos}
-      name="이름"
+      name="이정석"
       email="gnv9709@gmail.com"
     />
   );
