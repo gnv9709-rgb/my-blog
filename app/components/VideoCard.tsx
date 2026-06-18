@@ -8,11 +8,18 @@ interface VideoCardProps {
   onClick: (video: Video) => void;
 }
 
+function getPlatformLabel(url: string): string {
+  if (url.includes('instagram.com')) return 'Instagram';
+  if (url.includes('naver.com')) return 'Naver';
+  return 'External';
+}
+
 export default function VideoCard({ video, onClick }: VideoCardProps) {
   const isExternal = video.youtubeId == null;
   const thumbnailSrc = video.youtubeId
     ? `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`
     : null;
+  const platformLabel = isExternal && video.externalUrl ? getPlatformLabel(video.externalUrl) : null;
 
   const handleClick = () => {
     if (isExternal && video.externalUrl) {
