@@ -15,7 +15,7 @@ function getPlatformLabel(url: string): string {
   return 'External';
 }
 
-export default function VideoCard({ video, onClick }: VideoCardProps) {
+export default function VideoCard({ video, onClick, large = false }: VideoCardProps) {
   const isExternal = video.youtubeId == null;
   const thumbnailSrc =
     video.thumbnail ??
