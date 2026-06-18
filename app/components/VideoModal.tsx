@@ -1,7 +1,9 @@
 'use client';
 
 import { useEffect } from 'react';
-import type { Video } from '../types';
+import type { Video, Equipment } from '../types';
+
+const EQUIPMENT_ORDER: (keyof Equipment)[] = ['카메라', '렌즈', '조명', '마이크', '기타'];
 
 interface VideoModalProps {
   video: Video;
