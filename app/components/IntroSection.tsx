@@ -1,3 +1,5 @@
+import type { CSSProperties } from 'react';
+
 interface IntroSectionProps {
   name: string;
   email: string;
