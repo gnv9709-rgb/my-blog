@@ -95,7 +95,7 @@ export default function Hero({ video, onPlay }: HeroProps) {
         <div
           className="flex items-center justify-center w-14 h-14 rounded-full border transition-all duration-500"
           style={{
-            borderColor: 'rgba(236,232,225,0.5)',
+            borderColor: 'var(--foreground-faint)',
             color: 'var(--foreground)',
           }}
           onMouseEnter={(e) => {
@@ -106,7 +106,7 @@ export default function Hero({ video, onPlay }: HeroProps) {
           onMouseLeave={(e) => {
             const el = e.currentTarget as HTMLDivElement;
             el.style.background = 'transparent';
-            el.style.borderColor = 'rgba(236,232,225,0.5)';
+            el.style.borderColor = 'var(--foreground-faint)';
           }}
         >
           <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 ml-0.5">
