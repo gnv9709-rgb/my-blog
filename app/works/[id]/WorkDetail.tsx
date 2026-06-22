@@ -31,7 +31,7 @@ export default function WorkDetail({ video, prev, next }: WorkDetailProps) {
       <header
         className="sticky top-0 z-40 flex items-center justify-between px-6 md:px-16 h-16"
         style={{
-          background: 'rgba(12,12,12,0.92)',
+          background: 'rgba(5,5,5,0.94)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
           borderBottom: '1px solid var(--border)',
