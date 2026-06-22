@@ -69,6 +69,16 @@ body {
   transform: translateY(0);
 }
 
+/* Hero entrance */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-label { animation: heroFadeUp 600ms var(--ease-out-expo) 200ms both; }
+.hero-title { animation: heroFadeUp 800ms var(--ease-out-expo) 360ms both; }
+.hero-meta  { animation: heroFadeUp 600ms var(--ease-out-expo) 540ms both; }
+.hero-play  { animation: heroFadeUp 500ms var(--ease-out-expo) 640ms both; }
+
 /* Intro entrance */
 @keyframes introFadeUp {
   from { opacity: 0; transform: translateY(32px); }
