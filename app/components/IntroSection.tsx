@@ -250,7 +250,7 @@ export default function IntroSection({ name, email, videoCount }: IntroSectionPr
                 key={dt}
                 style={{ display: 'grid', gridTemplateColumns: '5.5rem 1fr', gap: '0 1.25rem', alignItems: 'baseline' }}
               >
-                <dt style={{ fontSize: '0.5rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--muted)' }}>
+                <dt style={{ fontSize: 'var(--text-label, 0.625rem)', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--muted)' }}>
                   {dt}
                 </dt>
                 <dd style={{ fontSize: '0.875rem', color: 'var(--foreground)', opacity: 0.82 }}>
