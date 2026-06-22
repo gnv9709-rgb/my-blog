@@ -106,11 +106,11 @@ export default function IntroSection({ name, email, videoCount }: IntroSectionPr
       >
         <p
           style={{
-            fontSize: 'clamp(0.75rem, 2vw, 1.125rem)',
-            letterSpacing: '0.2em',
+            fontSize: 'clamp(1rem, 2.8vw, 2.5rem)',
+            letterSpacing: '0.15em',
             textTransform: 'uppercase',
             color: '#f0ece6',
-            fontWeight: 500,
+            fontWeight: 700,
           }}
         >
           영상 콘텐츠 제작자
