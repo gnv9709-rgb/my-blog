@@ -42,6 +42,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Keyboard focus ring */
+:focus-visible {
+  outline: 1.5px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
 /* Horizontal scrollbar hide */
 .scrollbar-none {
   scrollbar-width: none;
