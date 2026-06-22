@@ -444,7 +444,7 @@ export default function IntroSection({ name, email, videoCount }: IntroSectionPr
         <span
           style={{
             fontFamily: 'var(--font-geist-mono, monospace)',
-            fontSize: '0.475rem',
+            fontSize: 'var(--text-label, 0.625rem)',
             letterSpacing: '0.3em',
             color: 'var(--muted)',
             paddingTop: '0.3rem',
