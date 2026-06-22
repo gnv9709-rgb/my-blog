@@ -15,34 +15,30 @@ export default function CategorySection({ category, videos, index }: CategorySec
       aria-labelledby={`cat-heading-${index}`}
       style={{
         overflow: 'hidden',
-        position: 'relative',
+        borderTop: '1px solid var(--border)',
       }}
     >
-      {/* Top border */}
-      <div style={{ height: '1px', background: 'var(--border)' }} />
-
-      {/* Section heading area */}
+      {/* Heading area */}
       <div
         style={{
           position: 'relative',
-          padding: 'clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 4rem)',
+          padding: 'clamp(2.5rem, 5vw, 5rem) clamp(1.5rem, 4vw, 4rem)',
           paddingBottom: 'clamp(1.5rem, 3vw, 2.5rem)',
-          overflow: 'hidden',
         }}
       >
-        {/* Ghost index number behind heading */}
+        {/* Ghost number behind heading */}
         <span
           aria-hidden="true"
           style={{
             position: 'absolute',
-            right: 'clamp(1rem, 3vw, 3rem)',
-            bottom: '-0.12em',
+            right: 'clamp(1rem, 2vw, 2rem)',
+            bottom: '-0.08em',
             fontFamily: 'var(--font-geist-mono, monospace)',
-            fontSize: 'clamp(8rem, 22vw, 22rem)',
+            fontSize: 'clamp(7rem, 20vw, 20rem)',
             fontWeight: 800,
             lineHeight: 1,
             color: 'transparent',
-            WebkitTextStroke: '1px rgba(237,235,229,0.045)',
+            WebkitTextStroke: '1px rgba(237,235,229,0.05)',
             pointerEvents: 'none',
             userSelect: 'none',
             letterSpacing: '-0.05em',
@@ -51,7 +47,7 @@ export default function CategorySection({ category, videos, index }: CategorySec
           {indexStr}
         </span>
 
-        {/* Small index label */}
+        {/* Index label */}
         <p
           style={{
             fontSize: '0.475rem',
@@ -59,51 +55,59 @@ export default function CategorySection({ category, videos, index }: CategorySec
             textTransform: 'uppercase',
             color: 'var(--muted)',
             fontFamily: 'var(--font-geist-mono, monospace)',
-            marginBottom: '0.75rem',
-            position: 'relative',
+            marginBottom: '0.625rem',
           }}
         >
           {indexStr}
         </p>
 
-        {/* Category name */}
-        <h2
-          id={`cat-heading-${index}`}
-          style={{
-            fontFamily: 'var(--font-geist-sans, system-ui, sans-serif)',
-            fontSize: 'clamp(2.5rem, 12vw, 12rem)',
-            fontWeight: 800,
-            lineHeight: 0.88,
-            letterSpacing: '-0.03em',
-            color: 'var(--accent)',
-            position: 'relative',
-          }}
-        >
-          {category}
-        </h2>
+        {/* Category name — dominates the section */}
+        <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '1rem' }}>
+          <h2
+            id={`cat-heading-${index}`}
+            style={{
+              fontFamily: 'var(--font-geist-sans, system-ui, sans-serif)',
+              fontSize: 'clamp(2.75rem, 13vw, 13rem)',
+              fontWeight: 800,
+              lineHeight: 0.88,
+              letterSpacing: '-0.03em',
+              color: 'var(--accent)',
+            }}
+          >
+            {category}
+          </h2>
 
-        {/* Count — right aligned, bottom */}
-        <p
-          style={{
-            position: 'absolute',
-            right: 'clamp(1.5rem, 4vw, 4rem)',
-            top: 'clamp(2.5rem, 5vw, 4.5rem)',
-            fontSize: '0.475rem',
-            letterSpacing: '0.4em',
-            textTransform: 'uppercase',
-            color: 'var(--muted)',
-            fontFamily: 'var(--font-geist-mono, monospace)',
-          }}
-        >
-          ×{videos.length}
-        </p>
+          <p
+            style={{
+              flexShrink: 0,
+              fontSize: '0.475rem',
+              letterSpacing: '0.4em',
+              textTransform: 'uppercase',
+              color: 'var(--muted)',
+              fontFamily: 'var(--font-geist-mono, monospace)',
+              paddingBottom: 'clamp(0.5rem, 1vw, 1rem)',
+            }}
+          >
+            ×{videos.length}
+          </p>
+        </div>
       </div>
+
+      {/* Thin red separator */}
+      <div
+        style={{
+          height: '1px',
+          background: 'var(--accent)',
+          margin: '0 clamp(1.5rem, 4vw, 4rem)',
+          opacity: 0.3,
+        }}
+      />
 
       {/* Horizontal slider */}
       <div
         style={{
           position: 'relative',
-          paddingBottom: 'clamp(2.5rem, 5vw, 4.5rem)',
+          padding: 'clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2.5rem, 5vw, 5rem)',
         }}
       >
         <div
