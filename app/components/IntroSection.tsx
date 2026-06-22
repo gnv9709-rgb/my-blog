@@ -401,7 +401,7 @@ export default function IntroSection({ name, email, videoCount }: IntroSectionPr
             <div key={group.label}>
               <p
                 style={{
-                  fontSize: '0.475rem',
+                  fontSize: 'var(--text-label, 0.625rem)',
                   letterSpacing: '0.4em',
                   textTransform: 'uppercase',
                   color: 'var(--muted)',
