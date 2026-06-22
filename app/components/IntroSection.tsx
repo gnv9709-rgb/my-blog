@@ -179,7 +179,7 @@ export default function IntroSection({ name, email, videoCount }: IntroSectionPr
               fontSize: 'clamp(1rem, 2.8vw, 2.5rem)',
               letterSpacing: '0.12em',
               textTransform: 'uppercase',
-              color: '#f0ece6',
+              color: 'var(--foreground)',
               fontWeight: 700,
             }}
           >
