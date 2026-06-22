@@ -7,6 +7,7 @@ import type { Video } from '../types';
 interface VideoCardProps {
   video: Video;
   large?: boolean;
+  sliderMode?: boolean;
 }
 
 function getPlatformLabel(url: string): string {
