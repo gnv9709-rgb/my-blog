@@ -337,10 +337,10 @@ export default function IntroSection({ name, email, videoCount }: IntroSectionPr
                   {c.current && (
                     <span
                       style={{
-                        fontSize: '0.4375rem',
+                        fontSize: 'var(--text-label, 0.625rem)',
                         letterSpacing: '0.3em',
                         textTransform: 'uppercase',
-                        color: '#f0ece6',
+                        color: 'var(--foreground)',
                         background: 'var(--accent)',
                         padding: '0.25rem 0.625rem',
                       }}
