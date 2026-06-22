@@ -81,7 +81,6 @@ export default function CategorySection({ category, videos, index }: CategorySec
             gap: 'clamp(0.75rem, 1.5vw, 1.25rem)',
             overflowX: 'auto',
             scrollSnapType: 'x mandatory',
-            WebkitOverflowScrolling: 'touch' as React.CSSProperties['WebkitOverflowScrolling'],
             paddingLeft: 'clamp(1.5rem, 4vw, 4rem)',
             paddingRight: 'clamp(1.5rem, 4vw, 4rem)',
             paddingBottom: '0.5rem',
@@ -102,7 +101,7 @@ export default function CategorySection({ category, videos, index }: CategorySec
           ))}
         </div>
 
-        {/* Right fade hint */}
+        {/* Right fade hint — only when scrollable */}
         {videos.length > 2 && (
           <div
             aria-hidden="true"
@@ -121,6 +120,3 @@ export default function CategorySection({ category, videos, index }: CategorySec
     </section>
   );
 }
-
-// React namespace for CSSProperties
-import type React from 'react';
