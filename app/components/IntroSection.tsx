@@ -79,8 +79,8 @@ const skillGroups = [
 ];
 
 const labelStyle: CSSProperties = {
-  fontSize: '0.475rem',
-  letterSpacing: '0.45em',
+  fontSize: 'var(--text-label, 0.625rem)',
+  letterSpacing: '0.4em',
   textTransform: 'uppercase',
   color: 'var(--accent)',
   marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)',
