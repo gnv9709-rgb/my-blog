@@ -6,7 +6,7 @@ export default function Loading() {
         style={{
           height: '64px',
           borderBottom: '1px solid var(--border)',
-          background: 'rgba(12,12,12,0.92)',
+          background: 'rgba(5,5,5,0.94)',
         }}
       />
 
