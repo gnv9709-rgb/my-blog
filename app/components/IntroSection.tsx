@@ -83,10 +83,10 @@ export default function IntroSection({ name, email, videoCount }: IntroSectionPr
         <h1
           style={{
             fontFamily: 'var(--font-playfair, Georgia, serif)',
-            fontSize: 'clamp(5.5rem, 26vw, 28rem)',
+            fontSize: 'clamp(7rem, 32vw, 38rem)',
             fontWeight: 500,
-            lineHeight: 0.88,
-            letterSpacing: '-0.025em',
+            lineHeight: 0.85,
+            letterSpacing: '-0.03em',
             color: 'var(--foreground)',
             position: 'relative',
             zIndex: 1,
