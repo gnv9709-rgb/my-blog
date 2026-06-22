@@ -78,7 +78,7 @@ const skillGroups = [
   },
 ];
 
-const labelStyle: React.CSSProperties = {
+const labelStyle: CSSProperties = {
   fontSize: '0.475rem',
   letterSpacing: '0.45em',
   textTransform: 'uppercase',
@@ -87,7 +87,7 @@ const labelStyle: React.CSSProperties = {
   fontFamily: 'var(--font-geist-mono, monospace)',
 };
 
-const sectionPad: React.CSSProperties = {
+const sectionPad: CSSProperties = {
   padding: 'clamp(3rem, 6vw, 6rem) clamp(1.5rem, 4vw, 4rem)',
   borderTop: '1px solid var(--border)',
 };
