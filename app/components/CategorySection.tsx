@@ -32,9 +32,9 @@ export default function CategorySection({ category, videos, index }: CategorySec
           style={{
             position: 'absolute',
             right: 'clamp(1rem, 2vw, 2rem)',
-            bottom: '-0.08em',
+            bottom: '-0.1em',
             fontFamily: 'var(--font-geist-mono, monospace)',
-            fontSize: 'clamp(7rem, 20vw, 20rem)',
+            fontSize: 'clamp(5rem, 14vw, 14rem)',
             fontWeight: 800,
             lineHeight: 1,
             color: 'transparent',
