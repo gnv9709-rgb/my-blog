@@ -16,7 +16,7 @@ function getPlatformLabel(url: string): string {
   return 'External';
 }
 
-export default function VideoCard({ video, large = false }: VideoCardProps) {
+export default function VideoCard({ video, large = false, sliderMode = false }: VideoCardProps) {
   const isExternal = video.youtubeId == null;
   const thumbnailSrc =
     video.thumbnail ??
@@ -32,7 +32,7 @@ export default function VideoCard({ video, large = false }: VideoCardProps) {
       {/* Thumbnail */}
       <div
         className="relative overflow-hidden"
-        style={{ background: 'var(--surface)', borderRadius: '1px' }}
+        style={{ background: 'var(--surface)' }}
       >
         <div
           className="relative w-full"
@@ -44,14 +44,13 @@ export default function VideoCard({ video, large = false }: VideoCardProps) {
               alt={video.title}
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              sizes={sliderMode ? '400px' : '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'}
             />
           ) : (
             <div
               className="absolute inset-0"
               style={{
-                background:
-                  'linear-gradient(135deg, var(--surface) 0%, #1a1a1a 50%, #111 100%)',
+                background: 'linear-gradient(135deg, var(--surface) 0%, #141414 50%, #0a0a0a 100%)',
               }}
             />
           )}
@@ -59,7 +58,7 @@ export default function VideoCard({ video, large = false }: VideoCardProps) {
           {/* Hover overlay */}
           <div
             className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
-            style={{ background: 'rgba(12,12,12,0.45)' }}
+            style={{ background: 'rgba(5,5,5,0.5)' }}
           />
 
           {/* Play / External icon */}
@@ -68,7 +67,7 @@ export default function VideoCard({ video, large = false }: VideoCardProps) {
               className="flex items-center justify-center w-12 h-12 rounded-full"
               style={{
                 background: 'var(--accent)',
-                boxShadow: '0 4px 24px rgba(196,150,90,0.4)',
+                boxShadow: '0 4px 24px rgba(204,15,30,0.35)',
               }}
             >
               {isExternal ? (
@@ -83,25 +82,27 @@ export default function VideoCard({ video, large = false }: VideoCardProps) {
             </div>
           </div>
 
-          {/* Category badge */}
-          <span
-            className="absolute top-3 left-3 text-[10px] tracking-widest uppercase px-2 py-1"
-            style={{
-              background: 'rgba(12,12,12,0.75)',
-              backdropFilter: 'blur(8px)',
-              color: 'var(--accent)',
-              border: '1px solid rgba(196,150,90,0.25)',
-            }}
-          >
-            {video.category}
-          </span>
+          {/* Category badge — hidden in slider mode (already shown by section heading) */}
+          {!sliderMode && (
+            <span
+              className="absolute top-3 left-3 text-[10px] tracking-widest uppercase px-2 py-1"
+              style={{
+                background: 'rgba(5,5,5,0.8)',
+                backdropFilter: 'blur(8px)',
+                color: 'var(--accent)',
+                border: '1px solid rgba(204,15,30,0.2)',
+              }}
+            >
+              {video.category}
+            </span>
+          )}
 
           {/* Platform badge */}
           {platformLabel && (
             <span
               className="absolute top-3 right-3 text-[9px] tracking-widest uppercase px-2 py-1"
               style={{
-                background: 'rgba(12,12,12,0.75)',
+                background: 'rgba(5,5,5,0.8)',
                 backdropFilter: 'blur(8px)',
                 color: 'var(--muted)',
                 border: '1px solid var(--border)',
@@ -118,7 +119,10 @@ export default function VideoCard({ video, large = false }: VideoCardProps) {
         <div className="min-w-0">
           <h3
             className="font-medium leading-snug truncate transition-colors duration-200 group-hover:text-[var(--accent)]"
-            style={{ color: 'var(--foreground)', fontSize: large ? '1.0625rem' : '0.9375rem' }}
+            style={{
+              color: 'var(--foreground)',
+              fontSize: large ? '1.0625rem' : sliderMode ? '0.9375rem' : '0.9375rem',
+            }}
           >
             {video.title}
           </h3>
@@ -128,7 +132,13 @@ export default function VideoCard({ video, large = false }: VideoCardProps) {
             </p>
           )}
         </div>
-        <span className="shrink-0 text-xs tabular-nums mt-0.5" style={{ color: 'var(--muted)' }}>
+        <span
+          className="shrink-0 text-xs tabular-nums mt-0.5"
+          style={{
+            color: 'var(--muted)',
+            fontFamily: 'var(--font-geist-mono, monospace)',
+          }}
+        >
           {video.year}
         </span>
       </div>
