@@ -115,10 +115,10 @@ export default function IntroSection({ name, email, videoCount }: IntroSectionPr
             paddingTop: 'calc(64px + clamp(1rem, 2vw, 1.5rem))',
           }}
         >
-          <p style={{ fontSize: '0.5rem', letterSpacing: '0.5em', textTransform: 'uppercase', color: 'var(--muted)' }}>
+          <p style={{ fontSize: 'var(--text-label, 0.625rem)', letterSpacing: '0.5em', textTransform: 'uppercase', color: 'var(--muted)' }}>
             Portfolio
           </p>
-          <p style={{ fontSize: '0.5rem', letterSpacing: '0.4em', color: 'var(--muted)', fontFamily: 'var(--font-geist-mono, monospace)' }}>
+          <p style={{ fontSize: 'var(--text-label, 0.625rem)', letterSpacing: '0.4em', color: 'var(--muted)', fontFamily: 'var(--font-geist-mono, monospace)' }}>
             {new Date().getFullYear()}
           </p>
         </div>
