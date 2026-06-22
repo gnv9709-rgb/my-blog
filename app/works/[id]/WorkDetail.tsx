@@ -136,7 +136,7 @@ export default function WorkDetail({ video, prev, next }: WorkDetailProps) {
                   const el = e.currentTarget;
                   el.style.background = 'var(--accent)';
                   el.style.borderColor = 'var(--accent)';
-                  el.style.color = '#0c0c0c';
+                  el.style.color = '#f0ece6';
                 }}
                 onMouseLeave={(e) => {
                   const el = e.currentTarget;
