@@ -474,4 +474,3 @@ export default function IntroSection({ name, email, videoCount }: IntroSectionPr
   );
 }
 
-import type React from 'react';
