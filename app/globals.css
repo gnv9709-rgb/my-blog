@@ -11,6 +11,8 @@
 :root {
   --background: #050505;
   --foreground: #edebe5;
+  --foreground-faint: rgba(237, 235, 229, 0.5);
+  --foreground-dim: rgba(237, 235, 229, 0.065);
   --surface: #0c0c0c;
   --surface-hover: #141414;
   --muted: #565656;
@@ -19,6 +21,7 @@
   --border: #181818;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --space-section: clamp(4rem, 3rem + 5vw, 10rem);
+  --text-label: 0.625rem;
 }
 
 *,
