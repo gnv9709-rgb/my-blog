@@ -67,10 +67,10 @@ export default function CategorySection({ category, videos, index }: CategorySec
             id={`cat-heading-${index}`}
             style={{
               fontFamily: 'var(--font-geist-sans, system-ui, sans-serif)',
-              fontSize: 'clamp(3.5rem, 16vw, 16rem)',
+              fontSize: 'clamp(1.75rem, 4.5vw, 4.5rem)',
               fontWeight: 800,
-              lineHeight: 0.88,
-              letterSpacing: '-0.035em',
+              lineHeight: 0.92,
+              letterSpacing: '-0.02em',
               color: 'var(--accent)',
             }}
           >
