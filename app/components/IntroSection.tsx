@@ -205,7 +205,7 @@ export default function IntroSection({ name, email, videoCount }: IntroSectionPr
             </p>
             <a
               href={`mailto:${email}`}
-              style={{ fontSize: '0.5rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--muted)', textDecoration: 'none' }}
+              style={{ fontSize: 'var(--text-label, 0.625rem)', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--muted)', textDecoration: 'none' }}
             >
               {email}
             </a>
