@@ -50,7 +50,7 @@ export default function CategorySection({ category, videos, index }: CategorySec
         {/* Index label */}
         <p
           style={{
-            fontSize: '0.475rem',
+            fontSize: 'var(--text-label, 0.625rem)',
             letterSpacing: '0.5em',
             textTransform: 'uppercase',
             color: 'var(--muted)',
@@ -80,7 +80,7 @@ export default function CategorySection({ category, videos, index }: CategorySec
           <p
             style={{
               flexShrink: 0,
-              fontSize: '0.475rem',
+              fontSize: 'var(--text-label, 0.625rem)',
               letterSpacing: '0.4em',
               textTransform: 'uppercase',
               color: 'var(--muted)',
