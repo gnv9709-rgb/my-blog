@@ -214,13 +214,13 @@ export default function IntroSection({ name, email, videoCount }: IntroSectionPr
             <p style={{ fontFamily: 'var(--font-playfair, Georgia, serif)', fontSize: 'clamp(2rem, 5.5vw, 5rem)', fontWeight: 500, lineHeight: 1, color: 'var(--foreground)', letterSpacing: '-0.02em' }}>
               {videoCount}
             </p>
-            <p style={{ fontSize: '0.44rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: 'var(--muted)', marginTop: '0.375rem' }}>Works</p>
+            <p style={{ fontSize: 'var(--text-label, 0.625rem)', letterSpacing: '0.4em', textTransform: 'uppercase', color: 'var(--muted)', marginTop: '0.375rem' }}>Works</p>
           </div>
           <div style={{ textAlign: 'right' }}>
             <p style={{ fontFamily: 'var(--font-playfair, Georgia, serif)', fontSize: 'clamp(2rem, 5.5vw, 5rem)', fontWeight: 500, lineHeight: 1, color: 'var(--accent)', letterSpacing: '-0.02em' }}>
               3+
             </p>
-            <p style={{ fontSize: '0.44rem', letterSpacing: '0.45em', textTransform: 'uppercase', color: 'var(--muted)', marginTop: '0.375rem' }}>Years</p>
+            <p style={{ fontSize: 'var(--text-label, 0.625rem)', letterSpacing: '0.4em', textTransform: 'uppercase', color: 'var(--muted)', marginTop: '0.375rem' }}>Years</p>
           </div>
         </div>
       </div>
