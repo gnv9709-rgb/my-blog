@@ -93,7 +93,7 @@ export const videos: Video[] = [
   {
     id: '4',
     youtubeId: 'jioH_jP6w5w',
-    title: '아침부터 쌉소리',
+    title: '꽈추형과 진중한(?) 꽈추 토크 시작합니다｜아침부터 쌉소리 EP.5',
     client: '아침부터 쌉소리',
     category: '라이브 방송',
     year: 2025,
