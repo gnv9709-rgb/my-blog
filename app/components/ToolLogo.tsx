@@ -84,7 +84,7 @@ const TOOLS: Record<string, ToolSpec> = {
   Midjourney: {
     bg: '#f0531e',
     fg: '#fff',
-    img: '/logos/midjourney.png',
+    // img: '/logos/midjourney.png',
     icon: () => (
       <>
         <path
