@@ -16,6 +16,33 @@ function getPlatformLabel(url: string): string {
   return 'External';
 }
 
+function getDetail(video: Video, label: string): string | undefined {
+  return video.details?.find((d) => d.label === label)?.value;
+}
+
+function MetaRow({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="flex gap-2">
+      <span
+        className="shrink-0 text-[8px] tracking-[0.2em] uppercase mt-[3px]"
+        style={{
+          color: 'var(--accent)',
+          fontFamily: 'var(--font-geist-mono, monospace)',
+          width: '2.75rem',
+        }}
+      >
+        {label}
+      </span>
+      <span
+        className="text-[11px] leading-snug"
+        style={{ color: 'var(--foreground)', opacity: 0.7 }}
+      >
+        {value}
+      </span>
+    </div>
+  );
+}
+
 export default function VideoCard({ video, large = false, sliderMode = false }: VideoCardProps) {
   const isExternal = video.youtubeId == null;
   const thumbnailSrc =
@@ -23,20 +50,19 @@ export default function VideoCard({ video, large = false, sliderMode = false }: 
     (video.youtubeId ? `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg` : null);
   const platformLabel = isExternal && video.externalUrl ? getPlatformLabel(video.externalUrl) : null;
 
-  return (
-    <Link
-      href={`/works/${video.id}`}
-      className="group block"
-      aria-label={`${video.title} 상세 보기`}
-    >
+  // Vertical external clips (shorts / AI reels): jump straight to the platform
+  // and surface contribution + tools directly on the card instead of a detail page.
+  const directLink = isExternal && video.vertical && video.externalUrl ? video.externalUrl : null;
+  const contribution = directLink ? getDetail(video, '기여도') : undefined;
+  const tools = directLink ? getDetail(video, '사용 툴') : undefined;
+  const hasMeta = Boolean(directLink && (contribution || tools));
+
+  const inner = (
+    <>
       {/* Thumbnail */}
       <div
         className="relative overflow-hidden"
-        style={{
-          background: 'var(--surface)',
-          borderRadius: '10px',
-          border: '1px solid var(--border)',
-        }}
+        style={{ background: 'var(--surface)' }}
       >
         <div
           className="relative w-full"
@@ -146,6 +172,41 @@ export default function VideoCard({ video, large = false, sliderMode = false }: 
           {video.year}
         </span>
       </div>
+
+      {/* Meta caption — direct-link shorts only (contribution + tools) */}
+      {hasMeta && (
+        <div
+          className="mt-2.5 pt-2.5 space-y-1.5"
+          style={{ borderTop: '1px solid var(--border)' }}
+        >
+          {contribution && <MetaRow label="기여도" value={contribution} />}
+          {tools && <MetaRow label="사용 툴" value={tools} />}
+        </div>
+      )}
+    </>
+  );
+
+  if (directLink) {
+    return (
+      <a
+        href={directLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group block"
+        aria-label={`${video.title} — ${platformLabel ?? '외부'}에서 보기 (새 창)`}
+      >
+        {inner}
+      </a>
+    );
+  }
+
+  return (
+    <Link
+      href={`/works/${video.id}`}
+      className="group block"
+      aria-label={`${video.title} 상세 보기`}
+    >
+      {inner}
     </Link>
   );
 }
