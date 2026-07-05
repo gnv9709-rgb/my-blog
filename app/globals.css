@@ -84,7 +84,7 @@ body::before {
   background-image: var(--grain-mottle), var(--grain-paper);
   background-size: 520px 520px, 200px 200px;
   mix-blend-mode: overlay;
-  opacity: 0.5;
+  opacity: 0.62;
 }
 
 /* Hashtag / index-tag helpers */
