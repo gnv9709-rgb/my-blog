@@ -126,6 +126,7 @@ const TOOLS: Record<string, ToolSpec> = {
     bg: '#0d0f16',
     fg: '#fff',
     img: '/logos/antigravity.png',
+    scale: 1.12,
     icon: (id) => (
       <>
         <defs>
