@@ -165,125 +165,161 @@ export default function WorkDetail({ video, prev, next }: WorkDetailProps) {
         )}
       </div>
 
-      {/* Info */}
-      <div className="px-6 md:px-16 py-16 md:py-20 max-w-7xl flex flex-col lg:flex-row gap-12 lg:gap-24 work-details">
-        {/* Left: Title */}
-        <div className="lg:w-2/5">
+      {/* Info — case-study layout */}
+      <div
+        className="work-details relative px-6 md:px-16 py-16 md:py-24 mx-auto"
+        style={{ maxWidth: '84rem' }}
+      >
+        {/* Big case number + category, top-right */}
+        <div
+          className="absolute text-right pointer-events-none select-none"
+          style={{ top: 'clamp(1.5rem, 4vw, 3.5rem)', right: 'clamp(1.5rem, 4vw, 4rem)' }}
+          aria-hidden="true"
+        >
           <p
-            className="work-title text-[10px] tracking-[0.35em] uppercase mb-6"
+            style={{
+              fontFamily: 'var(--font-geist-mono, monospace)',
+              fontSize: 'clamp(3rem, 8vw, 6.5rem)',
+              fontWeight: 800,
+              lineHeight: 0.9,
+              letterSpacing: '-0.04em',
+              color: 'transparent',
+              WebkitTextStroke: '1px rgba(237,235,229,0.13)',
+            }}
+          >
+            {String(video.id).padStart(2, '0')}
+          </p>
+          <p
+            className="text-[10px] tracking-[0.4em] uppercase"
             style={{ color: 'var(--accent)' }}
           >
             {video.category}
           </p>
+        </div>
+
+        {/* Title block */}
+        <div style={{ maxWidth: '60%' }} className="max-lg:!max-w-full">
+          <p
+            className="work-title text-[10px] tracking-[0.35em] uppercase mb-5"
+            style={{ color: 'var(--accent)' }}
+          >
+            Work — {video.year}
+          </p>
           <h1
-            className="work-title mb-6 leading-[1.05]"
+            className="work-title leading-[1.05] mb-5"
             style={{
-              fontFamily: 'var(--font-playfair, Georgia, serif)',
-              fontSize: 'clamp(2rem, 5vw, 4rem)',
-              fontWeight: 500,
+              fontFamily: 'var(--font-geist-sans, system-ui, sans-serif)',
+              fontSize: 'clamp(2rem, 6vw, 4.5rem)',
+              fontWeight: 800,
+              letterSpacing: '-0.02em',
             }}
           >
             {video.title}
           </h1>
-          <div className="flex flex-wrap items-center gap-4">
-            {video.client && (
-              <span
-                className="text-xs tracking-widest uppercase"
-                style={{ color: 'var(--muted)' }}
-              >
-                {video.client}
-              </span>
-            )}
-            <span className="text-xs tracking-widest uppercase" style={{ color: 'var(--muted)' }}>
-              {video.year}
-            </span>
-          </div>
+          {video.client && (
+            <p className="text-sm tracking-wide" style={{ color: 'var(--muted)' }}>
+              {video.client}
+            </p>
+          )}
         </div>
 
-        {/* Right: Details + Equipment */}
-        <div className="lg:w-3/5 space-y-12">
-          {/* Details */}
-          {video.details && video.details.length > 0 && (
-            <dl className="space-y-6">
-              {video.details.map((d) => (
-                <div key={d.label}>
-                  <dt
-                    className="text-[9px] tracking-[0.45em] uppercase mb-2"
-                    style={{ color: 'var(--accent)' }}
-                  >
-                    {d.label}
-                  </dt>
-                  <dd
-                    className="text-sm leading-[1.8]"
-                    style={{ color: 'var(--foreground)', opacity: 0.75 }}
-                  >
+        {/* Meta blocks — 제작연도 / 역할·기여도 / 활용(tool chips) / 결과 등 */}
+        <div
+          className="work-details"
+          style={{
+            marginTop: 'clamp(2.5rem, 6vw, 5rem)',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+            gap: 'clamp(2rem, 4vw, 3.5rem)',
+          }}
+        >
+          {/* 제작 연도 */}
+          <div>
+            <p className="text-[9px] tracking-[0.45em] uppercase mb-3" style={{ color: 'var(--accent)' }}>
+              제작 연도
+            </p>
+            <p className="text-sm" style={{ color: 'var(--foreground)', opacity: 0.8 }}>
+              {video.year}
+            </p>
+          </div>
+
+          {/* details: 기여도 as text, 사용 툴 as chips */}
+          {video.details?.map((d) => {
+            const isTools = d.label.includes('툴');
+            return (
+              <div key={d.label}>
+                <p className="text-[9px] tracking-[0.45em] uppercase mb-3" style={{ color: 'var(--accent)' }}>
+                  {d.label}
+                </p>
+                {isTools ? (
+                  <ul className="flex flex-wrap gap-2">
+                    {d.value
+                      .split(/[,·]/)
+                      .map((t) => t.trim())
+                      .filter(Boolean)
+                      .map((tool) => (
+                        <li
+                          key={tool}
+                          className="text-xs px-2.5 py-1"
+                          style={{
+                            border: '1px solid var(--border)',
+                            color: 'var(--foreground)',
+                            opacity: 0.8,
+                            borderRadius: '3px',
+                          }}
+                        >
+                          {tool}
+                        </li>
+                      ))}
+                  </ul>
+                ) : (
+                  <p className="text-sm leading-[1.8]" style={{ color: 'var(--foreground)', opacity: 0.75 }}>
                     {d.value}
+                  </p>
+                )}
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Equipment — full-width row of grouped chips */}
+        {video.equipment && Object.keys(video.equipment).length > 0 && (
+          <div style={{ marginTop: 'clamp(2.5rem, 5vw, 4rem)', borderTop: '1px solid var(--border)', paddingTop: 'clamp(2rem, 4vw, 3rem)' }}>
+            <h3 className="text-[9px] tracking-[0.45em] uppercase mb-5" style={{ color: 'var(--muted)' }}>
+              사용 장비
+            </h3>
+            <dl style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 'clamp(1.25rem, 3vw, 2.5rem)' }}>
+              {(Object.entries(video.equipment) as [string, string[]][]).map(([key, items]) => (
+                <div key={key}>
+                  <dt className="text-[10px] tracking-widest uppercase mb-2" style={{ color: 'var(--accent)' }}>
+                    {key}
+                  </dt>
+                  <dd className="text-xs leading-[1.9]" style={{ color: 'var(--foreground)', opacity: 0.65 }}>
+                    {items.join(', ')}
                   </dd>
                 </div>
               ))}
             </dl>
-          )}
+          </div>
+        )}
 
-          {/* Equipment */}
-          {video.equipment && Object.keys(video.equipment).length > 0 && (
-            <div>
-              <h3
-                className="text-[9px] tracking-[0.45em] uppercase mb-5"
-                style={{ color: 'var(--muted)' }}
-              >
-                사용 장비
-              </h3>
-              <dl className="space-y-3">
-                {(Object.entries(video.equipment) as [string, string[]][]).map(
-                  ([key, items]) => (
-                    <div key={key} className="flex gap-6">
-                      <dt
-                        className="text-[10px] tracking-widest uppercase shrink-0"
-                        style={{ color: 'var(--muted)', width: '4rem' }}
-                      >
-                        {key}
-                      </dt>
-                      <dd
-                        className="text-xs leading-[1.8]"
-                        style={{ color: 'var(--foreground)', opacity: 0.65 }}
-                      >
-                        {items.join(', ')}
-                      </dd>
-                    </div>
-                  ),
-                )}
-              </dl>
-            </div>
-          )}
-
-          {/* External link (in info section too) */}
-          {isExternal && video.externalUrl && (
-            <a
-              href={video.externalUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[10px] tracking-[0.25em] uppercase transition-colors duration-200"
-              style={{ color: 'var(--muted)' }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent)')}
-              onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--muted)')}
-            >
-              원본 링크 바로가기
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={1.5}
-                className="w-3.5 h-3.5"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
-                />
-              </svg>
-            </a>
-          )}
-        </div>
+        {/* External original link */}
+        {isExternal && video.externalUrl && (
+          <a
+            href={video.externalUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-[10px] tracking-[0.25em] uppercase transition-colors duration-200"
+            style={{ color: 'var(--muted)', marginTop: 'clamp(2rem, 4vw, 3rem)' }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent)')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--muted)')}
+          >
+            원본 링크 바로가기
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-3.5 h-3.5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
+          </a>
+        )}
       </div>
 
       {/* Prev / Next */}
