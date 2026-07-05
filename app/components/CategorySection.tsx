@@ -250,7 +250,7 @@ export default function CategorySection({ category, videos, index }: CategorySec
               marginBottom: 'clamp(0.5rem, 1.5vw, 1rem)',
             }}
           >
-            {indexStr} — Category
+            {indexStr} — Category <span style={{ color: 'var(--accent)' }}>★</span>
           </p>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: '1rem', flexWrap: 'wrap' }}>
             <h2
