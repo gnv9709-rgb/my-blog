@@ -89,7 +89,7 @@ export const videos: Video[] = [
   // 스크린샷을 public/thumbnails/ 폴더에 저장하세요.
   {
     id: '5',
-    externalUrl: 'https://www.instagram.com/k_father_1972',
+    externalUrl: 'https://www.instagram.com/reel/DJGn0eeyNcP/',
     // thumbnail: '/thumbnails/5.jpg',
     title: '개그맨 박성호 인스타그램',
     client: '박성호',
