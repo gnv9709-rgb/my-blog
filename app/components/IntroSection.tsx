@@ -138,16 +138,16 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
           <p
             className="intro-role"
             style={{
-              marginTop: 'clamp(1rem, 2vw, 1.75rem)',
-              fontSize: 'clamp(0.875rem, 1.4vw, 1.0625rem)',
+              marginTop: 'clamp(1.25rem, 2.2vw, 2rem)',
+              fontSize: 'clamp(1.0625rem, 1.9vw, 1.5rem)',
               lineHeight: 1.6,
-              color: 'var(--on-crimson-soft)',
+              color: 'var(--on-crimson)',
               maxWidth: '34ch',
             }}
           >
-            who plans, shoots, and edits
+            who takes a story from idea to final cut,
             <br />
-            every frame of the story.
+            and always sees it through.
           </p>
         </div>
 
