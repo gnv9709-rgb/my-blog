@@ -190,7 +190,7 @@ export default function ToolLogo({ name, size = 52, showLabel = true }: ToolLogo
     letterSpacing: '-0.03em',
     border: spec.light && !isAppIcon ? '1px solid rgba(0,0,0,0.08)' : 'none',
     flexShrink: 0,
-    overflow: 'visible',
+    overflow: isAppIcon ? 'visible' : 'hidden',
   };
 
   const renderMark = () => {
