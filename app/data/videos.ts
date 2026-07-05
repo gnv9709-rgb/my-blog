@@ -141,7 +141,7 @@ export const videos: Video[] = [
   {
     id: '7',
     youtubeId: '4eWhDzDpMB8',
-    title: '법무법인 아리율 홈페이지 메인 영상',
+    title: '포트폴리오_법무법인 아리율 홈피영상',
     client: '법무법인 아리율',
     category: '모션그래픽',
     year: 2025,
