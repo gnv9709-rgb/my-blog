@@ -17,6 +17,8 @@ export default function CategorySection({ category, videos, index }: CategorySec
       style={{
         overflow: 'hidden',
         borderTop: '1px solid var(--border)',
+        // Alternating surface tint gives the works stream a scroll rhythm.
+        background: index % 2 === 1 ? 'var(--surface)' : 'transparent',
       }}
     >
       {/* Heading area — title (left) + index table (right), reference style */}
