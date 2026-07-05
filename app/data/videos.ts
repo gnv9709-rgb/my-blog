@@ -165,7 +165,7 @@ export const videos: Video[] = [
   {
     id: '14',
     youtubeId: 'hIcbrQGzOiQ',
-    title: '엘케이 피부과 브이빔 레이저 홍보영상',
+    title: '멍 붓기😱빨리 없애는 방법👍 피부과전문의',
     client: '엘케이 피부과',
     category: '모션그래픽',
     year: 2025,
