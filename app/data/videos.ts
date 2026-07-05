@@ -54,7 +54,7 @@ export const videos: Video[] = [
   {
     id: '13',
     youtubeId: 'oD7up76JcR8',
-    title: '포워드 피부과 인터뷰',
+    title: '골드PTT의 모든 것, 이 영상만 확인하세요!',
     client: '포워드 피부과',
     category: '인터뷰 촬영',
     year: 2025,
