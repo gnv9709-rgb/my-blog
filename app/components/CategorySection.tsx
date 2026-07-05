@@ -1,6 +1,9 @@
-import Link from 'next/link';
+'use client';
+
+import { useState } from 'react';
+import Image from 'next/image';
 import type { Video } from '../types';
-import VideoCard from './VideoCard';
+import { thumbSrc } from '../lib/thumb';
 
 interface CategorySectionProps {
   category: string;
@@ -8,44 +11,182 @@ interface CategorySectionProps {
   index: number;
 }
 
+function getPlatformLabel(url: string): string {
+  if (url.includes('instagram.com')) return 'Instagram';
+  if (url.includes('naver.com')) return 'Naver';
+  return 'External';
+}
+
+/** Inline detail panel — thumbnail/player + credits shown in place (no navigation). */
+function DetailPanel({ video }: { video: Video }) {
+  const isExternal = video.youtubeId == null;
+  const thumb = thumbSrc(video, 'max');
+
+  return (
+    <div
+      style={{
+        gridColumn: '1 / -1',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+        gap: 'clamp(1.5rem, 4vw, 3rem)',
+        background: 'var(--surface)',
+        border: '1px solid var(--border)',
+        borderRadius: '14px',
+        padding: 'clamp(1.25rem, 3vw, 2.25rem)',
+        marginTop: '0.5rem',
+      }}
+    >
+      {/* Media */}
+      <div>
+        {video.youtubeId ? (
+          <div
+            style={{
+              position: 'relative',
+              width: '100%',
+              maxWidth: video.vertical ? '300px' : '100%',
+              margin: video.vertical ? '0 auto' : undefined,
+              paddingBottom: video.vertical ? undefined : '56.25%',
+              aspectRatio: video.vertical ? '9 / 16' : undefined,
+              borderRadius: '10px',
+              overflow: 'hidden',
+              border: '1px solid var(--border)',
+            }}
+          >
+            <iframe
+              src={`https://www.youtube.com/embed/${video.youtubeId}`}
+              title={video.title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none' }}
+            />
+          </div>
+        ) : (
+          <div style={{ maxWidth: video.vertical ? '300px' : '460px' }}>
+            <div
+              style={{
+                position: 'relative',
+                width: '100%',
+                aspectRatio: video.vertical ? '9 / 16' : '16 / 9',
+                borderRadius: '10px',
+                overflow: 'hidden',
+                border: '1px solid var(--border)',
+                background: 'var(--surface-hover)',
+              }}
+            >
+              {thumb && <Image src={thumb} alt={video.title} fill className="object-cover" sizes="460px" />}
+            </div>
+            {video.externalUrl && (
+              <a
+                href={video.externalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 mt-4 text-[11px] tracking-[0.2em] uppercase px-6 py-3 transition-colors duration-200"
+                style={{ border: '1px solid var(--accent)', color: 'var(--accent)', borderRadius: '4px' }}
+              >
+                {getPlatformLabel(video.externalUrl)}에서 보기
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-3.5 h-3.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                </svg>
+              </a>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* Credits */}
+      <div>
+        {video.client && (
+          <p className="text-[10px] tracking-[0.35em] uppercase mb-4" style={{ color: 'var(--accent)' }}>
+            {video.client} · {video.year}
+          </p>
+        )}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+          {video.details?.map((d) => {
+            const isTools = d.label.includes('툴');
+            return (
+              <div key={d.label}>
+                <p className="text-[9px] tracking-[0.4em] uppercase mb-2" style={{ color: 'var(--muted)' }}>
+                  {d.label}
+                </p>
+                {isTools ? (
+                  <ul className="flex flex-wrap gap-1.5">
+                    {d.value.split(/[,·]/).map((t) => t.trim()).filter(Boolean).map((tool) => (
+                      <li
+                        key={tool}
+                        className="text-xs px-2.5 py-1"
+                        style={{ border: '1px solid var(--border)', color: 'var(--foreground)', opacity: 0.85, borderRadius: '3px' }}
+                      >
+                        {tool}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-sm leading-[1.7]" style={{ color: 'var(--foreground)', opacity: 0.8 }}>
+                    {d.value}
+                  </p>
+                )}
+              </div>
+            );
+          })}
+
+          {video.equipment && Object.keys(video.equipment).length > 0 && (
+            <div>
+              <p className="text-[9px] tracking-[0.4em] uppercase mb-2" style={{ color: 'var(--muted)' }}>
+                사용 장비
+              </p>
+              <dl style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '0.75rem 1.5rem' }}>
+                {(Object.entries(video.equipment) as [string, string[]][]).map(([key, items]) => (
+                  <div key={key}>
+                    <dt className="text-[10px] tracking-widest uppercase mb-1" style={{ color: 'var(--accent)' }}>
+                      {key}
+                    </dt>
+                    <dd className="text-xs leading-[1.8]" style={{ color: 'var(--foreground)', opacity: 0.7 }}>
+                      {items.join(', ')}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function CategorySection({ category, videos, index }: CategorySectionProps) {
+  const [openId, setOpenId] = useState<string | null>(null);
   const indexStr = String(index + 1).padStart(2, '0');
 
   return (
     <section
+      id={`category-${index}`}
       aria-labelledby={`cat-heading-${index}`}
       style={{
-        overflow: 'hidden',
+        scrollMarginTop: '120px',
         borderTop: '1px solid var(--border)',
-        // Alternating surface tint gives the works stream a scroll rhythm.
         background: index % 2 === 1 ? 'var(--surface)' : 'transparent',
       }}
     >
-      {/* Heading area — title (left) + index table (right), reference style */}
+      {/* Heading */}
       <div
         style={{
           position: 'relative',
-          padding: 'clamp(3rem, 6vw, 6rem) clamp(1.5rem, 4vw, 4rem)',
-          paddingBottom: 'clamp(1.75rem, 3.5vw, 3rem)',
-          display: 'grid',
-          gridTemplateColumns: 'minmax(0, 1fr)',
-          gap: 'clamp(2rem, 4vw, 4rem)',
+          padding: 'clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 4rem) clamp(1.25rem, 2.5vw, 2rem)',
         }}
-        className="cat-header"
       >
-        {/* Ghost number behind heading */}
         <span
           aria-hidden="true"
           style={{
             position: 'absolute',
-            left: 'clamp(1rem, 3vw, 3rem)',
-            top: '-0.15em',
+            right: 'clamp(1rem, 3vw, 3rem)',
+            top: '-0.1em',
             fontFamily: 'var(--font-geist-mono, monospace)',
-            fontSize: 'clamp(6rem, 16vw, 16rem)',
+            fontSize: 'clamp(5rem, 15vw, 15rem)',
             fontWeight: 800,
             lineHeight: 1,
             color: 'transparent',
-            WebkitTextStroke: '1px rgba(237,235,229,0.045)',
+            WebkitTextStroke: '1px rgba(36,26,20,0.07)',
             pointerEvents: 'none',
             userSelect: 'none',
             letterSpacing: '-0.05em',
@@ -55,7 +196,6 @@ export default function CategorySection({ category, videos, index }: CategorySec
           {indexStr}
         </span>
 
-        {/* Left: number label + big title */}
         <div style={{ position: 'relative', zIndex: 1 }}>
           <p
             style={{
@@ -64,20 +204,20 @@ export default function CategorySection({ category, videos, index }: CategorySec
               textTransform: 'uppercase',
               color: 'var(--accent)',
               fontFamily: 'var(--font-geist-mono, monospace)',
-              marginBottom: 'clamp(0.75rem, 1.5vw, 1.25rem)',
+              marginBottom: 'clamp(0.5rem, 1.5vw, 1rem)',
             }}
           >
             {indexStr} — Category
           </p>
-          <div style={{ display: 'flex', alignItems: 'flex-end', gap: '1rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: '1rem', flexWrap: 'wrap' }}>
             <h2
               id={`cat-heading-${index}`}
               style={{
-                fontFamily: 'var(--font-geist-sans, system-ui, sans-serif)',
-                fontSize: 'clamp(2rem, 5.5vw, 5.5rem)',
-                fontWeight: 800,
-                lineHeight: 0.9,
-                letterSpacing: '-0.02em',
+                fontFamily: 'var(--font-display-stack)',
+                fontSize: 'clamp(2rem, 6vw, 5.5rem)',
+                fontWeight: 400,
+                lineHeight: 0.95,
+                letterSpacing: '0',
                 color: 'var(--foreground)',
               }}
             >
@@ -89,138 +229,126 @@ export default function CategorySection({ category, videos, index }: CategorySec
                 fontSize: 'var(--text-label, 0.625rem)',
                 letterSpacing: '0.3em',
                 color: 'var(--muted)',
-                paddingBottom: 'clamp(0.5rem, 1vw, 0.9rem)',
               }}
             >
               ×{videos.length}
             </span>
           </div>
         </div>
-
-        {/* Right: index table of works */}
-        <ol
-          style={{
-            position: 'relative',
-            zIndex: 1,
-            borderTop: '1px solid var(--border)',
-          }}
-        >
-          {videos.map((v, i) => (
-            <li key={v.id}>
-              <Link
-                href={`/works/${v.id}`}
-                className="index-row"
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'auto minmax(0, 1fr) auto',
-                  alignItems: 'center',
-                  gap: 'clamp(0.75rem, 2vw, 1.5rem)',
-                  padding: '0.85rem clamp(0.25rem, 1vw, 0.75rem)',
-                  borderBottom: '1px solid var(--border)',
-                  textDecoration: 'none',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'var(--font-geist-mono, monospace)',
-                    fontSize: 'var(--text-label, 0.625rem)',
-                    letterSpacing: '0.15em',
-                    color: 'var(--muted)',
-                  }}
-                >
-                  {indexStr}-{i + 1}
-                </span>
-                <span
-                  style={{
-                    fontSize: 'clamp(0.8125rem, 1.4vw, 0.9375rem)',
-                    color: 'var(--foreground)',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                    whiteSpace: 'nowrap',
-                  }}
-                >
-                  {v.title}
-                </span>
-                {v.client && (
-                  <span
-                    style={{
-                      flexShrink: 0,
-                      fontSize: '0.625rem',
-                      letterSpacing: '0.15em',
-                      textTransform: 'uppercase',
-                      color: 'var(--accent)',
-                      border: '1px solid var(--accent-dim)',
-                      background: 'var(--accent-dim)',
-                      padding: '0.2rem 0.55rem',
-                      borderRadius: '2px',
-                    }}
-                  >
-                    {v.client}
-                  </span>
-                )}
-              </Link>
-            </li>
-          ))}
-        </ol>
       </div>
 
-      {/* Thin red separator */}
-      <div
-        style={{
-          height: '1px',
-          background: 'var(--accent)',
-          margin: '0 clamp(1.5rem, 4vw, 4rem)',
-          opacity: 0.3,
-        }}
-      />
+      {/* Red separator */}
+      <div style={{ height: '2px', background: 'var(--accent)', margin: '0 clamp(1.5rem, 4vw, 4rem)', opacity: 0.85 }} />
 
-      {/* Horizontal slider */}
+      {/* Gallery grid — uniform cards, click to expand inline */}
       <div
         style={{
-          position: 'relative',
-          padding: 'clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2.5rem, 5vw, 5rem)',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))',
+          gap: 'clamp(1rem, 2vw, 1.75rem)',
+          padding: 'clamp(1.75rem, 3.5vw, 3rem) clamp(1.5rem, 4vw, 4rem) clamp(2.5rem, 5vw, 4.5rem)',
+          alignItems: 'start',
         }}
       >
-        <div
-          className="scrollbar-none"
-          style={{
-            display: 'flex',
-            gap: 'clamp(0.625rem, 1.25vw, 1rem)',
-            overflowX: 'auto',
-            scrollSnapType: 'x mandatory',
-            paddingLeft: 'clamp(1.5rem, 4vw, 4rem)',
-            paddingRight: 'clamp(1.5rem, 4vw, 4rem)',
-          }}
-        >
-          {videos.map((video, i) => (
-            <div
-              key={video.id}
-              className="slider-card"
-              style={{
-                flexShrink: 0,
-                // Featured lead card runs larger — bento-style scale contrast.
-                width: i === 0 ? 'clamp(300px, 46vw, 540px)' : 'clamp(200px, 30vw, 340px)',
-                scrollSnapAlign: 'start',
-              }}
-            >
-              <VideoCard video={video} sliderMode large={i === 0} />
-            </div>
-          ))}
-        </div>
+        {videos.map((video) => {
+          const isOpen = openId === video.id;
+          const thumb = thumbSrc(video);
+          const platform = video.youtubeId == null && video.externalUrl ? getPlatformLabel(video.externalUrl) : null;
+          return (
+            <div key={video.id} style={{ display: 'contents' }}>
+              <button
+                type="button"
+                onClick={() => setOpenId(isOpen ? null : video.id)}
+                aria-expanded={isOpen}
+                className="group"
+                style={{
+                  display: 'block',
+                  textAlign: 'left',
+                  background: 'none',
+                  border: 'none',
+                  padding: 0,
+                  cursor: 'pointer',
+                }}
+              >
+                {/* Thumbnail (uniform) */}
+                <div
+                  className="relative overflow-hidden slider-card"
+                  style={{
+                    borderRadius: '10px',
+                    border: isOpen ? '2px solid var(--accent)' : '1px solid var(--border)',
+                    background: 'var(--surface-hover)',
+                  }}
+                >
+                  <div className="relative w-full" style={{ paddingBottom: video.vertical ? '177.78%' : '56.25%' }}>
+                    {thumb ? (
+                      <Image
+                        src={thumb}
+                        alt={video.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px"
+                      />
+                    ) : (
+                      <div className="absolute inset-0" style={{ background: 'var(--surface-hover)' }} />
+                    )}
+                    <div
+                      className="absolute inset-0 flex items-center justify-center transition-opacity duration-300"
+                      style={{ background: 'rgba(36,26,20,0.32)', opacity: isOpen ? 1 : 0 }}
+                    >
+                      <span
+                        className="flex items-center justify-center w-11 h-11 rounded-full"
+                        style={{ background: 'var(--accent)', color: '#fff' }}
+                      >
+                        <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5" style={{ transform: isOpen ? 'rotate(45deg)' : 'none', transition: 'transform 250ms' }}>
+                          <path d="M11 5h2v14h-2z M5 11h14v2H5z" />
+                        </svg>
+                      </span>
+                    </div>
+                    {platform && (
+                      <span
+                        className="absolute top-2.5 right-2.5 text-[9px] tracking-widest uppercase px-2 py-1"
+                        style={{ background: 'rgba(250,245,236,0.9)', color: 'var(--foreground)', borderRadius: '3px' }}
+                      >
+                        {platform}
+                      </span>
+                    )}
+                  </div>
+                </div>
 
-        {/* Right fade hint */}
-        <div
-          aria-hidden="true"
-          style={{
-            position: 'absolute',
-            top: 0,
-            right: 0,
-            bottom: 0,
-            width: 'clamp(2.5rem, 5vw, 4rem)',
-            background: 'linear-gradient(to right, transparent, var(--background))',
-            pointerEvents: 'none',
-          }}
-        />
+                {/* Title (real YouTube title) */}
+                <div className="mt-2.5 flex items-start justify-between gap-3">
+                  <div className="min-w-0">
+                    <h3
+                      className="text-sm font-medium leading-snug transition-colors duration-200 group-hover:text-[var(--accent)]"
+                      style={{
+                        color: isOpen ? 'var(--accent)' : 'var(--foreground)',
+                        display: '-webkit-box',
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: 'vertical',
+                        overflow: 'hidden',
+                      }}
+                    >
+                      {video.title}
+                    </h3>
+                    {video.client && (
+                      <p className="text-xs mt-1 tracking-wide truncate" style={{ color: 'var(--muted)' }}>
+                        {video.client}
+                      </p>
+                    )}
+                  </div>
+                  <span
+                    className="shrink-0 text-xs tabular-nums mt-0.5"
+                    style={{ color: 'var(--muted)', fontFamily: 'var(--font-geist-mono, monospace)' }}
+                  >
+                    {video.year}
+                  </span>
+                </div>
+              </button>
+
+              {isOpen && <DetailPanel video={video} />}
+            </div>
+          );
+        })}
       </div>
     </section>
   );
