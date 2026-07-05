@@ -264,7 +264,56 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
         ))}
       </div>
 
-      {/* ── 02 PROFILE ───────────────────────── */}
+      {/* ── 02 INTRO + floating media cluster ── */}
+      <div
+        style={{
+          ...sectionPad,
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: 'clamp(2.5rem, 5vw, 5rem)',
+          alignItems: 'center',
+        }}
+      >
+        <div>
+          <p style={labelStyle}>Intro</p>
+          <p
+            style={{
+              fontSize: 'clamp(1.25rem, 2.6vw, 2rem)',
+              lineHeight: 1.5,
+              fontWeight: 600,
+              color: 'var(--foreground)',
+              letterSpacing: '-0.01em',
+            }}
+          >
+            기획부터 촬영, 편집, 음향까지
+            <br />
+            영상 한 편의 전 과정을 직접 챙깁니다.
+          </p>
+          <p
+            style={{
+              marginTop: '1.25rem',
+              fontSize: '0.875rem',
+              lineHeight: 1.9,
+              color: 'var(--muted)',
+              maxWidth: '46ch',
+            }}
+          >
+            장르를 가리지 않고 클라이언트가 전하고 싶은 이야기를 영상으로 풀어냅니다.
+            인터뷰, 스케치 코미디, 라이브 방송, 숏폼, 모션그래픽까지 — 포맷에 맞춰 최적의 결과를 만듭니다.
+          </p>
+        </div>
+        <div
+          style={{
+            position: 'relative',
+            height: 'clamp(240px, 32vw, 380px)',
+            overflow: 'hidden',
+          }}
+        >
+          <MediaCluster videos={clusterVideos} />
+        </div>
+      </div>
+
+      {/* ── 03 PROFILE ───────────────────────── */}
       <div
         style={{
           ...sectionPad,
