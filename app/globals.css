@@ -69,7 +69,7 @@ body::before {
   background-image: var(--grain-mottle), var(--grain);
   background-size: 600px 600px, 300px 300px;
   mix-blend-mode: multiply;
-  opacity: 0.06;
+  opacity: 0.08;
 }
 
 /* Localized paper texture on colored surfaces (e.g. crimson hero).
