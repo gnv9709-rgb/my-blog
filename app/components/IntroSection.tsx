@@ -238,13 +238,34 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
       <div
         style={{
           ...sectionPad,
+          position: 'relative',
+          overflow: 'hidden',
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
           gap: 'clamp(2.5rem, 5vw, 5rem)',
           alignItems: 'center',
         }}
       >
-        <div>
+        {/* editorial squiggle winding through the negative space */}
+        <Squiggle
+          variant="b"
+          opacity={0.35}
+          style={{
+            position: 'absolute',
+            top: 'clamp(-1rem, 2vw, 2rem)',
+            right: '-4%',
+            width: '46%',
+            height: 'clamp(120px, 16vw, 200px)',
+            zIndex: 0,
+          }}
+        />
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <span
+            className="script-accent"
+            style={{ display: 'block', fontSize: 'clamp(1.5rem, 3.4vw, 2.6rem)', marginBottom: '0.4rem' }}
+          >
+            who I am
+          </span>
           <p style={labelStyle}>About</p>
           <p
             style={{
