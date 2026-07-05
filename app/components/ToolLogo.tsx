@@ -104,6 +104,7 @@ const TOOLS: Record<string, ToolSpec> = {
     bg: '#d97757',
     fg: '#fff',
     img: '/logos/claude.png',
+    scale: 1.12,
     icon: () => (
       <>
         {Array.from({ length: 12 }).map((_, i) => (
