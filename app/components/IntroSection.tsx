@@ -109,7 +109,7 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
       <div
         className="grain"
         style={{
-          minHeight: '600px',
+          minHeight: '100svh',
           display: 'flex',
           flexDirection: 'column',
           overflow: 'hidden',
