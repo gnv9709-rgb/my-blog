@@ -87,7 +87,8 @@ const TOOLS: Record<string, ToolSpec> = {
     bg: '#ffffff',
     fg: '#484848',
     light: true,
-    // img: '/logos/midjourney.png',
+    img: '/logos/midjourney.jpg',
+    fit: 'contain',
     icon: () => (
       <g fill="none" stroke="#484848" strokeWidth={5} strokeLinecap="round" strokeLinejoin="round">
         <path d="M30 16 C 27 40 27 60 29 72 L 60 72 C 46 55 37 35 30 16 Z" />
