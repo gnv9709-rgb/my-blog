@@ -10,11 +10,22 @@ interface IntroSectionProps {
   videos?: Video[];
 }
 
-// Software tools shown as brand logos; techniques listed as text.
+// Software tools shown as brand logos, in the order requested; techniques listed as text.
 const toolGroups = [
-  { label: '영상 편집', items: ['Premiere Pro', 'After Effects', 'CapCut'] },
-  { label: '디자인', items: ['Photoshop', 'Illustrator'] },
-  { label: 'AI 툴', items: ['힉스필드', '클링', 'Midjourney', '클로드'] },
+  {
+    label: 'Tools',
+    items: [
+      '힉스필드',
+      'Photoshop',
+      'Premiere Pro',
+      'After Effects',
+      '클링',
+      '나노바나나',
+      'Midjourney',
+      '클로드',
+      '안티그래비티',
+    ],
+  },
 ];
 const techniques = ['자막', '색보정', '모션그래픽', '라이브 송출'];
 
