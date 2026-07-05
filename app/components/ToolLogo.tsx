@@ -66,7 +66,8 @@ const TOOLS: Record<string, ToolSpec> = {
     bg: '#ffffff',
     fg: '#111',
     light: true,
-    // img: '/logos/nano-banana.png',
+    img: '/logos/nano-banana.webp',
+    fit: 'contain',
     icon: () => (
       <>
         <path
