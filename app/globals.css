@@ -57,29 +57,32 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Subtle site-wide film grain for editorial atmosphere */
+/* Site-wide paper texture on the warm cream field — fine grain + soft mottle */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background-image: var(--grain);
-  background-size: 300px 300px;
-  opacity: 0.04;
+  background-image: var(--grain-mottle), var(--grain);
+  background-size: 600px 600px, 300px 300px;
+  mix-blend-mode: multiply;
+  opacity: 0.06;
 }
 
-/* Localized grain overlay (e.g. crimson hero) — richer, blended */
+/* Localized paper texture on colored surfaces (e.g. crimson hero).
+   Overlay blend renders the desaturated grain as light/dark mottling that
+   actually reads on a saturated red field, unlike a soft-light film grain. */
 .grain::after {
   content: '';
   position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background-image: var(--grain);
-  background-size: 260px 260px;
-  opacity: 0.22;
-  mix-blend-mode: soft-light;
+  background-image: var(--grain-mottle), var(--grain-paper);
+  background-size: 520px 520px, 200px 200px;
+  mix-blend-mode: overlay;
+  opacity: 0.5;
 }
 
 /* Hashtag / index-tag helpers */
