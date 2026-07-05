@@ -125,8 +125,8 @@ const TOOLS: Record<string, ToolSpec> = {
   '안티그래비티': {
     bg: '#0d0f16',
     fg: '#fff',
-    // Screenshot has a dark background margin → use the flat vector mark so the
-    // dark tile fills edge-to-edge, matching the dock icon.
+    img: '/logos/antigravity.png',
+    appIcon: true,
     icon: (id) => (
       <>
         <defs>
