@@ -51,6 +51,24 @@ export const videos: Video[] = [
       기타: ['17인치 프롬프터 KSH17'],
     },
   },
+  {
+    id: '13',
+    youtubeId: 'oD7up76JcR8',
+    title: '포워드 피부과 인터뷰',
+    client: '포워드 피부과',
+    category: '인터뷰 촬영',
+    year: 2025,
+    details: [
+      { label: '기여도', value: '촬영 50%, 편집 100%' },
+      { label: '사용 툴', value: '프리미어 프로, 포토샵' },
+    ],
+    equipment: {
+      카메라: ['SONY A7S III ×3'],
+      렌즈: ['FE 24-70mm F2.8 GM II ×2', 'FE 70-200mm F2.8 GM OSS'],
+      조명: ['Aputure 300X Bi ×3'],
+      마이크: ['SONY UWP-D21'],
+    },
+  },
 
   // ── 스케치 코미디 ─────────────────────────────────────────────
   {
