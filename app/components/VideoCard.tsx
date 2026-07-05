@@ -32,7 +32,11 @@ export default function VideoCard({ video, large = false, sliderMode = false }: 
       {/* Thumbnail */}
       <div
         className="relative overflow-hidden"
-        style={{ background: 'var(--surface)' }}
+        style={{
+          background: 'var(--surface)',
+          borderRadius: '10px',
+          border: '1px solid var(--border)',
+        }}
       >
         <div
           className="relative w-full"
