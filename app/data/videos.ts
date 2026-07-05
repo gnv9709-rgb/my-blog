@@ -88,6 +88,40 @@ export const videos: Video[] = [
       기타: ['Zoom F6 Recorder'],
     },
   },
+  {
+    id: '16',
+    youtubeId: 'fllDXukVcPw',
+    title: '챗GPT',
+    client: '원픽스',
+    category: '스케치 코미디',
+    year: 2025,
+    details: [
+      { label: '기여도', value: '편집 100%, 음향 100%' },
+      { label: '사용 툴', value: '프리미어 프로' },
+    ],
+    equipment: {
+      조명: ['Nanlite Alien 300C ×2'],
+      마이크: ['SENNHEISER MKH-416P Boom Set', 'SONY UWP-D21'],
+      기타: ['Zoom F6 Recorder'],
+    },
+  },
+  {
+    id: '17',
+    youtubeId: '9xsQc73xJCs',
+    title: '다이어트',
+    client: '원픽스',
+    category: '스케치 코미디',
+    year: 2025,
+    details: [
+      { label: '기여도', value: '편집 100%, 음향 100%' },
+      { label: '사용 툴', value: '프리미어 프로' },
+    ],
+    equipment: {
+      조명: ['Nanlite Alien 300C ×2'],
+      마이크: ['SENNHEISER MKH-416P Boom Set', 'SONY UWP-D21'],
+      기타: ['Zoom F6 Recorder'],
+    },
+  },
 
   // ── 라이브 방송 ───────────────────────────────────────────────
   {
