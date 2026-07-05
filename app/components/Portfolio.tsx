@@ -167,9 +167,11 @@ export default function Portfolio({
 
         {/* Contact CTA */}
         <section
+          id="contact"
           style={{
             position: 'relative',
             overflow: 'hidden',
+            scrollMarginTop: '80px',
             borderTop: '1px solid var(--border)',
             padding: 'clamp(5rem, 10vw, 10rem) clamp(1.5rem, 4vw, 4rem)',
             textAlign: 'center',
