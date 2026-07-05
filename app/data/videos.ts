@@ -37,7 +37,7 @@ export const videos: Video[] = [
   {
     id: '2',
     youtubeId: 'bgdQR1viLI4',
-    title: '르블랑치과 인터뷰',
+    title: '치과의사가 1등으로 뽑은 올리브영 칫솔 Best5 🪥 I 칫솔 유목민 다 모여라!',
     client: '르블랑치과',
     category: '인터뷰 촬영',
     year: 2025,
