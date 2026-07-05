@@ -88,6 +88,70 @@ export default function Portfolio({
       <main>
         <IntroSection name={name} email={email} videoCount={videos.length} videos={videos} />
 
+        {/* Sticky category quick-nav — jump between categories to cut scroll time */}
+        <nav
+          aria-label="영상 카테고리"
+          style={{
+            position: 'sticky',
+            top: '64px',
+            zIndex: 30,
+            background: 'rgba(242,234,221,0.92)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+            borderTop: '1px solid var(--border)',
+            borderBottom: '1px solid var(--border)',
+          }}
+        >
+          <div
+            className="scrollbar-none"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 'clamp(1rem, 2.5vw, 2.25rem)',
+              overflowX: 'auto',
+              padding: '0.85rem clamp(1.5rem, 4vw, 4rem)',
+            }}
+          >
+            <span
+              style={{
+                fontSize: 'var(--text-label, 0.625rem)',
+                letterSpacing: '0.35em',
+                textTransform: 'uppercase',
+                color: 'var(--accent)',
+                fontFamily: 'var(--font-geist-mono, monospace)',
+                flexShrink: 0,
+              }}
+            >
+              Works
+            </span>
+            {categorySections.map(({ category }, i) => (
+              <a
+                key={category}
+                href={`#category-${i}`}
+                style={{
+                  whiteSpace: 'nowrap',
+                  fontSize: '0.8125rem',
+                  color: 'var(--foreground)',
+                  textDecoration: 'none',
+                  opacity: 0.75,
+                  transition: 'color 200ms, opacity 200ms',
+                  flexShrink: 0,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = 'var(--accent)';
+                  e.currentTarget.style.opacity = '1';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = 'var(--foreground)';
+                  e.currentTarget.style.opacity = '0.75';
+                }}
+              >
+                {category}
+              </a>
+            ))}
+          </div>
+        </nav>
+
         {categorySections.map(({ category, videos: catVideos }, i) => (
           <CategorySection key={category} category={category} videos={catVideos} index={i} />
         ))}
