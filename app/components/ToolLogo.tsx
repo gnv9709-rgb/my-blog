@@ -203,7 +203,7 @@ export default function ToolLogo({ name, size = 52, showLabel = true }: ToolLogo
           sizes={`${size}px`}
           style={{
             objectFit: isAppIcon ? 'contain' : spec.fit ?? 'cover',
-            transform: `scale(${spec.scale ?? (isAppIcon ? 1.12 : 1)})`,
+            transform: `scale(${spec.scale ?? (isAppIcon ? 1.2 : 1)})`,
           }}
         />
       );
