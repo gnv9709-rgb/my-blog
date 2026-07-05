@@ -12,7 +12,13 @@ const playfair = Playfair_Display({
 });
 // Bold condensed display — Anton covers Latin, Black Han Sans covers Korean (per-glyph fallback)
 const anton = Anton({ variable: '--font-anton', subsets: ['latin'], weight: '400' });
-const blackHanSans = Black_Han_Sans({ variable: '--font-black-han', subsets: ['latin'], weight: '400' });
+const blackHanSans = Black_Han_Sans({
+  variable: '--font-black-han',
+  subsets: ['korean', 'latin'],
+  weight: '400',
+  preload: false,
+  display: 'swap',
+});
 
 const baseUrl =
   process.env.NEXT_PUBLIC_BASE_URL ??
