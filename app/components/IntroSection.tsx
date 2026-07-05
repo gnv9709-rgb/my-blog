@@ -396,9 +396,9 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
             <ul
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(84px, 1fr))',
+                gridTemplateColumns: 'repeat(2, 1fr)',
                 gap: 'clamp(0.6rem, 1.5vw, 1rem)',
-                maxWidth: '300px',
+                maxWidth: '220px',
                 listStyle: 'none',
                 margin: 0,
                 padding: 0,
