@@ -104,7 +104,7 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            padding: 'clamp(2rem, 5vw, 4rem) clamp(1.5rem, 4vw, 4rem)',
+            padding: 'clamp(1rem, 3vw, 2.5rem) clamp(1.5rem, 4vw, 4rem)',
             position: 'relative',
             zIndex: 2,
           }}
@@ -114,7 +114,7 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
             style={{
               fontFamily: 'var(--font-playfair, Georgia, serif)',
               fontStyle: 'italic',
-              fontSize: 'clamp(1.25rem, 3vw, 2.25rem)',
+              fontSize: 'clamp(1.15rem, 2.6vw, 2rem)',
               color: 'var(--on-crimson-soft)',
               marginBottom: 'clamp(0.25rem, 1vw, 0.75rem)',
               marginLeft: '0.15em',
