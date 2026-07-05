@@ -5,6 +5,8 @@ import type { Video } from '../types';
 import { CATEGORIES } from '../data/videos';
 import IntroSection from './IntroSection';
 import CategorySection from './CategorySection';
+import Marquee from './decor/Marquee';
+import Squiggle from './decor/Squiggle';
 
 interface PortfolioProps {
   videos: Video[];
