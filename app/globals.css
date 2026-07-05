@@ -10,7 +10,6 @@
 
 :root {
   /* Warm cream + red editorial (light) */
-  --background: #f2ead d;
   --background: #f2eadd;
   --foreground: #241a14;
   --foreground-faint: rgba(36, 26, 20, 0.5);
