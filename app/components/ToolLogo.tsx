@@ -199,7 +199,7 @@ export default function ToolLogo({ name, size = 52, showLabel = true }: ToolLogo
           sizes={`${size}px`}
           style={{
             objectFit: spec.fit ?? 'cover',
-            ...(spec.blend ? { mixBlendMode: 'multiply' } : {}),
+            ...(spec.scale ? { transform: `scale(${spec.scale})` } : {}),
           }}
         />
       );
