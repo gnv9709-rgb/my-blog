@@ -85,7 +85,7 @@ export default function Portfolio({
       </header>
 
       <main>
-        <IntroSection name={name} email={email} videoCount={videos.length} />
+        <IntroSection name={name} email={email} videoCount={videos.length} videos={videos} />
 
         {categorySections.map(({ category, videos: catVideos }, i) => (
           <CategorySection key={category} category={category} videos={catVideos} index={i} />
