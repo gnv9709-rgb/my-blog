@@ -49,8 +49,8 @@ export default function MediaCluster({ videos, className }: MediaClusterProps) {
               zIndex: slot.z,
               borderRadius: '10px',
               overflow: 'hidden',
-              border: '1px solid rgba(237,235,229,0.14)',
-              boxShadow: '0 18px 50px -12px rgba(0,0,0,0.7)',
+              border: '3px solid #fff',
+              boxShadow: '0 18px 40px -14px rgba(36,26,20,0.5)',
               background: 'var(--surface)',
             }}
           >
