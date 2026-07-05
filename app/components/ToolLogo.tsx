@@ -1,16 +1,20 @@
 import type { CSSProperties, ReactNode } from 'react';
+import Image from 'next/image';
 
 /**
- * Brand app-icon tiles for the skill/tool list. Self-contained (no network
- * assets): each tool renders its real, recognizable brand mark as inline SVG
- * over its brand-colored tile. Full names are exposed for a11y.
+ * Brand app-icon tiles for the skill/tool list.
+ *
+ * If a tool has a real logo image in /public/logos, that exact image is rendered
+ * edge-to-edge in the rounded tile. Otherwise it falls back to a self-contained
+ * SVG/monogram mark. Full names are exposed for a11y.
  */
 
 interface ToolSpec {
   bg: string;
   fg: string; // used by monogram tools (Adobe)
+  img?: string; // exact logo file under /public/logos
   mono?: string; // Adobe-style two-letter monogram
-  icon?: (id: string) => ReactNode; // custom SVG emblem (viewBox 0 0 100 100)
+  icon?: (id: string) => ReactNode; // fallback SVG emblem (viewBox 0 0 100 100)
   light?: boolean; // light tile → needs a darker border
 }
 
@@ -20,10 +24,11 @@ const TOOLS: Record<string, ToolSpec> = {
   'Premiere Pro': { bg: '#2a0a4d', fg: '#e6a3ff', mono: 'Pr' },
   'After Effects': { bg: '#0a0a3b', fg: '#a49bff', mono: 'Ae' },
 
-  // ── Higgsfield: lime tile, black cursive squiggle ──
+  // ── Real logo images the user provided (drop files into /public/logos) ──
   '힉스필드': {
     bg: '#c6f23c',
     fg: '#111',
+    img: '/logos/higgsfield.png',
     icon: () => (
       <path
         d="M25 61 C 25 42 46 39 51 55 C 56 71 76 66 76 44"
@@ -35,11 +40,10 @@ const TOOLS: Record<string, ToolSpec> = {
       />
     ),
   },
-
-  // ── Kling: black tile, blue→green lens/eye ring ──
   '클링': {
     bg: '#000000',
     fg: '#fff',
+    img: '/logos/kling.png',
     icon: (id) => (
       <>
         <defs>
@@ -56,19 +60,17 @@ const TOOLS: Record<string, ToolSpec> = {
       </>
     ),
   },
-
-  // ── Nano Banana: white tile, yellow banana with Google-colored band ──
   '나노바나나': {
     bg: '#ffffff',
     fg: '#111',
     light: true,
+    img: '/logos/nano-banana.png',
     icon: () => (
       <>
         <path
           d="M19 33 C 30 27 71 39 79 73 C 80 78 73 81 70 76 C 62 49 33 41 21 45 C 16 46 14 36 19 33 Z"
           fill="#f5ce3e"
         />
-        <path d="M70 76 c 3 4 8 4 9 -1 -3 -1 -6 -1 -9 1 Z" fill="#7a5a1e" />
         <g transform="rotate(53 50 55)">
           <rect x="34" y="41" width="8" height="28" fill="#4285f4" />
           <rect x="42" y="41" width="8" height="28" fill="#ea4335" />
@@ -78,11 +80,10 @@ const TOOLS: Record<string, ToolSpec> = {
       </>
     ),
   },
-
-  // ── Midjourney: orange tile, white sail/boat mark ──
   Midjourney: {
     bg: '#f0531e',
     fg: '#fff',
+    img: '/logos/midjourney.png',
     icon: () => (
       <>
         <path
@@ -96,11 +97,10 @@ const TOOLS: Record<string, ToolSpec> = {
       </>
     ),
   },
-
-  // ── Claude: coral tile, white radial sunburst ──
   '클로드': {
     bg: '#d97757',
     fg: '#fff',
+    img: '/logos/claude.png',
     icon: () => (
       <>
         {Array.from({ length: 12 }).map((_, i) => (
@@ -118,11 +118,10 @@ const TOOLS: Record<string, ToolSpec> = {
       </>
     ),
   },
-
-  // ── Antigravity: dark tile, blue→green gradient arc ──
   '안티그래비티': {
     bg: '#0d0f16',
     fg: '#fff',
+    img: '/logos/antigravity.png',
     icon: (id) => (
       <>
         <defs>
@@ -164,6 +163,7 @@ export default function ToolLogo({ name, size = 52, showLabel = true }: ToolLogo
   const gradientId = `tool-${name.replace(/[^a-zA-Z가-힣]/g, '')}`;
 
   const tile: CSSProperties = {
+    position: 'relative',
     width: size,
     height: size,
     borderRadius: size * 0.24,
@@ -182,19 +182,35 @@ export default function ToolLogo({ name, size = 52, showLabel = true }: ToolLogo
     overflow: 'hidden',
   };
 
+  const renderMark = () => {
+    if (spec.img) {
+      return (
+        <Image
+          src={spec.img}
+          alt={`${displayName} 로고`}
+          fill
+          sizes={`${size}px`}
+          style={{ objectFit: 'cover' }}
+        />
+      );
+    }
+    if (spec.icon) {
+      return (
+        <svg width={size} height={size} viewBox="0 0 100 100" role="img">
+          {spec.icon(gradientId)}
+        </svg>
+      );
+    }
+    return spec.mono;
+  };
+
   return (
     <div
       style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', width: size }}
       title={displayName}
     >
-      <div style={tile} aria-hidden="true">
-        {spec.icon ? (
-          <svg width={size} height={size} viewBox="0 0 100 100" role="img">
-            {spec.icon(gradientId)}
-          </svg>
-        ) : (
-          spec.mono
-        )}
+      <div style={tile} aria-hidden={spec.img ? undefined : 'true'}>
+        {renderMark()}
       </div>
       {showLabel && (
         <span
