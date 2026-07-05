@@ -28,7 +28,7 @@ const toolGroups = [
     ],
   },
 ];
-const techniques = ['촬영', '편집', '기획', '자막', '모션그래픽', '라이브 송출'];
+const techniques = ['기획', '촬영', '편집', '자막', '모션그래픽', '라이브 송출'];
 
 const displayFont = 'var(--font-display-stack)';
 
