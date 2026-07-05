@@ -18,6 +18,15 @@ function getPlatformLabel(url: string): string {
 }
 
 /** Inline detail panel — thumbnail/player + credits shown in place (no navigation). */
+// Compact meta label — minimal tracking so Korean stays readable (no "기 여 도" spacing).
+const metaLabel = {
+  fontSize: '0.6875rem',
+  letterSpacing: '0.06em',
+  color: 'var(--muted)',
+  fontWeight: 600,
+  marginBottom: '0.7rem',
+};
+
 function DetailPanel({ video }: { video: Video }) {
   const isExternal = video.youtubeId == null;
   const thumb = thumbSrc(video, 'max');
