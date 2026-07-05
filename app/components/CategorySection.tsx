@@ -105,32 +105,52 @@ function DetailPanel({ video }: { video: Video }) {
       {/* Credits */}
       <div>
         {video.client && (
-          <p className="text-[10px] tracking-[0.35em] uppercase mb-4" style={{ color: 'var(--accent)' }}>
-            {video.client} · {video.year}
-          </p>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'baseline',
+              gap: '0.75rem',
+              flexWrap: 'wrap',
+              marginBottom: 'clamp(1.5rem, 2.5vw, 2rem)',
+              paddingBottom: 'clamp(1rem, 2vw, 1.25rem)',
+              borderBottom: '1px solid var(--border)',
+            }}
+          >
+            <span style={{ fontSize: 'clamp(1.0625rem, 1.6vw, 1.3rem)', fontWeight: 700, color: 'var(--foreground)', letterSpacing: '-0.01em' }}>
+              {video.client}
+            </span>
+            <span style={{ fontSize: '0.8125rem', color: 'var(--muted)', fontFamily: 'var(--font-geist-mono, monospace)' }}>
+              {video.year}
+            </span>
+          </div>
         )}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(1.5rem, 3vw, 2.25rem)' }}>
           {video.details?.map((d) => {
             const isTools = d.label.includes('툴');
             return (
               <div key={d.label}>
-                <p className="text-[9px] tracking-[0.4em] uppercase mb-2" style={{ color: 'var(--muted)' }}>
-                  {d.label}
-                </p>
+                <p style={metaLabel}>{d.label}</p>
                 {isTools ? (
-                  <ul className="flex flex-wrap gap-1.5">
+                  <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
                     {d.value.split(/[,·]/).map((t) => t.trim()).filter(Boolean).map((tool) => (
                       <li
                         key={tool}
-                        className="text-xs px-2.5 py-1"
-                        style={{ border: '1px solid var(--border)', color: 'var(--foreground)', opacity: 0.85, borderRadius: '3px' }}
+                        style={{
+                          fontSize: '0.875rem',
+                          padding: '0.4rem 0.85rem',
+                          border: '1px solid var(--border)',
+                          background: 'var(--background)',
+                          color: 'var(--foreground)',
+                          borderRadius: '5px',
+                        }}
                       >
                         {tool}
                       </li>
                     ))}
                   </ul>
                 ) : (
-                  <p className="text-sm leading-[1.7]" style={{ color: 'var(--foreground)', opacity: 0.8 }}>
+                  <p style={{ fontSize: '1rem', lineHeight: 1.75, color: 'var(--foreground)', opacity: 0.92 }}>
                     {d.value}
                   </p>
                 )}
@@ -139,17 +159,15 @@ function DetailPanel({ video }: { video: Video }) {
           })}
 
           {video.equipment && Object.keys(video.equipment).length > 0 && (
-            <div>
-              <p className="text-[9px] tracking-[0.4em] uppercase mb-2" style={{ color: 'var(--muted)' }}>
-                사용 장비
-              </p>
-              <dl style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '0.75rem 1.5rem' }}>
+            <div style={{ paddingTop: 'clamp(0.75rem, 1.5vw, 1.25rem)', borderTop: '1px solid var(--border)' }}>
+              <p style={metaLabel}>사용 장비</p>
+              <dl style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))', gap: 'clamp(1rem, 2vw, 1.5rem)' }}>
                 {(Object.entries(video.equipment) as [string, string[]][]).map(([key, items]) => (
                   <div key={key}>
-                    <dt className="text-[10px] tracking-widest uppercase mb-1" style={{ color: 'var(--accent)' }}>
+                    <dt style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--accent)', marginBottom: '0.4rem', letterSpacing: '0.02em' }}>
                       {key}
                     </dt>
-                    <dd className="text-xs leading-[1.8]" style={{ color: 'var(--foreground)', opacity: 0.7 }}>
+                    <dd style={{ fontSize: '0.875rem', lineHeight: 1.7, color: 'var(--foreground)', opacity: 0.82 }}>
                       {items.join(', ')}
                     </dd>
                   </div>
