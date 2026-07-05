@@ -4,13 +4,13 @@ import type { Video, Category } from '../types';
 export const CATEGORIES: Category[] = [
   'ALL',
   '인터뷰 촬영',
-  '스케치 코미디',
-  '라이브 방송',
-  '숏폼',
-  '예능',
   '모션그래픽',
-  '현장 스케치',
   'AI',
+  '예능',
+  '현장 스케치',
+  '스케치 코미디',
+  '숏폼',
+  '라이브 방송',
 ];
 
 export const videos: Video[] = [
