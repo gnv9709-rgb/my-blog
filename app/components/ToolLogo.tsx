@@ -15,6 +15,7 @@ interface ToolSpec {
   img?: string; // exact logo file under /public/logos
   fit?: 'cover' | 'contain'; // how the image fills the tile (default cover)
   scale?: number; // zoom the image to crop out a screenshot's background margin
+  appIcon?: boolean; // official macOS .icns export: already rounded + transparent → no tile chrome
   mono?: string; // Adobe-style two-letter monogram
   icon?: (id: string) => ReactNode; // fallback SVG emblem (viewBox 0 0 100 100)
   light?: boolean; // light (white) tile → gets a hairline border for definition
