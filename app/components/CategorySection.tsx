@@ -192,17 +192,18 @@ export default function CategorySection({ category, videos, index }: CategorySec
             paddingRight: 'clamp(1.5rem, 4vw, 4rem)',
           }}
         >
-          {videos.map((video) => (
+          {videos.map((video, i) => (
             <div
               key={video.id}
               className="slider-card"
               style={{
                 flexShrink: 0,
-                width: 'clamp(220px, 34vw, 380px)',
+                // Featured lead card runs larger — bento-style scale contrast.
+                width: i === 0 ? 'clamp(300px, 46vw, 540px)' : 'clamp(200px, 30vw, 340px)',
                 scrollSnapAlign: 'start',
               }}
             >
-              <VideoCard video={video} sliderMode />
+              <VideoCard video={video} sliderMode large={i === 0} />
             </div>
           ))}
         </div>
