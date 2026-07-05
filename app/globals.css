@@ -50,6 +50,53 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Subtle site-wide film grain for editorial atmosphere */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image: var(--grain);
+  background-size: 300px 300px;
+  opacity: 0.04;
+}
+
+/* Localized grain overlay (e.g. crimson hero) — richer, blended */
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image: var(--grain);
+  background-size: 260px 260px;
+  opacity: 0.22;
+  mix-blend-mode: soft-light;
+}
+
+/* Hashtag / index-tag helpers */
+.hash-tag {
+  font-size: clamp(0.75rem, 1.1vw, 0.9375rem);
+  letter-spacing: 0.02em;
+  color: var(--on-crimson);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+}
+.hash-tag > .hash-sign {
+  color: var(--on-crimson-faint);
+}
+
+/* Section index-table row hover */
+.index-row {
+  transition: background 240ms var(--ease-out-expo), padding-left 240ms var(--ease-out-expo);
+}
+.index-row:hover {
+  background: var(--foreground-dim);
+  padding-left: 0.75rem;
+}
+
 /* Keyboard focus ring */
 :focus-visible {
   outline: 1.5px solid var(--accent);
