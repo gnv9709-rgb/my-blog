@@ -170,12 +170,16 @@ export default function ToolLogo({ name, size = 52, showLabel = true }: ToolLogo
   // Every logo sits in the same rounded-square frame, filled edge-to-edge.
   // No shadow (nothing reads as a floating "card"); white tiles get a hairline
   // border just so their edge is visible against the page.
+  // Real macOS app icons already carry their own rounded shape + transparency,
+  // so they get no tile background/border — the icon itself is the whole mark.
+  const useImage = Boolean(spec.img);
+  const isAppIcon = spec.appIcon && useImage;
   const tile: CSSProperties = {
     position: 'relative',
     width: size,
     height: size,
     borderRadius: size * 0.24,
-    background: spec.bg,
+    background: isAppIcon ? 'transparent' : spec.bg,
     color: spec.fg,
     display: 'flex',
     alignItems: 'center',
@@ -184,9 +188,9 @@ export default function ToolLogo({ name, size = 52, showLabel = true }: ToolLogo
     fontWeight: 700,
     fontSize: size * 0.4,
     letterSpacing: '-0.03em',
-    border: spec.light ? '1px solid rgba(0,0,0,0.08)' : 'none',
+    border: spec.light && !isAppIcon ? '1px solid rgba(0,0,0,0.08)' : 'none',
     flexShrink: 0,
-    overflow: 'hidden',
+    overflow: 'visible',
   };
 
   const renderMark = () => {
