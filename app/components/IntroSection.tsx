@@ -1,9 +1,12 @@
 import type { CSSProperties } from 'react';
+import type { Video } from '../types';
+import MediaCluster from './MediaCluster';
 
 interface IntroSectionProps {
   name: string;
   email: string;
   videoCount: number;
+  videos?: Video[];
 }
 
 const careerData = [
