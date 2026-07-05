@@ -202,8 +202,8 @@ export default function ToolLogo({ name, size = 52, showLabel = true }: ToolLogo
           fill
           sizes={`${size}px`}
           style={{
-            objectFit: spec.fit ?? 'cover',
-            ...(spec.scale ? { transform: `scale(${spec.scale})` } : {}),
+            objectFit: isAppIcon ? 'contain' : spec.fit ?? 'cover',
+            transform: `scale(${spec.scale ?? (isAppIcon ? 1.12 : 1)})`,
           }}
         />
       );
