@@ -18,10 +18,18 @@
   --muted: #565656;
   --accent: #cc0f1e;
   --accent-dim: rgba(204, 15, 30, 0.1);
+  /* Signature crimson brand field (reference hero) */
+  --crimson: #8c1d22;
+  --crimson-deep: #6d1519;
+  --on-crimson: #f2ede6;
+  --on-crimson-soft: rgba(242, 237, 230, 0.82);
+  --on-crimson-faint: rgba(242, 237, 230, 0.55);
   --border: #181818;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --space-section: clamp(4rem, 3rem + 5vw, 10rem);
   --text-label: 0.625rem;
+  /* Film grain (fractal noise) */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 *,
