@@ -327,11 +327,31 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
       </div>
 
       {/* ── 03 SKILLS — tool logos + techniques ── */}
-      <div style={sectionPad}>
+      <div style={{ ...sectionPad, position: 'relative', overflow: 'hidden' }}>
+        <Squiggle
+          variant="c"
+          opacity={0.28}
+          style={{
+            position: 'absolute',
+            bottom: 'clamp(-1rem, 1vw, 1.5rem)',
+            left: '-3%',
+            width: '52%',
+            height: 'clamp(110px, 14vw, 180px)',
+            zIndex: 0,
+          }}
+        />
+        <span
+          className="script-accent"
+          style={{ position: 'relative', zIndex: 1, display: 'block', fontSize: 'clamp(1.5rem, 3.4vw, 2.6rem)', marginBottom: '0.4rem' }}
+        >
+          what I use
+        </span>
         <p style={labelStyle}>Skills &amp; Tools</p>
 
         <div
           style={{
+            position: 'relative',
+            zIndex: 1,
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
             gap: 'clamp(2rem, 4vw, 3.5rem)',
