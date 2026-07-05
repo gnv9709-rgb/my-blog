@@ -90,6 +90,13 @@ export default function Portfolio({
       <main>
         <IntroSection name={name} email={email} videoCount={videos.length} videos={videos} />
 
+        {/* Editorial marquee — rhythm break between intro and works */}
+        <Marquee
+          items={['기획', '촬영', '편집', '연출', 'STORYTELLING', 'MOTION', 'COLOR', 'LIVE']}
+          tone="crimson"
+          duration={34}
+        />
+
         {/* Sticky category quick-nav — jump between categories to cut scroll time */}
         <nav
           aria-label="영상 카테고리"
