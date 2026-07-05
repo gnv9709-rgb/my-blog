@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import type { Video } from '../types';
 import VideoCard from './VideoCard';
 
@@ -18,79 +19,147 @@ export default function CategorySection({ category, videos, index }: CategorySec
         borderTop: '1px solid var(--border)',
       }}
     >
-      {/* Heading area */}
+      {/* Heading area — title (left) + index table (right), reference style */}
       <div
         style={{
           position: 'relative',
-          padding: 'clamp(2.5rem, 5vw, 5rem) clamp(1.5rem, 4vw, 4rem)',
-          paddingBottom: 'clamp(1.5rem, 3vw, 2.5rem)',
+          padding: 'clamp(3rem, 6vw, 6rem) clamp(1.5rem, 4vw, 4rem)',
+          paddingBottom: 'clamp(1.75rem, 3.5vw, 3rem)',
+          display: 'grid',
+          gridTemplateColumns: 'minmax(0, 1fr)',
+          gap: 'clamp(2rem, 4vw, 4rem)',
         }}
+        className="cat-header"
       >
         {/* Ghost number behind heading */}
         <span
           aria-hidden="true"
           style={{
             position: 'absolute',
-            right: 'clamp(1rem, 2vw, 2rem)',
-            bottom: '-0.1em',
+            left: 'clamp(1rem, 3vw, 3rem)',
+            top: '-0.15em',
             fontFamily: 'var(--font-geist-mono, monospace)',
-            fontSize: 'clamp(5rem, 14vw, 14rem)',
+            fontSize: 'clamp(6rem, 16vw, 16rem)',
             fontWeight: 800,
             lineHeight: 1,
             color: 'transparent',
-            WebkitTextStroke: '1px rgba(237,235,229,0.05)',
+            WebkitTextStroke: '1px rgba(237,235,229,0.045)',
             pointerEvents: 'none',
             userSelect: 'none',
             letterSpacing: '-0.05em',
+            zIndex: 0,
           }}
         >
           {indexStr}
         </span>
 
-        {/* Index label */}
-        <p
-          style={{
-            fontSize: 'var(--text-label, 0.625rem)',
-            letterSpacing: '0.5em',
-            textTransform: 'uppercase',
-            color: 'var(--muted)',
-            fontFamily: 'var(--font-geist-mono, monospace)',
-            marginBottom: '0.625rem',
-          }}
-        >
-          {indexStr}
-        </p>
-
-        {/* Category name — dominates the section */}
-        <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '1rem' }}>
-          <h2
-            id={`cat-heading-${index}`}
-            style={{
-              fontFamily: 'var(--font-geist-sans, system-ui, sans-serif)',
-              fontSize: 'clamp(1.75rem, 4.5vw, 4.5rem)',
-              fontWeight: 800,
-              lineHeight: 0.92,
-              letterSpacing: '-0.02em',
-              color: 'var(--accent)',
-            }}
-          >
-            {category}
-          </h2>
-
+        {/* Left: number label + big title */}
+        <div style={{ position: 'relative', zIndex: 1 }}>
           <p
             style={{
-              flexShrink: 0,
               fontSize: 'var(--text-label, 0.625rem)',
-              letterSpacing: '0.4em',
+              letterSpacing: '0.5em',
               textTransform: 'uppercase',
-              color: 'var(--muted)',
+              color: 'var(--accent)',
               fontFamily: 'var(--font-geist-mono, monospace)',
-              paddingBottom: 'clamp(0.5rem, 1vw, 1rem)',
+              marginBottom: 'clamp(0.75rem, 1.5vw, 1.25rem)',
             }}
           >
-            ×{videos.length}
+            {indexStr} — Category
           </p>
+          <div style={{ display: 'flex', alignItems: 'flex-end', gap: '1rem', flexWrap: 'wrap' }}>
+            <h2
+              id={`cat-heading-${index}`}
+              style={{
+                fontFamily: 'var(--font-geist-sans, system-ui, sans-serif)',
+                fontSize: 'clamp(2rem, 5.5vw, 5.5rem)',
+                fontWeight: 800,
+                lineHeight: 0.9,
+                letterSpacing: '-0.02em',
+                color: 'var(--foreground)',
+              }}
+            >
+              {category}
+            </h2>
+            <span
+              style={{
+                fontFamily: 'var(--font-geist-mono, monospace)',
+                fontSize: 'var(--text-label, 0.625rem)',
+                letterSpacing: '0.3em',
+                color: 'var(--muted)',
+                paddingBottom: 'clamp(0.5rem, 1vw, 0.9rem)',
+              }}
+            >
+              ×{videos.length}
+            </span>
+          </div>
         </div>
+
+        {/* Right: index table of works */}
+        <ol
+          style={{
+            position: 'relative',
+            zIndex: 1,
+            borderTop: '1px solid var(--border)',
+          }}
+        >
+          {videos.map((v, i) => (
+            <li key={v.id}>
+              <Link
+                href={`/works/${v.id}`}
+                className="index-row"
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'auto minmax(0, 1fr) auto',
+                  alignItems: 'center',
+                  gap: 'clamp(0.75rem, 2vw, 1.5rem)',
+                  padding: '0.85rem clamp(0.25rem, 1vw, 0.75rem)',
+                  borderBottom: '1px solid var(--border)',
+                  textDecoration: 'none',
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: 'var(--font-geist-mono, monospace)',
+                    fontSize: 'var(--text-label, 0.625rem)',
+                    letterSpacing: '0.15em',
+                    color: 'var(--muted)',
+                  }}
+                >
+                  {indexStr}-{i + 1}
+                </span>
+                <span
+                  style={{
+                    fontSize: 'clamp(0.8125rem, 1.4vw, 0.9375rem)',
+                    color: 'var(--foreground)',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  {v.title}
+                </span>
+                {v.client && (
+                  <span
+                    style={{
+                      flexShrink: 0,
+                      fontSize: '0.625rem',
+                      letterSpacing: '0.15em',
+                      textTransform: 'uppercase',
+                      color: 'var(--accent)',
+                      border: '1px solid var(--accent-dim)',
+                      background: 'var(--accent-dim)',
+                      padding: '0.2rem 0.55rem',
+                      borderRadius: '2px',
+                    }}
+                  >
+                    {v.client}
+                  </span>
+                )}
+              </Link>
+            </li>
+          ))}
+        </ol>
       </div>
 
       {/* Thin red separator */}
