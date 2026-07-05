@@ -166,12 +166,15 @@ export default function ToolLogo({ name, size = 52, showLabel = true }: ToolLogo
   const displayName = NAME_KO[name] ?? name;
   const gradientId = `tool-${name.replace(/[^a-zA-Z가-힣]/g, '')}`;
 
+  // White-bg logos blend into the page (no tile). App icons / Adobe keep their
+  // own colored square — that square *is* the logo — but with no border/shadow
+  // so nothing reads as an added "box" around the mark.
   const tile: CSSProperties = {
     position: 'relative',
     width: size,
     height: size,
-    borderRadius: size * 0.24,
-    background: spec.bg,
+    borderRadius: spec.blend ? 0 : size * 0.24,
+    background: spec.blend ? 'transparent' : spec.bg,
     color: spec.fg,
     display: 'flex',
     alignItems: 'center',
@@ -180,8 +183,6 @@ export default function ToolLogo({ name, size = 52, showLabel = true }: ToolLogo
     fontWeight: 700,
     fontSize: size * 0.4,
     letterSpacing: '-0.03em',
-    boxShadow: '0 6px 18px -8px rgba(36,26,20,0.45)',
-    border: spec.light ? '1px solid rgba(0,0,0,0.12)' : '1px solid rgba(255,255,255,0.08)',
     flexShrink: 0,
     overflow: 'hidden',
   };
