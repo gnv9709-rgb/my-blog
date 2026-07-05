@@ -96,14 +96,17 @@ export default function IntroSection({ name, email, videoCount }: IntroSectionPr
   return (
     <section aria-label="소개" style={{ background: 'var(--background)' }}>
 
-      {/* ── 01 HERO ──────────────────────────── */}
+      {/* ── 01 HERO — crimson field ──────────── */}
       <div
+        className="grain"
         style={{
           minHeight: '100svh',
           display: 'flex',
           flexDirection: 'column',
           overflow: 'hidden',
           position: 'relative',
+          background:
+            'radial-gradient(120% 120% at 15% 0%, var(--crimson) 0%, var(--crimson-deep) 100%)',
         }}
       >
         {/* meta strip */}
@@ -111,118 +114,146 @@ export default function IntroSection({ name, email, videoCount }: IntroSectionPr
           style={{
             display: 'flex',
             justifyContent: 'space-between',
+            alignItems: 'center',
             padding: 'clamp(1.25rem, 2.5vw, 2rem) clamp(1.5rem, 4vw, 4rem)',
             paddingTop: 'calc(64px + clamp(1rem, 2vw, 1.5rem))',
+            position: 'relative',
+            zIndex: 2,
           }}
         >
-          <p style={{ fontSize: 'var(--text-label, 0.625rem)', letterSpacing: '0.5em', textTransform: 'uppercase', color: 'var(--muted)' }}>
+          <p style={{ fontSize: 'var(--text-label, 0.625rem)', letterSpacing: '0.5em', textTransform: 'uppercase', color: 'var(--on-crimson-faint)', fontFamily: 'var(--font-geist-mono, monospace)' }}>
             Portfolio
           </p>
-          <p style={{ fontSize: 'var(--text-label, 0.625rem)', letterSpacing: '0.4em', color: 'var(--muted)', fontFamily: 'var(--font-geist-mono, monospace)' }}>
-            {new Date().getFullYear()}
+          <p style={{ fontSize: 'var(--text-label, 0.625rem)', letterSpacing: '0.4em', color: 'var(--on-crimson-faint)', fontFamily: 'var(--font-geist-mono, monospace)' }}>
+            © {new Date().getFullYear()}
           </p>
         </div>
 
-        {/* name */}
+        {/* headline */}
         <div
           style={{
             flex: 1,
             display: 'flex',
-            alignItems: 'center',
-            padding: '0 clamp(1rem, 2.5vw, 2.5rem)',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            padding: 'clamp(2rem, 5vw, 4rem) clamp(1.5rem, 4vw, 4rem)',
             position: 'relative',
+            zIndex: 2,
           }}
         >
-          <span
-            aria-hidden="true"
-            style={{
-              position: 'absolute',
-              right: '-0.04em',
-              bottom: '-0.1em',
-              fontFamily: 'var(--font-playfair, Georgia, serif)',
-              fontSize: 'clamp(16rem, 60vw, 72rem)',
-              fontWeight: 700,
-              lineHeight: 0.82,
-              color: 'transparent',
-              WebkitTextStroke: '1px rgba(237,235,229,0.055)',
-              pointerEvents: 'none',
-              userSelect: 'none',
-            }}
-          >
-            이
-          </span>
           <h1
+            className="intro-name"
             style={{
               fontFamily: 'var(--font-playfair, Georgia, serif)',
-              fontSize: 'clamp(7rem, 32vw, 38rem)',
+              fontSize: 'clamp(3.25rem, 13vw, 13rem)',
               fontWeight: 500,
-              lineHeight: 0.88,
-              letterSpacing: '-0.03em',
-              color: 'var(--foreground)',
-              position: 'relative',
-              zIndex: 1,
+              lineHeight: 0.9,
+              letterSpacing: '-0.01em',
+              color: 'var(--on-crimson)',
             }}
           >
-            {name}
+            A&nbsp;CREATOR
           </h1>
-        </div>
-
-        {/* red band — role */}
-        <div
-          style={{
-            background: 'var(--accent)',
-            padding: 'clamp(0.875rem, 1.75vw, 1.375rem) clamp(1.5rem, 4vw, 4rem)',
-          }}
-        >
           <p
+            className="intro-role"
             style={{
-              fontSize: 'clamp(1rem, 2.8vw, 2.5rem)',
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
-              color: 'var(--foreground)',
-              fontWeight: 700,
+              marginTop: 'clamp(1rem, 2vw, 1.75rem)',
+              fontSize: 'clamp(0.875rem, 1.4vw, 1.0625rem)',
+              lineHeight: 1.6,
+              color: 'var(--on-crimson-soft)',
+              maxWidth: '34ch',
             }}
           >
-            영상 콘텐츠 제작자
+            who plans, shoots, and edits
+            <br />
+            every frame of the story.
           </p>
         </div>
 
-        {/* bottom info bar */}
+        {/* bottom row — hashtags + korean statement */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: '1fr auto auto',
-            gap: 'clamp(1.5rem, 4vw, 5rem)',
-            padding: 'clamp(1.25rem, 2.5vw, 2rem) clamp(1.5rem, 4vw, 4rem)',
-            borderTop: '1px solid var(--border)',
+            gridTemplateColumns: 'minmax(0, 1fr) auto',
+            gap: 'clamp(1.5rem, 4vw, 3rem)',
             alignItems: 'end',
+            padding: '0 clamp(1.5rem, 4vw, 4rem) clamp(2rem, 4vw, 3.5rem)',
+            position: 'relative',
+            zIndex: 2,
           }}
         >
-          <div>
-            <p style={{ fontSize: 'clamp(0.75rem, 1.2vw, 0.875rem)', lineHeight: 1.85, color: 'var(--muted)', maxWidth: '44ch', marginBottom: '1rem' }}>
-              기획부터 촬영, 편집, 음향까지 영상 한 편의 전 과정을 직접 챙깁니다.
-              장르를 가리지 않고 클라이언트가 전하고 싶은 이야기를 영상으로 풀어냅니다.
-            </p>
-            <a
-              href={`mailto:${email}`}
-              style={{ fontSize: 'var(--text-label, 0.625rem)', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--muted)', textDecoration: 'none' }}
-            >
-              {email}
-            </a>
+          <div className="intro-body" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem 1.5rem' }}>
+            {['기획', '촬영', '편집', '연출'].map((t) => (
+              <span key={t} className="hash-tag">
+                <span className="hash-sign">#</span>
+                {t}
+              </span>
+            ))}
           </div>
-          <div style={{ textAlign: 'right' }}>
-            <p style={{ fontFamily: 'var(--font-playfair, Georgia, serif)', fontSize: 'clamp(2rem, 5.5vw, 5rem)', fontWeight: 500, lineHeight: 1, color: 'var(--foreground)', letterSpacing: '-0.02em' }}>
-              {videoCount}
-            </p>
-            <p style={{ fontSize: 'var(--text-label, 0.625rem)', letterSpacing: '0.4em', textTransform: 'uppercase', color: 'var(--muted)', marginTop: '0.375rem' }}>Works</p>
-          </div>
-          <div style={{ textAlign: 'right' }}>
-            <p style={{ fontFamily: 'var(--font-playfair, Georgia, serif)', fontSize: 'clamp(2rem, 5.5vw, 5rem)', fontWeight: 500, lineHeight: 1, color: 'var(--accent)', letterSpacing: '-0.02em' }}>
-              3+
-            </p>
-            <p style={{ fontSize: 'var(--text-label, 0.625rem)', letterSpacing: '0.4em', textTransform: 'uppercase', color: 'var(--muted)', marginTop: '0.375rem' }}>Years</p>
-          </div>
+          <p
+            className="intro-stats"
+            style={{
+              textAlign: 'right',
+              fontSize: 'clamp(0.8125rem, 1.2vw, 0.9375rem)',
+              lineHeight: 1.85,
+              color: 'var(--on-crimson-soft)',
+            }}
+          >
+            카메라를 잡는 순간부터 마지막 컷까지,
+            <br />
+            전하고 싶은 이야기를 영상으로 완성하는
+            <br />
+            영상 콘텐츠 제작자{' '}
+            <span style={{ color: 'var(--on-crimson)', fontWeight: 600 }}>{name}</span>입니다.
+          </p>
         </div>
+      </div>
+
+      {/* stats strip — transition from crimson to dark */}
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          borderBottom: '1px solid var(--border)',
+        }}
+      >
+        {([
+          [String(videoCount), 'Works'],
+          ['3+', 'Years'],
+          ['Seoul', 'Based in'],
+        ] as const).map(([value, label], i) => (
+          <div
+            key={label}
+            style={{
+              padding: 'clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 4vw, 2.5rem)',
+              borderLeft: i === 0 ? 'none' : '1px solid var(--border)',
+            }}
+          >
+            <p
+              style={{
+                fontFamily: 'var(--font-playfair, Georgia, serif)',
+                fontSize: 'clamp(1.75rem, 4vw, 3rem)',
+                fontWeight: 500,
+                lineHeight: 1,
+                color: i === 0 ? 'var(--accent)' : 'var(--foreground)',
+                letterSpacing: '-0.02em',
+              }}
+            >
+              {value}
+            </p>
+            <p
+              style={{
+                fontSize: 'var(--text-label, 0.625rem)',
+                letterSpacing: '0.4em',
+                textTransform: 'uppercase',
+                color: 'var(--muted)',
+                marginTop: '0.5rem',
+              }}
+            >
+              {label}
+            </p>
+          </div>
+        ))}
       </div>
 
       {/* ── 02 PROFILE ───────────────────────── */}
