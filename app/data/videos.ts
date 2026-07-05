@@ -153,7 +153,7 @@ export const videos: Video[] = [
   {
     id: '8',
     youtubeId: 'gfZj0M25BFg',
-    title: '가미의원 여드름 치료 광고영상',
+    title: '넓어진 모공, 얼룩덜룩한 여드름 흉터 개선할 수 있을까?',
     client: '가미의원',
     category: '모션그래픽',
     year: 2025,
