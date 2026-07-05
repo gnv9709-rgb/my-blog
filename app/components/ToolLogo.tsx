@@ -82,20 +82,17 @@ const TOOLS: Record<string, ToolSpec> = {
     ),
   },
   Midjourney: {
-    bg: '#f0531e',
-    fg: '#fff',
+    bg: '#ffffff',
+    fg: '#484848',
+    light: true,
     // img: '/logos/midjourney.png',
     icon: () => (
-      <>
-        <path
-          d="M50 20 C 42 34 35 50 33 65 C 44 60 56 60 67 65 C 65 50 58 34 50 20 Z"
-          fill="#fff"
-        />
-        <path
-          d="M23 68 C 38 80 62 80 77 68 C 70 76 60 80 50 80 C 40 80 30 76 23 68 Z"
-          fill="#fff"
-        />
-      </>
+      <g fill="none" stroke="#484848" strokeWidth={5} strokeLinecap="round" strokeLinejoin="round">
+        <path d="M30 16 C 27 40 27 60 29 72 L 60 72 C 46 55 37 35 30 16 Z" />
+        <path d="M41 28 C 55 41 65 56 69 72 L 61 72 C 56 57 49 42 41 28 Z" />
+        <path d="M17 74 L 85 71 L 74 85 L 27 85 Z" />
+        <path d="M12 92 q 8 -7 15 0 t 15 0 t 15 0 t 15 0" />
+      </g>
     ),
   },
   '클로드': {
