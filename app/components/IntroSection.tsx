@@ -329,7 +329,7 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
       </div>
 
       {/* ── 03 SKILLS — tool logos + techniques ── */}
-      <div style={{ ...sectionPad, position: 'relative', overflow: 'hidden' }}>
+      <div id="skills" style={{ ...sectionPad, scrollMarginTop: '120px', position: 'relative', overflow: 'hidden' }}>
         <Squiggle
           variant="c"
           opacity={0.28}
