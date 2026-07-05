@@ -175,14 +175,16 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
             className="intro-stats"
             style={{
               textAlign: 'right',
-              fontSize: 'clamp(0.8125rem, 1.2vw, 0.9375rem)',
+              fontSize: 'clamp(0.9375rem, 1.5vw, 1.25rem)',
               lineHeight: 1.85,
               color: 'var(--on-crimson-soft)',
+              maxWidth: '36ch',
+              marginLeft: 'auto',
             }}
           >
-            카메라를 잡는 순간부터 마지막 컷까지,
+            하나의 아이디어가 완성된 영상이 될 때까지,
             <br />
-            전하고 싶은 이야기를 영상으로 완성하는
+            어떤 상황에서도 끝까지 책임지는
             <br />
             영상 콘텐츠 제작자{' '}
             <span style={{ color: 'var(--on-crimson)', fontWeight: 600 }}>{name}</span>입니다.
