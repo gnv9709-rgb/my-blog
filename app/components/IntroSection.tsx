@@ -154,11 +154,10 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
         {/* bottom row — hashtags + korean statement */}
         <div
           style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            alignItems: 'flex-end',
-            gap: 'clamp(1.25rem, 4vw, 3rem)',
+            display: 'grid',
+            gridTemplateColumns: 'minmax(0, 1fr) auto',
+            gap: 'clamp(1.5rem, 4vw, 3rem)',
+            alignItems: 'end',
             padding: '0 clamp(1.5rem, 4vw, 4rem) clamp(2rem, 4vw, 3.5rem)',
             position: 'relative',
             zIndex: 2,
