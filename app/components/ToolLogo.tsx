@@ -22,11 +22,10 @@ interface ToolSpec {
 }
 
 const TOOLS: Record<string, ToolSpec> = {
-  // ── Adobe: the two-letter monogram *is* the brand mark. Add
-  //    img: '/logos/photoshop.png' etc. once a cropped file exists. ──
-  Photoshop: { bg: '#001e36', fg: '#31a8ff', mono: 'Ps' },
-  'Premiere Pro': { bg: '#2a0a4d', fg: '#e6a3ff', mono: 'Pr' },
-  'After Effects': { bg: '#0a0a3b', fg: '#a49bff', mono: 'Ae' },
+  // ── Adobe: official app icons exported from the installed apps. mono kept as fallback. ──
+  Photoshop: { bg: '#001e36', fg: '#31a8ff', mono: 'Ps', img: '/logos/photoshop.png', appIcon: true },
+  'Premiere Pro': { bg: '#2a0a4d', fg: '#e6a3ff', mono: 'Pr', img: '/logos/premiere.png', appIcon: true },
+  'After Effects': { bg: '#0a0a3b', fg: '#a49bff', mono: 'Ae', img: '/logos/aftereffects.png', appIcon: true },
 
   // ── Real logo images the user provided (drop files into /public/logos) ──
   '힉스필드': {
