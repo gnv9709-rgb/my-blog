@@ -13,6 +13,7 @@ interface ToolSpec {
   bg: string;
   fg: string; // used by monogram tools (Adobe)
   img?: string; // exact logo file under /public/logos
+  fit?: 'cover' | 'contain'; // how the image fills the tile (default cover)
   mono?: string; // Adobe-style two-letter monogram
   icon?: (id: string) => ReactNode; // fallback SVG emblem (viewBox 0 0 100 100)
   light?: boolean; // light tile → needs a darker border
