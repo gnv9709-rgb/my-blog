@@ -177,11 +177,11 @@ export default function Portfolio({
           </p>
           <h2
             style={{
-              fontFamily: 'var(--font-playfair, Georgia, serif)',
-              fontSize: 'clamp(2.5rem, 8vw, 7.5rem)',
-              fontWeight: 500,
-              lineHeight: 0.92,
-              letterSpacing: '-0.02em',
+              fontFamily: 'var(--font-display-stack)',
+              fontSize: 'clamp(2.5rem, 8vw, 7rem)',
+              fontWeight: 400,
+              lineHeight: 0.95,
+              letterSpacing: '0',
               color: 'var(--foreground)',
               marginBottom: '1.75rem',
             }}
