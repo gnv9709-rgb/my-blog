@@ -168,11 +168,58 @@ export default function Portfolio({
         {/* Contact CTA */}
         <section
           style={{
+            position: 'relative',
+            overflow: 'hidden',
             borderTop: '1px solid var(--border)',
             padding: 'clamp(5rem, 10vw, 10rem) clamp(1.5rem, 4vw, 4rem)',
             textAlign: 'center',
           }}
         >
+          {/* soft red blob + squiggles filling the negative space */}
+          <span
+            aria-hidden="true"
+            style={{
+              position: 'absolute',
+              top: '-14%',
+              left: '-6%',
+              width: 'clamp(180px, 26vw, 420px)',
+              height: 'clamp(180px, 26vw, 420px)',
+              borderRadius: '50%',
+              background: 'var(--accent-dim)',
+              zIndex: 0,
+            }}
+          />
+          <Squiggle
+            variant="a"
+            opacity={0.3}
+            style={{
+              position: 'absolute',
+              top: '18%',
+              right: '-6%',
+              width: '42%',
+              height: 'clamp(90px, 12vw, 160px)',
+              zIndex: 0,
+            }}
+          />
+          <Squiggle
+            variant="c"
+            opacity={0.22}
+            style={{
+              position: 'absolute',
+              bottom: '8%',
+              left: '-4%',
+              width: '38%',
+              height: 'clamp(80px, 10vw, 140px)',
+              zIndex: 0,
+            }}
+          />
+          <div style={{ position: 'relative', zIndex: 1 }}>
+          <span
+            className="script-accent"
+            style={{ display: 'block', fontSize: 'clamp(1.75rem, 4vw, 3rem)', marginBottom: '0.5rem' }}
+          >
+            let&rsquo;s talk
+          </span>
           <p
             style={{
               fontSize: '0.5625rem',
@@ -182,7 +229,9 @@ export default function Portfolio({
               marginBottom: '2rem',
             }}
           >
+            <span style={{ marginRight: '0.6em' }}>★</span>
             Contact
+            <span style={{ marginLeft: '0.6em' }}>★</span>
           </p>
           <h2
             style={{
