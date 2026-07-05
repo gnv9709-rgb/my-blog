@@ -236,8 +236,10 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
 
       {/* ── 02 INTRO + floating media cluster ── */}
       <div
+        id="about"
         style={{
           ...sectionPad,
+          scrollMarginTop: '120px',
           position: 'relative',
           overflow: 'hidden',
           display: 'grid',
