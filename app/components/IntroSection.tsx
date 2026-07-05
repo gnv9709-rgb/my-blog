@@ -95,7 +95,13 @@ const sectionPad: CSSProperties = {
   borderTop: '1px solid var(--border)',
 };
 
-export default function IntroSection({ name, email, videoCount }: IntroSectionProps) {
+export default function IntroSection({ name, email, videoCount, videos = [] }: IntroSectionProps) {
+  // A representative spread for the profile cluster: mix landscape + vertical.
+  const clusterVideos = [
+    ...videos.filter((v) => !v.vertical),
+    ...videos.filter((v) => v.vertical),
+  ].slice(0, 5);
+
   return (
     <section aria-label="소개" style={{ background: 'var(--background)' }}>
 
