@@ -405,7 +405,22 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
               }}
             >
               {techniques.map((item) => (
-                <li key={item} className="skill-disc">
+                <li
+                  key={item}
+                  style={{
+                    display: 'grid',
+                    placeItems: 'center',
+                    textAlign: 'center',
+                    aspectRatio: '1',
+                    borderRadius: '50%',
+                    border: '1.5px solid var(--accent)',
+                    color: 'var(--accent)',
+                    fontSize: 'clamp(0.68rem, 1.4vw, 0.8rem)',
+                    lineHeight: 1.25,
+                    letterSpacing: '0.01em',
+                    padding: '0.4rem',
+                  }}
+                >
                   {item}
                 </li>
               ))}
