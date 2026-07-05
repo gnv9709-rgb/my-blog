@@ -4,9 +4,6 @@ import { useState } from 'react';
 import Image from 'next/image';
 import type { Video } from '../types';
 import { thumbSrc } from '../lib/thumb';
-import Squiggle from './decor/Squiggle';
-
-const SQUIGGLE_VARIANTS = ['a', 'b', 'c'] as const;
 
 interface CategorySectionProps {
   category: string;
