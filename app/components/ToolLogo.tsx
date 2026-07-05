@@ -229,7 +229,7 @@ export default function ToolLogo({ name, size = 52, showLabel = true }: ToolLogo
       {showLabel && (
         <span
           style={{
-            fontSize: '0.625rem',
+            fontSize: '0.6875rem',
             letterSpacing: '0.02em',
             color: 'var(--muted)',
             textAlign: 'center',
