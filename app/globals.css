@@ -5,29 +5,33 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-display: var(--font-playfair);
+  --font-display: var(--font-anton);
 }
 
 :root {
-  --background: #050505;
-  --foreground: #edebe5;
-  --foreground-faint: rgba(237, 235, 229, 0.5);
-  --foreground-dim: rgba(237, 235, 229, 0.065);
-  --surface: #0c0c0c;
-  --surface-hover: #141414;
-  --muted: #565656;
-  --accent: #cc0f1e;
-  --accent-dim: rgba(204, 15, 30, 0.1);
-  /* Signature crimson brand field (reference hero) */
-  --crimson: #8c1d22;
-  --crimson-deep: #6d1519;
-  --on-crimson: #f2ede6;
-  --on-crimson-soft: rgba(242, 237, 230, 0.82);
-  --on-crimson-faint: rgba(242, 237, 230, 0.55);
-  --border: #181818;
+  /* Warm cream + red editorial (light) */
+  --background: #f2ead d;
+  --background: #f2eadd;
+  --foreground: #241a14;
+  --foreground-faint: rgba(36, 26, 20, 0.5);
+  --foreground-dim: rgba(36, 26, 20, 0.055);
+  --surface: #faf5ec;
+  --surface-hover: #f6efe2;
+  --muted: #877868;
+  --accent: #c01f2b;
+  --accent-dim: rgba(192, 31, 43, 0.1);
+  /* Signature red brand field (full-bleed hero / red sections) */
+  --crimson: #bb1e2a;
+  --crimson-deep: #9a1621;
+  --on-crimson: #f4ece0;
+  --on-crimson-soft: rgba(244, 236, 224, 0.85);
+  --on-crimson-faint: rgba(244, 236, 224, 0.62);
+  --border: #ddd0bd;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --space-section: clamp(4rem, 3rem + 5vw, 10rem);
   --text-label: 0.625rem;
+  /* Display font stack: Anton (Latin) → Black Han Sans (Korean) per-glyph fallback */
+  --font-display-stack: var(--font-anton), var(--font-black-han), system-ui, sans-serif;
   /* Film grain (fractal noise) */
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
