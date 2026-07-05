@@ -97,6 +97,14 @@ body::before {
   padding-left: 0.75rem;
 }
 
+/* Category header: title (left) + index table (right) on wide screens */
+@media (min-width: 900px) {
+  .cat-header {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr) !important;
+    align-items: start !important;
+  }
+}
+
 /* Keyboard focus ring */
 :focus-visible {
   outline: 1.5px solid var(--accent);
