@@ -44,7 +44,7 @@ const TOOLS: Record<string, ToolSpec> = {
   '클링': {
     bg: '#000000',
     fg: '#fff',
-    img: '/logos/kling.png',
+    // img: '/logos/kling.png',
     icon: (id) => (
       <>
         <defs>
