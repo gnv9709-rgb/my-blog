@@ -30,7 +30,7 @@ const TOOLS: Record<string, ToolSpec> = {
   '힉스필드': {
     bg: '#c6f23c',
     fg: '#111',
-    // img: '/logos/higgsfield.png',
+    img: '/logos/higgsfield.jpg',
     icon: () => (
       <path
         d="M25 61 C 25 42 46 39 51 55 C 56 71 76 66 76 44"
