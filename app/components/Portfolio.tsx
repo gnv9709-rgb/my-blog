@@ -48,7 +48,7 @@ export default function Portfolio({
           alignItems: 'center',
           justifyContent: 'space-between',
           padding: '0 clamp(1.5rem, 4vw, 4rem)',
-          background: headerSolid ? 'rgba(5,5,5,0.94)' : 'transparent',
+          background: headerSolid ? 'rgba(242,234,221,0.92)' : 'transparent',
           backdropFilter: headerSolid ? 'blur(20px)' : 'none',
           WebkitBackdropFilter: headerSolid ? 'blur(20px)' : 'none',
           borderBottom: headerSolid ? '1px solid var(--border)' : '1px solid transparent',
@@ -61,8 +61,9 @@ export default function Portfolio({
             fontFamily: 'var(--font-playfair, Georgia, serif)',
             fontSize: '1.0625rem',
             letterSpacing: '0.08em',
-            color: 'var(--foreground)',
+            color: headerSolid ? 'var(--foreground)' : 'var(--on-crimson)',
             textDecoration: 'none',
+            transition: 'color 400ms',
           }}
         >
           {name}
@@ -73,12 +74,12 @@ export default function Portfolio({
             fontSize: '0.5625rem',
             letterSpacing: '0.3em',
             textTransform: 'uppercase',
-            color: 'var(--muted)',
+            color: headerSolid ? 'var(--muted)' : 'var(--on-crimson-faint)',
             textDecoration: 'none',
             transition: 'color 200ms',
           }}
           onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent)')}
-          onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--muted)')}
+          onMouseLeave={(e) => (e.currentTarget.style.color = headerSolid ? 'var(--muted)' : 'var(--on-crimson-faint)')}
         >
           Contact
         </a>
