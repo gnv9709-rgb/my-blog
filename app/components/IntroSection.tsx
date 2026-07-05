@@ -126,7 +126,7 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
             className="intro-name"
             style={{
               fontFamily: displayFont,
-              fontSize: 'clamp(3.75rem, 15vw, 15rem)',
+              fontSize: 'clamp(3rem, 10.5vw, 11rem)',
               fontWeight: 400,
               lineHeight: 0.9,
               letterSpacing: '0.01em',
