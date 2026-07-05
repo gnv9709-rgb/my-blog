@@ -1,6 +1,7 @@
 import type { CSSProperties } from 'react';
 import type { Video } from '../types';
 import MediaCluster from './MediaCluster';
+import ToolLogo from './ToolLogo';
 
 interface IntroSectionProps {
   name: string;
@@ -9,77 +10,15 @@ interface IntroSectionProps {
   videos?: Video[];
 }
 
-const careerData = [
-  {
-    index: '01',
-    company: '마음을그리다',
-    team: '영상팀 · 사원/팀원',
-    role: '영상팀 PD',
-    period: '2024.05 ~ 재직중',
-    type: '병원 광고대행사',
-    tasks: [
-      '메디컬 컨텐츠 기획 및 인터뷰 영상 촬영 및 편집',
-      '병원 유튜브 채널 운영 및 관리 (피부과, 치과, 성형외과 등)',
-      '스케치코미디 채널 편집 및 동시녹음',
-      '인터넷 라이브 방송 기획 및 송출',
-    ],
-    current: true,
-  },
-  {
-    index: '02',
-    company: '법무법인 아리율',
-    team: '법률마케팅팀 · 주임',
-    role: '광고마케팅',
-    period: '2023.11 ~ 2024.03',
-    type: '5개월',
-    tasks: [
-      '영상, 사진 촬영 및 블로그 마케팅 업무',
-      '홈페이지 및 플레이스 홍보 영상 촬영 및 제작',
-    ],
-    current: false,
-  },
-  {
-    index: '03',
-    company: '한국바리스타자격검정협회',
-    team: '디자인팀 · 사원',
-    role: '사진·영상촬영',
-    period: '2022.08 ~ 2023.08',
-    type: '1년 1개월',
-    tasks: [
-      '가맹 및 직영점 시설·메뉴·인테리어 영상 촬영 및 편집',
-    ],
-    current: false,
-  },
-  {
-    index: '04',
-    company: '㈜세원',
-    team: '생산기술보전팀 · 사원',
-    role: '자동화설비 유지보수',
-    period: '2018.07 ~ 2021.08',
-    type: '3년 2개월',
-    tasks: ['자동화 설비 유지/보수 업무'],
-    current: false,
-  },
+// Software tools shown as brand logos; techniques listed as text.
+const toolGroups = [
+  { label: '영상 편집', items: ['Premiere Pro', 'After Effects', 'CapCut'] },
+  { label: '디자인', items: ['Photoshop', 'Illustrator'] },
+  { label: 'AI 툴', items: ['힉스필드', '클링', 'Midjourney', '클로드'] },
 ];
+const techniques = ['자막', '색보정', '모션그래픽', '라이브 송출'];
 
-const skillGroups = [
-  {
-    label: '영상 편집',
-    items: ['Premiere Pro', 'After Effects', 'CapCut'],
-  },
-  {
-    label: '디자인',
-    items: ['Photoshop', 'Illustrator'],
-  },
-  {
-    label: 'AI 툴',
-    items: ['힉스필드', '클링', 'Midjourney', '클로드'],
-  },
-  {
-    label: '촬영·제작',
-    items: ['자막', '색보정', '모션그래픽', '라이브 송출'],
-  },
-];
+const displayFont = 'var(--font-display-stack)';
 
 const labelStyle: CSSProperties = {
   fontSize: 'var(--text-label, 0.625rem)',
@@ -102,10 +41,18 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
     ...videos.filter((v) => v.vertical),
   ].slice(0, 5);
 
+  const facts = [
+    { dt: '이름', dd: '이정석' },
+    { dt: '생년', dd: '1997년 (28세)' },
+    { dt: '성별', dd: '남' },
+    { dt: '거주지', dd: '서울 금천구' },
+    { dt: '연락처', dd: email },
+  ];
+
   return (
     <section aria-label="소개" style={{ background: 'var(--background)' }}>
 
-      {/* ── 01 HERO — crimson field ──────────── */}
+      {/* ── 01 HERO — red field ──────────────── */}
       <div
         className="grain"
         style={{
@@ -150,15 +97,29 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
             zIndex: 2,
           }}
         >
+          <p
+            className="intro-label"
+            style={{
+              fontFamily: 'var(--font-playfair, Georgia, serif)',
+              fontStyle: 'italic',
+              fontSize: 'clamp(1.25rem, 3vw, 2.25rem)',
+              color: 'var(--on-crimson-soft)',
+              marginBottom: 'clamp(0.25rem, 1vw, 0.75rem)',
+              marginLeft: '0.15em',
+            }}
+          >
+            Creative
+          </p>
           <h1
             className="intro-name"
             style={{
-              fontFamily: 'var(--font-playfair, Georgia, serif)',
-              fontSize: 'clamp(3.25rem, 13vw, 13rem)',
-              fontWeight: 500,
+              fontFamily: displayFont,
+              fontSize: 'clamp(3.75rem, 15vw, 15rem)',
+              fontWeight: 400,
               lineHeight: 0.9,
-              letterSpacing: '-0.01em',
+              letterSpacing: '0.01em',
               color: 'var(--on-crimson)',
+              textTransform: 'uppercase',
             }}
           >
             A&nbsp;CREATOR
@@ -218,13 +179,8 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
         </div>
       </div>
 
-      {/* stats strip — transition from crimson to dark */}
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-        }}
-      >
+      {/* stats strip */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)' }}>
         {([
           [String(videoCount), 'Works'],
           ['3+', 'Years'],
@@ -239,12 +195,12 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
           >
             <p
               style={{
-                fontFamily: 'var(--font-playfair, Georgia, serif)',
-                fontSize: 'clamp(1.75rem, 4vw, 3rem)',
-                fontWeight: 500,
+                fontFamily: displayFont,
+                fontSize: 'clamp(2rem, 4.5vw, 3.5rem)',
+                fontWeight: 400,
                 lineHeight: 1,
                 color: i === 0 ? 'var(--accent)' : 'var(--foreground)',
-                letterSpacing: '-0.02em',
+                letterSpacing: '0',
               }}
             >
               {value}
@@ -275,12 +231,12 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
         }}
       >
         <div>
-          <p style={labelStyle}>Intro</p>
+          <p style={labelStyle}>About</p>
           <p
             style={{
-              fontSize: 'clamp(1.25rem, 2.6vw, 2rem)',
-              lineHeight: 1.5,
-              fontWeight: 600,
+              fontSize: 'clamp(1.35rem, 2.8vw, 2.15rem)',
+              lineHeight: 1.45,
+              fontWeight: 700,
               color: 'var(--foreground)',
               letterSpacing: '-0.01em',
             }}
@@ -292,16 +248,38 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
           <p
             style={{
               marginTop: '1.25rem',
-              fontSize: '0.875rem',
+              fontSize: '0.9375rem',
               lineHeight: 1.9,
               color: 'var(--muted)',
               maxWidth: '46ch',
             }}
           >
             장르를 가리지 않고 클라이언트가 전하고 싶은 이야기를 영상으로 풀어냅니다.
-            인터뷰, 스케치 코미디, 라이브 방송, 숏폼, 모션그래픽까지 — 포맷에 맞춰 최적의 결과를 만듭니다.
+            인터뷰, 모션그래픽, AI, 예능, 현장 스케치까지 — 포맷에 맞춰 최적의 결과를 만듭니다.
           </p>
+
+          {/* basic facts */}
+          <dl
+            style={{
+              marginTop: 'clamp(1.75rem, 3vw, 2.5rem)',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+              gap: '1.25rem 1.5rem',
+            }}
+          >
+            {facts.map(({ dt, dd }) => (
+              <div key={dt}>
+                <dt style={{ fontSize: 'var(--text-label, 0.625rem)', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: '0.35rem' }}>
+                  {dt}
+                </dt>
+                <dd style={{ fontSize: '0.875rem', color: 'var(--foreground)', opacity: 0.85 }}>
+                  {dd}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
+
         <div
           style={{
             position: 'relative',
@@ -313,252 +291,72 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
         </div>
       </div>
 
-      {/* ── 03 PROFILE ───────────────────────── */}
-      <div
-        style={{
-          ...sectionPad,
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-          gap: 'clamp(2.5rem, 5vw, 5rem)',
-        }}
-      >
-        {/* Left: basic info */}
-        <div>
-          <p style={labelStyle}>About</p>
-          <dl style={{ display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
-            {[
-              { dt: '이름', dd: '이정석' },
-              { dt: '생년', dd: '1997년 (28세)' },
-              { dt: '성별', dd: '남' },
-              { dt: '거주지', dd: '서울 금천구' },
-              { dt: '연락처', dd: email },
-              { dt: '총 경력', dd: '3년 8개월' },
-            ].map(({ dt, dd }) => (
-              <div
-                key={dt}
-                style={{ display: 'grid', gridTemplateColumns: '5.5rem 1fr', gap: '0 1.25rem', alignItems: 'baseline' }}
-              >
-                <dt style={{ fontSize: 'var(--text-label, 0.625rem)', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--muted)' }}>
-                  {dt}
-                </dt>
-                <dd style={{ fontSize: '0.875rem', color: 'var(--foreground)', opacity: 0.82 }}>
-                  {dd}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-
-        {/* Right: current position */}
-        <div>
-          <p style={labelStyle}>Current</p>
-          <p
-            style={{
-              fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
-              fontWeight: 700,
-              color: 'var(--foreground)',
-              marginBottom: '0.375rem',
-              letterSpacing: '-0.01em',
-            }}
-          >
-            마음을그리다
-          </p>
-          <p style={{ fontSize: '0.875rem', color: 'var(--muted)', marginBottom: '0.25rem' }}>
-            영상팀 PD
-          </p>
-          <p style={{ fontSize: '0.75rem', letterSpacing: '0.08em', color: 'var(--accent)', marginBottom: '1.5rem' }}>
-            2024.05 ~ 재직중
-          </p>
-          <p style={{ fontSize: '0.8125rem', color: 'var(--muted)', lineHeight: 1.75 }}>
-            병원 광고대행사 소속 영상팀 PD로 메디컬 콘텐츠 기획부터 촬영, 편집, 라이브 방송 송출까지 영상 제작 전 과정을 담당합니다.
-          </p>
-        </div>
-      </div>
-
-      {/* ── 03 CAREER ────────────────────────── */}
+      {/* ── 03 SKILLS — tool logos + techniques ── */}
       <div style={sectionPad}>
-        <p style={labelStyle}>Career — 총 3년 8개월</p>
-        <div>
-          {careerData.map((c, i) => (
-            <div
-              key={c.index}
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '3rem 1fr',
-                gap: '0 clamp(1.25rem, 2.5vw, 2.5rem)',
-                padding: 'clamp(1.5rem, 3vw, 2.25rem) 0',
-                borderTop: i === 0 ? 'none' : '1px solid var(--border)',
-                alignItems: 'start',
-                opacity: i >= 3 ? 0.55 : 1,
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: 'var(--font-geist-mono, monospace)',
-                  fontSize: 'var(--text-label, 0.625rem)',
-                  letterSpacing: '0.3em',
-                  color: 'var(--muted)',
-                  paddingTop: '0.3rem',
-                }}
-              >
-                {c.index}
-              </span>
-              <div>
-                <div
-                  style={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    alignItems: 'center',
-                    gap: '0.5rem 1rem',
-                    marginBottom: '0.5rem',
-                  }}
-                >
-                  <p
-                    style={{
-                      fontSize: 'clamp(0.9375rem, 1.8vw, 1.25rem)',
-                      fontWeight: 700,
-                      color: 'var(--foreground)',
-                    }}
-                  >
-                    {c.company}
-                  </p>
-                  {c.current && (
-                    <span
-                      style={{
-                        fontSize: 'var(--text-label, 0.625rem)',
-                        letterSpacing: '0.3em',
-                        textTransform: 'uppercase',
-                        color: 'var(--foreground)',
-                        background: 'var(--accent)',
-                        padding: '0.25rem 0.625rem',
-                      }}
-                    >
-                      재직중
-                    </span>
-                  )}
-                </div>
-                <div
-                  style={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    gap: '0.25rem 1rem',
-                    marginBottom: '0.875rem',
-                  }}
-                >
-                  <span style={{ fontSize: '0.75rem', color: 'var(--muted)' }}>{c.team}</span>
-                  <span style={{ fontSize: '0.75rem', color: 'var(--border)' }}>·</span>
-                  <span style={{ fontSize: '0.75rem', color: 'var(--muted)' }}>{c.period}</span>
-                  <span style={{ fontSize: '0.75rem', color: 'var(--border)' }}>·</span>
-                  <span style={{ fontSize: '0.75rem', color: 'var(--muted)' }}>{c.type}</span>
-                </div>
-                <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-                  {c.tasks.map((task) => (
-                    <li
-                      key={task}
-                      style={{
-                        fontSize: '0.8125rem',
-                        color: 'var(--foreground)',
-                        opacity: 0.62,
-                        paddingLeft: '1rem',
-                        position: 'relative',
-                        lineHeight: 1.6,
-                      }}
-                    >
-                      <span style={{ position: 'absolute', left: 0, color: 'var(--accent)', opacity: 1 }}>—</span>
-                      {task}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+        <p style={labelStyle}>Skills &amp; Tools</p>
 
-      {/* ── 04 SKILLS ────────────────────────── */}
-      <div style={sectionPad}>
-        <p style={labelStyle}>Skills</p>
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-            gap: 'clamp(1.5rem, 3vw, 3rem)',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gap: 'clamp(2rem, 4vw, 3.5rem)',
           }}
         >
-          {skillGroups.map((group) => (
+          {toolGroups.map((group) => (
             <div key={group.label}>
               <p
                 style={{
                   fontSize: 'var(--text-label, 0.625rem)',
-                  letterSpacing: '0.4em',
+                  letterSpacing: '0.35em',
                   textTransform: 'uppercase',
                   color: 'var(--muted)',
-                  marginBottom: '1rem',
+                  marginBottom: '1.25rem',
                 }}
               >
                 {group.label}
               </p>
-              <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'clamp(0.9rem, 2vw, 1.5rem)' }}>
                 {group.items.map((item) => (
-                  <li
-                    key={item}
-                    style={{
-                      fontSize: '0.75rem',
-                      padding: '0.3rem 0.75rem',
-                      border: '1px solid var(--border)',
-                      color: 'var(--foreground)',
-                      opacity: 0.75,
-                    }}
-                  >
-                    {item}
-                  </li>
+                  <ToolLogo key={item} name={item} />
                 ))}
-              </ul>
+              </div>
             </div>
           ))}
-        </div>
-      </div>
 
-      {/* ── 05 EDUCATION ─────────────────────── */}
-      <div
-        style={{
-          ...sectionPad,
-          display: 'grid',
-          gridTemplateColumns: '3rem 1fr',
-          gap: '0 clamp(1.25rem, 2.5vw, 2.5rem)',
-          alignItems: 'start',
-        }}
-      >
-        <span
-          style={{
-            fontFamily: 'var(--font-geist-mono, monospace)',
-            fontSize: 'var(--text-label, 0.625rem)',
-            letterSpacing: '0.3em',
-            color: 'var(--muted)',
-            paddingTop: '0.3rem',
-          }}
-        >
-          Edu
-        </span>
-        <div>
-          <p style={labelStyle}>Education</p>
-          <p
-            style={{
-              fontSize: 'clamp(0.9375rem, 1.8vw, 1.25rem)',
-              fontWeight: 700,
-              color: 'var(--foreground)',
-              marginBottom: '0.375rem',
-            }}
-          >
-            춘천기계공업고등학교
-          </p>
-          <p style={{ fontSize: '0.8125rem', color: 'var(--muted)' }}>
-            전문(실업)계 디지털기계과 · 2013.03 ~ 2016.02 졸업
-          </p>
+          {/* techniques as text chips */}
+          <div>
+            <p
+              style={{
+                fontSize: 'var(--text-label, 0.625rem)',
+                letterSpacing: '0.35em',
+                textTransform: 'uppercase',
+                color: 'var(--muted)',
+                marginBottom: '1.25rem',
+              }}
+            >
+              제작 역량
+            </p>
+            <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+              {techniques.map((item) => (
+                <li
+                  key={item}
+                  style={{
+                    fontSize: '0.8125rem',
+                    padding: '0.35rem 0.85rem',
+                    border: '1px solid var(--border)',
+                    borderRadius: '3px',
+                    color: 'var(--foreground)',
+                    opacity: 0.82,
+                  }}
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
 
     </section>
   );
 }
-
