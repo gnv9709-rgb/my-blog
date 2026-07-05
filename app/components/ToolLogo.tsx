@@ -19,10 +19,11 @@ interface ToolSpec {
 }
 
 const TOOLS: Record<string, ToolSpec> = {
-  // ── Adobe: the two-letter monogram *is* the brand mark ──
-  Photoshop: { bg: '#001e36', fg: '#31a8ff', mono: 'Ps' },
-  'Premiere Pro': { bg: '#2a0a4d', fg: '#e6a3ff', mono: 'Pr' },
-  'After Effects': { bg: '#0a0a3b', fg: '#a49bff', mono: 'Ae' },
+  // ── Adobe: the two-letter monogram *is* the brand mark (drop a cropped
+  //    image at the path below to use the exact icon instead) ──
+  Photoshop: { bg: '#001e36', fg: '#31a8ff', mono: 'Ps', img: '/logos/photoshop.png' },
+  'Premiere Pro': { bg: '#2a0a4d', fg: '#e6a3ff', mono: 'Pr', img: '/logos/premiere.png' },
+  'After Effects': { bg: '#0a0a3b', fg: '#a49bff', mono: 'Ae', img: '/logos/aftereffects.png' },
 
   // ── Real logo images the user provided (drop files into /public/logos) ──
   '힉스필드': {
