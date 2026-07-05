@@ -396,9 +396,9 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
             <ul
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(2, 1fr)',
-                gap: 'clamp(0.6rem, 1.5vw, 1rem)',
-                maxWidth: '220px',
+                gridTemplateColumns: 'repeat(3, 1fr)',
+                gap: 'clamp(0.75rem, 1.8vw, 1.1rem)',
+                maxWidth: '360px',
                 listStyle: 'none',
                 margin: 0,
                 padding: 0,
@@ -413,12 +413,13 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
                     textAlign: 'center',
                     aspectRatio: '1',
                     borderRadius: '50%',
-                    border: '1.5px solid var(--accent)',
+                    border: '2.5px solid var(--accent)',
                     color: 'var(--accent)',
-                    fontSize: 'clamp(0.68rem, 1.4vw, 0.8rem)',
+                    fontSize: 'clamp(0.85rem, 1.9vw, 1.05rem)',
+                    fontWeight: 600,
                     lineHeight: 1.25,
                     letterSpacing: '0.01em',
-                    padding: '0.4rem',
+                    padding: '0.5rem',
                   }}
                 >
                   {item}
