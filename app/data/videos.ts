@@ -181,7 +181,7 @@ export const videos: Video[] = [
   {
     id: '9',
     youtubeId: '29HZdMjsRBk',
-    title: '코엑스 국제의료기기병원설비전시회 2026 스케치',
+    title: 'Wellcomet at KIMES 2026',
     client: '웰코멧',
     category: '현장 스케치',
     year: 2026,
