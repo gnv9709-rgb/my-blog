@@ -214,7 +214,6 @@ export default function IntroSection({ name, email, videoCount }: IntroSectionPr
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
-          borderBottom: '1px solid var(--border)',
         }}
       >
         {([
