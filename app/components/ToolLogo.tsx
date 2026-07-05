@@ -191,7 +191,7 @@ export default function ToolLogo({ name, size = 52, showLabel = true }: ToolLogo
           alt={`${displayName} 로고`}
           fill
           sizes={`${size}px`}
-          style={{ objectFit: 'cover' }}
+          style={{ objectFit: spec.fit ?? 'cover' }}
         />
       );
     }
