@@ -103,8 +103,8 @@ const TOOLS: Record<string, ToolSpec> = {
   '클로드': {
     bg: '#d97757',
     fg: '#fff',
-    img: '/logos/claude.png',
-    scale: 1.12,
+    // Screenshot has a dark background margin → use the flat vector mark so the
+    // coral fills the whole tile edge-to-edge, matching the dock icon.
     icon: () => (
       <>
         {Array.from({ length: 12 }).map((_, i) => (
