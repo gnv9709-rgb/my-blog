@@ -197,3 +197,61 @@ body::before {
 .slider-card:hover {
   transform: translateY(-4px);
 }
+
+/* ── Editorial decor ─────────────────────────────── */
+
+/* Running marquee band (see Marquee.tsx) */
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation-name: marqueeScroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+/* Circular skill badge (ref: VIDEO EDITING / MOTION GRAPHICS discs) */
+.skill-disc {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  font-size: clamp(0.7rem, 1.4vw, 0.82rem);
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  padding: 0.5rem;
+  transition: background 300ms var(--ease-out-expo), color 300ms var(--ease-out-expo),
+    transform 300ms var(--ease-out-expo);
+}
+.skill-disc:hover {
+  background: var(--accent);
+  color: var(--on-crimson);
+  transform: translateY(-3px) rotate(-3deg);
+}
+
+/* Editorial section eyebrow — italic serif script accent */
+.script-accent {
+  font-family: var(--font-playfair, Georgia, serif);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--accent);
+  line-height: 1;
+}
+
+/* Polaroid-style framed accent card */
+.polaroid {
+  background: var(--surface);
+  padding: 0.6rem 0.6rem 1.4rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 30px -14px rgba(36, 26, 20, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+  html { scroll-behavior: auto; }
+}
