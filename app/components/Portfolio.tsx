@@ -73,7 +73,7 @@ export default function Portfolio({
         <a
           href={`mailto:${email}`}
           style={{
-            fontSize: '0.5625rem',
+            fontSize: '0.6875rem',
             letterSpacing: '0.3em',
             textTransform: 'uppercase',
             color: headerSolid ? 'var(--muted)' : 'var(--on-crimson-faint)',
@@ -224,7 +224,7 @@ export default function Portfolio({
           </span>
           <p
             style={{
-              fontSize: '0.5625rem',
+              fontSize: '0.6875rem',
               letterSpacing: '0.4em',
               textTransform: 'uppercase',
               color: 'var(--accent)',
@@ -264,7 +264,7 @@ export default function Portfolio({
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.75rem',
-              fontSize: '0.625rem',
+              fontSize: '0.6875rem',
               letterSpacing: '0.3em',
               textTransform: 'uppercase',
               padding: '1.125rem 2.75rem',
@@ -319,7 +319,7 @@ export default function Portfolio({
       >
         <p
           style={{
-            fontSize: '0.5625rem',
+            fontSize: '0.6875rem',
             letterSpacing: '0.25em',
             textTransform: 'uppercase',
             color: 'var(--muted)',
@@ -330,7 +330,7 @@ export default function Portfolio({
         <a
           href={`mailto:${email}`}
           style={{
-            fontSize: '0.5625rem',
+            fontSize: '0.6875rem',
             letterSpacing: '0.25em',
             textTransform: 'uppercase',
             color: 'var(--muted)',
