@@ -74,7 +74,7 @@ export const videos: Video[] = [
   {
     id: '3',
     youtubeId: 'dSPB_YJ_Rsc',
-    title: '원픽스',
+    title: '스타킹이 찢어졌다',
     client: '원픽스',
     category: '스케치 코미디',
     year: 2025,
