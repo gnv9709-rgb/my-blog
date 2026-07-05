@@ -299,6 +299,7 @@ export default function Portfolio({
               />
             </svg>
           </a>
+          </div>
         </section>
       </main>
 
