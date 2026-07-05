@@ -391,19 +391,19 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
             >
               제작 역량
             </p>
-            <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+            <ul
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(84px, 1fr))',
+                gap: 'clamp(0.6rem, 1.5vw, 1rem)',
+                maxWidth: '300px',
+                listStyle: 'none',
+                margin: 0,
+                padding: 0,
+              }}
+            >
               {techniques.map((item) => (
-                <li
-                  key={item}
-                  style={{
-                    fontSize: '0.8125rem',
-                    padding: '0.35rem 0.85rem',
-                    border: '1px solid var(--border)',
-                    borderRadius: '3px',
-                    color: 'var(--foreground)',
-                    opacity: 0.82,
-                  }}
-                >
+                <li key={item} className="skill-disc">
                   {item}
                 </li>
               ))}
