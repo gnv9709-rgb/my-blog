@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono, Playfair_Display } from 'next/font/google';
+import { Geist, Geist_Mono, Playfair_Display, Anton, Black_Han_Sans } from 'next/font/google';
 import './globals.css';
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
@@ -8,7 +8,11 @@ const playfair = Playfair_Display({
   variable: '--font-playfair',
   subsets: ['latin'],
   weight: ['400', '500', '600'],
+  style: ['normal', 'italic'],
 });
+// Bold condensed display — Anton covers Latin, Black Han Sans covers Korean (per-glyph fallback)
+const anton = Anton({ variable: '--font-anton', subsets: ['latin'], weight: '400' });
+const blackHanSans = Black_Han_Sans({ variable: '--font-black-han', subsets: ['latin'], weight: '400' });
 
 const baseUrl =
   process.env.NEXT_PUBLIC_BASE_URL ??
