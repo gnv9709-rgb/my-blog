@@ -187,6 +187,7 @@ export const videos: Video[] = [
     year: 2026,
     details: [
       { label: '기여도', value: '기획 100%, 촬영 100%, 편집 100%' },
+      { label: '사용 툴', value: '프리미어 프로' },
     ],
     equipment: {
       카메라: ['SONY A7S III', 'DJI Osmo Action 6'],
