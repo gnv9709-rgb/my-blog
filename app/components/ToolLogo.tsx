@@ -153,52 +153,35 @@ const TOOLS: Record<string, ToolSpec> = {
     ),
   },
 
-  // ── Additional tools (self-contained SVG marks, no image assets needed) ──
+  // ── Real logo images the user provided (exact brand assets) ──
   Gemini: {
     bg: 'transparent',
     fg: '#000',
-    custom: (s) => (
-      <div
-        style={{
-          width: s,
-          height: s,
-          background:
-            'conic-gradient(from 0deg at 50% 50%, #ea4335 0deg, #4285f4 90deg, #34a853 180deg, #fbbc04 270deg, #ea4335 360deg)',
-          WebkitMaskImage: GEMINI_MASK,
-          maskImage: GEMINI_MASK,
-          WebkitMaskRepeat: 'no-repeat',
-          maskRepeat: 'no-repeat',
-          WebkitMaskSize: 'contain',
-          maskSize: 'contain',
-          WebkitMaskPosition: 'center',
-          maskPosition: 'center',
-        }}
-      />
-    ),
+    img: '/logos/gemini.webp',
+    appIcon: true,
+    scale: 1,
   },
   ChatGPT: {
     bg: '#10a37f',
     fg: '#ffffff',
-    icon: () => (
-      <g transform="translate(14 14) scale(2.83)">
-        <path
-          fill="#ffffff"
-          d="M22.28 9.82a5.98 5.98 0 0 0-.51-4.91 6.05 6.05 0 0 0-6.51-2.9A6.07 6.07 0 0 0 4.98 4.18a5.98 5.98 0 0 0-4 2.9 6.05 6.05 0 0 0 .75 7.1 5.98 5.98 0 0 0 .51 4.91 6.05 6.05 0 0 0 6.51 2.9A5.98 5.98 0 0 0 13.26 24a6.06 6.06 0 0 0 5.77-4.21 5.99 5.99 0 0 0 4-2.9 6.06 6.06 0 0 0-.75-7.07zm-9.02 12.6a4.48 4.48 0 0 1-2.88-1.04l.14-.08 4.78-2.76a.79.79 0 0 0 .39-.68v-6.74l2.02 1.17a.07.07 0 0 1 .04.05v5.58a4.5 4.5 0 0 1-4.49 4.5zM3.6 18.3a4.47 4.47 0 0 1-.53-3.01l.14.08 4.78 2.76a.77.77 0 0 0 .78 0l5.84-3.37v2.33a.08.08 0 0 1-.03.06L9.74 19.95a4.5 4.5 0 0 1-6.14-1.65zM2.34 7.9a4.49 4.49 0 0 1 2.37-1.98v5.68a.77.77 0 0 0 .39.68l5.81 3.35-2.02 1.17a.08.08 0 0 1-.07 0l-4.83-2.79A4.5 4.5 0 0 1 2.34 7.87zm16.6 3.86L13.1 8.36l2.02-1.16a.08.08 0 0 1 .07 0l4.83 2.79a4.49 4.49 0 0 1-.68 8.1v-5.67a.79.79 0 0 0-.4-.67zm2.01-3.02-.14-.09-4.77-2.78a.78.78 0 0 0-.79 0L9.41 9.23V6.9a.07.07 0 0 1 .03-.06l4.83-2.79a4.5 4.5 0 0 1 6.68 4.66zM8.31 12.86l-2.02-1.16a.08.08 0 0 1-.04-.06V6.07a4.5 4.5 0 0 1 7.38-3.45l-.14.08L8.7 5.46a.79.79 0 0 0-.39.68zm1.1-2.37 2.6-1.5 2.61 1.5v3l-2.6 1.5-2.61-1.5z"
-        />
-      </g>
-    ),
+    img: '/logos/chatgpt.png',
+    appIcon: true,
+    scale: 1,
   },
   '캡컷': {
     bg: '#ffffff',
     fg: '#000000',
     light: true,
-    icon: () => (
-      <g fill="none" stroke="#000000" strokeWidth={11} strokeLinecap="round" strokeLinejoin="round">
-        <rect x="24" y="26" width="46" height="48" rx="11" />
-        <path d="M28 30 L66 70" />
-        <path d="M28 70 L90 20" />
-      </g>
-    ),
+    img: '/logos/capcut.png',
+    fit: 'contain',
+    scale: 1.05,
+  },
+  '타입캐스트': {
+    bg: 'transparent',
+    fg: '#0d1b3a',
+    img: '/logos/typecast.png',
+    appIcon: true,
+    scale: 1,
   },
   '아이폰 15pro': {
     bg: '#1d1d1f',
