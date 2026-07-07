@@ -203,18 +203,6 @@ export default function CategorySection({ category, videos, index }: CategorySec
           padding: 'clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 4rem) clamp(1.25rem, 2.5vw, 2rem)',
         }}
       >
-        <Squiggle
-          variant={SQUIGGLE_VARIANTS[index % SQUIGGLE_VARIANTS.length]}
-          opacity={0.22}
-          style={{
-            position: 'absolute',
-            bottom: '-0.5rem',
-            left: 'clamp(-2%, 0vw, 1%)',
-            width: '40%',
-            height: 'clamp(70px, 9vw, 130px)',
-            zIndex: 0,
-          }}
-        />
         <span
           aria-hidden="true"
           style={{
