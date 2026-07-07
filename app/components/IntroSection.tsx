@@ -24,6 +24,7 @@ const toolGroups = [
       'Midjourney',
       'Gemini',
       'ChatGPT',
+      '타입캐스트',
       '클로드',
       '안티그래비티',
     ],
