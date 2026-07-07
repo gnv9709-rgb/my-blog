@@ -1,8 +1,6 @@
 import type { CSSProperties } from 'react';
 import type { Video } from '../types';
-import MediaCluster from './MediaCluster';
 import ToolLogo from './ToolLogo';
-import Squiggle from './decor/Squiggle';
 
 interface IntroSectionProps {
   name: string;
