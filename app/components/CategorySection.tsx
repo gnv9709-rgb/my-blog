@@ -147,23 +147,11 @@ function DetailPanel({ video }: { video: Video }) {
               <div key={d.label}>
                 <p style={metaLabel}>{d.label}</p>
                 {isTools ? (
-                  <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'clamp(0.75rem, 1.5vw, 1.15rem)' }}>
                     {d.value.split(/[,·]/).map((t) => t.trim()).filter(Boolean).map((tool) => (
-                      <li
-                        key={tool}
-                        style={{
-                          fontSize: '0.875rem',
-                          padding: '0.4rem 0.85rem',
-                          border: '1px solid var(--border)',
-                          background: 'var(--background)',
-                          color: 'var(--foreground)',
-                          borderRadius: '5px',
-                        }}
-                      >
-                        {tool}
-                      </li>
+                      <ToolLogo key={tool} name={TOOL_ALIAS[tool] ?? tool} size={46} />
                     ))}
-                  </ul>
+                  </div>
                 ) : (
                   <p style={{ fontSize: '1rem', lineHeight: 1.75, color: 'var(--foreground)', opacity: 0.92 }}>
                     {d.value}
