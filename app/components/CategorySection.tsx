@@ -396,12 +396,6 @@ export default function CategorySection({ category, videos, index }: CategorySec
                       </p>
                     )}
                   </div>
-                  <span
-                    className="shrink-0 text-xs tabular-nums mt-0.5"
-                    style={{ color: 'var(--muted)', fontFamily: 'var(--font-geist-mono, monospace)' }}
-                  >
-                    {video.year}
-                  </span>
                 </div>
               </button>
 
