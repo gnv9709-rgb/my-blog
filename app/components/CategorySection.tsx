@@ -65,7 +65,7 @@ function DetailPanel({ video }: { video: Video }) {
   return (
     <div
       style={{
-        gridColumn: '1 / -1',
+        width: '100%',
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
         gap: 'clamp(1.5rem, 4vw, 3rem)',
