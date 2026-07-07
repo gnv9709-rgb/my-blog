@@ -337,11 +337,9 @@ export default function CategorySection({ category, videos, index }: CategorySec
                 >
                   <div className="relative w-full" style={{ paddingBottom: video.vertical ? '177.78%' : '56.25%' }}>
                     {thumb ? (
-                      <Image
+                      <SafeThumb
                         src={thumb}
                         alt={video.title}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px"
                       />
                     ) : (
