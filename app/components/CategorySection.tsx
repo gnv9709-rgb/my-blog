@@ -5,8 +5,20 @@ import Image from 'next/image';
 import type { Video } from '../types';
 import { thumbSrc } from '../lib/thumb';
 import Squiggle from './decor/Squiggle';
+import ToolLogo from './ToolLogo';
 
 const SQUIGGLE_VARIANTS = ['a', 'b', 'c'] as const;
+
+// Map the Korean tool names used in video data → ToolLogo brand keys.
+const TOOL_ALIAS: Record<string, string> = {
+  '프리미어 프로': 'Premiere Pro',
+  '프리미어프로': 'Premiere Pro',
+  '애프터 이펙트': 'After Effects',
+  '애프터이펙트': 'After Effects',
+  '포토샵': 'Photoshop',
+  '미드저니': 'Midjourney',
+  '힉스필드 나노바나나': '나노바나나',
+};
 
 interface CategorySectionProps {
   category: string;
