@@ -234,41 +234,29 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
         ))}
       </div>
 
-      {/* ── 02 INTRO + floating media cluster ── */}
+      {/* ── 02 ABOUT — text + tools (left) · techniques (right) ── */}
       <div
         id="about"
         style={{
           ...sectionPad,
           scrollMarginTop: '120px',
-          position: 'relative',
-          overflow: 'hidden',
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
           gap: 'clamp(2.5rem, 5vw, 5rem)',
-          alignItems: 'center',
+          alignItems: 'start',
+          justifyItems: 'center',
+          textAlign: 'center',
         }}
       >
-        {/* editorial squiggle winding through the negative space */}
-        <Squiggle
-          variant="b"
-          opacity={0.35}
-          style={{
-            position: 'absolute',
-            top: 'clamp(-1rem, 2vw, 2rem)',
-            right: '-4%',
-            width: '46%',
-            height: 'clamp(120px, 16vw, 200px)',
-            zIndex: 0,
-          }}
-        />
-        <div style={{ position: 'relative', zIndex: 1 }}>
+        {/* Left: text (top) + tool logos below */}
+        <div style={{ maxWidth: '540px', width: '100%' }}>
           <span
             className="script-accent"
             style={{ display: 'block', fontSize: 'clamp(1.5rem, 3.4vw, 2.6rem)', marginBottom: '0.4rem' }}
           >
             who I am
           </span>
-          <p style={labelStyle}>About</p>
+          <p style={{ ...labelStyle, marginBottom: 'clamp(1rem, 2vw, 1.5rem)' }}>About</p>
           <p
             style={{
               fontSize: 'clamp(1.35rem, 2.8vw, 2.15rem)',
@@ -289,6 +277,8 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
               lineHeight: 1.9,
               color: 'var(--muted)',
               maxWidth: '46ch',
+              marginLeft: 'auto',
+              marginRight: 'auto',
             }}
           >
             장르를 가리지 않고 클라이언트가 전하고 싶은 이야기를 영상으로 풀어냅니다.
@@ -300,7 +290,7 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
             style={{
               marginTop: 'clamp(1.75rem, 3vw, 2.5rem)',
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
               gap: '1.25rem 1.5rem',
             }}
           >
@@ -315,73 +305,9 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
               </div>
             ))}
           </dl>
-        </div>
 
-        <div
-          style={{
-            position: 'relative',
-            height: 'clamp(240px, 32vw, 380px)',
-            overflow: 'hidden',
-          }}
-        >
-          <MediaCluster videos={clusterVideos} />
-        </div>
-      </div>
-
-      {/* ── 03 SKILLS — tool logos + techniques ── */}
-      <div id="skills" style={{ ...sectionPad, scrollMarginTop: '120px', position: 'relative', overflow: 'hidden' }}>
-        <Squiggle
-          variant="c"
-          opacity={0.28}
-          style={{
-            position: 'absolute',
-            bottom: 'clamp(-1rem, 1vw, 1.5rem)',
-            left: '-3%',
-            width: '52%',
-            height: 'clamp(110px, 14vw, 180px)',
-            zIndex: 0,
-          }}
-        />
-        <span
-          className="script-accent"
-          style={{ position: 'relative', zIndex: 1, display: 'block', fontSize: 'clamp(1.5rem, 3.4vw, 2.6rem)', marginBottom: '0.4rem' }}
-        >
-          what I use
-        </span>
-        <p style={labelStyle}>Skills &amp; Tools</p>
-
-        <div
-          style={{
-            position: 'relative',
-            zIndex: 1,
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-            gap: 'clamp(2rem, 4vw, 3.5rem)',
-          }}
-        >
-          {toolGroups.map((group) => (
-            <div key={group.label}>
-              <p
-                style={{
-                  fontSize: 'var(--text-label, 0.625rem)',
-                  letterSpacing: '0.35em',
-                  textTransform: 'uppercase',
-                  color: 'var(--muted)',
-                  marginBottom: '1.25rem',
-                }}
-              >
-                {group.label}
-              </p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'clamp(0.9rem, 2vw, 1.5rem)' }}>
-                {group.items.map((item) => (
-                  <ToolLogo key={item} name={item} />
-                ))}
-              </div>
-            </div>
-          ))}
-
-          {/* techniques as text chips */}
-          <div>
+          {/* tool logos (moved from skills) */}
+          <div style={{ marginTop: 'clamp(2.25rem, 4vw, 3.25rem)' }}>
             <p
               style={{
                 fontSize: 'var(--text-label, 0.625rem)',
@@ -391,42 +317,63 @@ export default function IntroSection({ name, email, videoCount, videos = [] }: I
                 marginBottom: '1.25rem',
               }}
             >
-              제작 역량
+              Tools
             </p>
-            <ul
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: 'clamp(0.75rem, 1.8vw, 1.1rem)',
-                maxWidth: '360px',
-                listStyle: 'none',
-                margin: 0,
-                padding: 0,
-              }}
-            >
-              {techniques.map((item) => (
-                <li
-                  key={item}
-                  style={{
-                    display: 'grid',
-                    placeItems: 'center',
-                    textAlign: 'center',
-                    aspectRatio: '1',
-                    borderRadius: '50%',
-                    border: '2.5px solid var(--accent)',
-                    color: 'var(--accent)',
-                    fontSize: 'clamp(0.85rem, 1.9vw, 1.05rem)',
-                    fontWeight: 600,
-                    lineHeight: 1.25,
-                    letterSpacing: '0.01em',
-                    padding: '0.5rem',
-                  }}
-                >
-                  {item}
-                </li>
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 'clamp(0.9rem, 2vw, 1.5rem)' }}>
+              {toolGroups[0].items.map((item) => (
+                <ToolLogo key={item} name={item} />
               ))}
-            </ul>
+            </div>
           </div>
+        </div>
+
+        {/* Right: 제작 역량 (moved from skills) */}
+        <div>
+          <p
+            style={{
+              fontSize: 'var(--text-label, 0.625rem)',
+              letterSpacing: '0.35em',
+              textTransform: 'uppercase',
+              color: 'var(--muted)',
+              marginBottom: '1.25rem',
+            }}
+          >
+            제작 역량
+          </p>
+          <ul
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: 'clamp(0.75rem, 1.8vw, 1.1rem)',
+              maxWidth: '360px',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              listStyle: 'none',
+              padding: 0,
+            }}
+          >
+            {techniques.map((item) => (
+              <li
+                key={item}
+                style={{
+                  display: 'grid',
+                  placeItems: 'center',
+                  textAlign: 'center',
+                  aspectRatio: '1',
+                  borderRadius: '50%',
+                  border: '2.5px solid var(--accent)',
+                  color: 'var(--accent)',
+                  fontSize: 'clamp(0.85rem, 1.9vw, 1.05rem)',
+                  fontWeight: 600,
+                  lineHeight: 1.25,
+                  letterSpacing: '0.01em',
+                  padding: '0.5rem',
+                }}
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 
