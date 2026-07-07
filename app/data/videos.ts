@@ -223,7 +223,7 @@ export const videos: Video[] = [
   {
     id: '6',
     youtubeId: '3b_JjyXdoKs',
-    title: "[EP.02] 미스코리아 찐친들의 휴가 '美친휴가' (1차 편집)",
+    title: "[EP.02] 미스코리아 찐친들의 휴가 '美친휴가'",
     client: '미친휴가',
     category: '예능',
     year: 2025,
