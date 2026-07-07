@@ -189,10 +189,11 @@ const TOOLS: Record<string, ToolSpec> = {
     ),
   },
   '캡컷': {
-    bg: '#000000',
-    fg: '#ffffff',
+    bg: '#ffffff',
+    fg: '#000000',
+    light: true,
     icon: () => (
-      <g fill="none" stroke="#ffffff" strokeWidth={11} strokeLinecap="round" strokeLinejoin="round">
+      <g fill="none" stroke="#000000" strokeWidth={11} strokeLinecap="round" strokeLinejoin="round">
         <rect x="24" y="26" width="46" height="48" rx="11" />
         <path d="M28 30 L66 70" />
         <path d="M28 70 L90 20" />
