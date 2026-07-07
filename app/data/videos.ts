@@ -69,6 +69,25 @@ export const videos: Video[] = [
       마이크: ['SONY UWP-D21'],
     },
   },
+  {
+    id: '18',
+    youtubeId: 'mCmIunm-BP4',
+    title: 'AI는 기미에 대해 어디까지 알고 있을까요? 이 정보 확실할까? 피부과 전문의가 검증해드리겠습니다!',
+    client: '하늘호수피부과',
+    category: '인터뷰 촬영',
+    year: 2025,
+    details: [
+      { label: '기여도', value: '기획 100%, 촬영 50%, 편집 100%' },
+      { label: '사용 툴', value: '프리미어 프로, 포토샵, chat GPT' },
+    ],
+    equipment: {
+      카메라: ['SONY A7S III ×2'],
+      렌즈: ['FE 24-70mm F2.8 GM II ×2'],
+      조명: ['Nanlite Alien 150C ×2'],
+      마이크: ['SONY UWP-D21'],
+      기타: ['17인치 프롬프터 KSH17'],
+    },
+  },
 
   // ── 스케치 코미디 ─────────────────────────────────────────────
   {
