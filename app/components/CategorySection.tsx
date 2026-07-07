@@ -215,8 +215,6 @@ function DetailPanel({ video }: { video: Video }) {
 export default function CategorySection({ category, videos, index }: CategorySectionProps) {
   const [openId, setOpenId] = useState<string | null>(null);
   const indexStr = String(index + 1).padStart(2, '0');
-  // Categories with only a few videos read better centered than left-packed.
-  const fewVideos = videos.length <= 3;
 
   return (
     <section
