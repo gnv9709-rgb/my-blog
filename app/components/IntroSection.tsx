@@ -45,12 +45,6 @@ const sectionPad: CSSProperties = {
 };
 
 export default function IntroSection({ name, email, videoCount, videos = [] }: IntroSectionProps) {
-  // A representative spread for the profile cluster: mix landscape + vertical.
-  const clusterVideos = [
-    ...videos.filter((v) => !v.vertical),
-    ...videos.filter((v) => v.vertical),
-  ].slice(0, 5);
-
   const facts = [
     { dt: '이름', dd: '이정석' },
     { dt: '생년', dd: '1997년 (28세)' },
