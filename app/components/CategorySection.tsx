@@ -376,7 +376,7 @@ export default function CategorySection({ category, videos, index }: CategorySec
                 </div>
 
                 {/* Title (real YouTube title) */}
-                <div className="mt-2.5 flex items-start justify-between gap-3">
+                <div className="mt-2.5">
                   <div className="min-w-0">
                     <h3
                       className="text-sm font-medium leading-snug transition-colors duration-200 group-hover:text-[var(--accent)]"
