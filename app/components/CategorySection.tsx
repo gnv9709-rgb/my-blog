@@ -98,7 +98,7 @@ function DetailPanel({ video }: { video: Video }) {
             />
           </div>
         ) : (
-          <div style={{ maxWidth: video.vertical ? '300px' : '460px' }}>
+          <div style={{ maxWidth: video.vertical ? '300px' : '460px', margin: '0 auto', textAlign: 'center' }}>
             <div
               style={{
                 position: 'relative',
