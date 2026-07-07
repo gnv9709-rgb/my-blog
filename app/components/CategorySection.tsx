@@ -239,7 +239,7 @@ export default function CategorySection({ category, videos, index }: CategorySec
           {indexStr}
         </span>
 
-        <div style={{ position: 'relative', zIndex: 1 }}>
+        <div style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
           <p
             style={{
               fontSize: 'var(--text-label, 0.625rem)',
@@ -252,7 +252,7 @@ export default function CategorySection({ category, videos, index }: CategorySec
           >
             {indexStr} — Category <span style={{ color: 'var(--accent)' }}>★</span>
           </p>
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: '1rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
             <h2
               id={`cat-heading-${index}`}
               style={{
