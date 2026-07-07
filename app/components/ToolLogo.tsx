@@ -289,14 +289,21 @@ export default function ToolLogo({ name, size = 52, showLabel = true }: ToolLogo
     return spec.mono;
   };
 
+  // Give each item enough width for its label so neighbouring labels never collide.
+  const itemWidth = Math.max(size, 68);
+
   return (
     <div
-      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', width: size }}
+      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', width: itemWidth }}
       title={displayName}
     >
-      <div style={tile} aria-hidden={spec.img ? undefined : 'true'}>
-        {renderMark()}
-      </div>
+      {spec.custom ? (
+        spec.custom(size)
+      ) : (
+        <div style={tile} aria-hidden={spec.img ? undefined : 'true'}>
+          {renderMark()}
+        </div>
+      )}
       {showLabel && (
         <span
           style={{
@@ -304,8 +311,9 @@ export default function ToolLogo({ name, size = 52, showLabel = true }: ToolLogo
             letterSpacing: '0.02em',
             color: 'var(--muted)',
             textAlign: 'center',
-            lineHeight: 1.2,
-            whiteSpace: 'nowrap',
+            lineHeight: 1.25,
+            whiteSpace: 'normal',
+            wordBreak: 'keep-all',
           }}
         >
           {displayName}
