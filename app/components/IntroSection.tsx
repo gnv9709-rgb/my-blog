@@ -14,13 +14,16 @@ const toolGroups = [
   {
     label: 'Tools',
     items: [
-      '힉스필드',
-      'Photoshop',
       'Premiere Pro',
+      'Photoshop',
       'After Effects',
+      '캡컷',
+      '힉스필드',
       '클링',
       '나노바나나',
       'Midjourney',
+      'Gemini',
+      'ChatGPT',
       '클로드',
       '안티그래비티',
     ],
