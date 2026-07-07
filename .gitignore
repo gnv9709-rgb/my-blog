@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# raw source videos (originals — not for repo; compressed copies live in public/videos)
+영상배포/
+portfolio.pdf
