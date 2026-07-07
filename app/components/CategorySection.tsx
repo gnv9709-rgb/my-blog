@@ -325,6 +325,8 @@ export default function CategorySection({ category, videos, index }: CategorySec
                 className="group"
                 style={{
                   display: 'block',
+                  width: 'min(100%, 300px)',
+                  flexShrink: 0,
                   textAlign: 'left',
                   background: 'none',
                   border: 'none',
