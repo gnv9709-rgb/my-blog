@@ -15,6 +15,9 @@ const TOOL_ALIAS: Record<string, string> = {
   '포토샵': 'Photoshop',
   '미드저니': 'Midjourney',
   '힉스필드 나노바나나': '나노바나나',
+  'chat GPT': 'ChatGPT',
+  'chatGPT': 'ChatGPT',
+  'ChatGPT': 'ChatGPT',
 };
 
 interface CategorySectionProps {
