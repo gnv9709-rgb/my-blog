@@ -301,14 +301,15 @@ export default function CategorySection({ category, videos, index }: CategorySec
       {/* Red separator */}
       <div style={{ height: '2px', background: 'var(--accent)', margin: '0 clamp(1.5rem, 4vw, 4rem)', opacity: 0.85 }} />
 
-      {/* Gallery grid — uniform cards, click to expand inline */}
+      {/* Gallery — uniform cards, click to expand inline. Flex so few-item rows can center. */}
       <div
         style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))',
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: fewVideos ? 'center' : 'flex-start',
           gap: 'clamp(1rem, 2vw, 1.75rem)',
           padding: 'clamp(1.75rem, 3.5vw, 3rem) clamp(1.5rem, 4vw, 4rem) clamp(2.5rem, 5vw, 4.5rem)',
-          alignItems: 'start',
+          alignItems: 'flex-start',
         }}
       >
         {videos.map((video) => {
