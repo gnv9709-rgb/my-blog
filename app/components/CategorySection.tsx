@@ -29,6 +29,22 @@ function getPlatformLabel(url: string): string {
   return 'External';
 }
 
+/** Cover image that degrades to a neutral placeholder if the file is missing (e.g. not uploaded yet). */
+function SafeThumb({ src, alt, sizes }: { src: string; alt: string; sizes: string }) {
+  const [failed, setFailed] = useState(false);
+  if (failed) return <div className="absolute inset-0" style={{ background: 'var(--surface-hover)' }} />;
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      fill
+      className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+      sizes={sizes}
+      onError={() => setFailed(true)}
+    />
+  );
+}
+
 /** Inline detail panel — thumbnail/player + credits shown in place (no navigation). */
 // Compact meta label — minimal tracking so Korean stays readable (no "기 여 도" spacing).
 const metaLabel = {
