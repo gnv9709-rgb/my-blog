@@ -31,6 +31,8 @@ export interface Video {
   id: string;
   youtubeId?: string;
   externalUrl?: string;
+  /** Self-hosted video file (e.g. '/videos/10.mp4') — plays inline on-site. */
+  videoFile?: string;
   thumbnail?: string;
   title: string;
   client?: string;
