@@ -304,7 +304,7 @@ export default function CategorySection({ category, videos, index }: CategorySec
         style={{
           display: 'flex',
           flexWrap: 'wrap',
-          justifyContent: fewVideos ? 'center' : 'flex-start',
+          justifyContent: 'center',
           gap: 'clamp(1rem, 2vw, 1.75rem)',
           padding: 'clamp(1.75rem, 3.5vw, 3rem) clamp(1.5rem, 4vw, 4rem) clamp(2.5rem, 5vw, 4.5rem)',
           alignItems: 'flex-start',
