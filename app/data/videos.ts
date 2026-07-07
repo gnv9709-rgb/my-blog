@@ -253,7 +253,6 @@ export const videos: Video[] = [
     client: '메디우스',
     category: 'AI',
     year: 2026,
-    vertical: true,
     details: [
       { label: '기여도', value: '기획 100%, 편집 100%' },
       { label: '사용 툴', value: '힉스필드 나노바나나, 클링' },
