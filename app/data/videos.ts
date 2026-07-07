@@ -161,14 +161,15 @@ export const videos: Video[] = [
   {
     id: '5',
     externalUrl: 'https://www.instagram.com/reel/DJGn0eeyNcP/',
-    // thumbnail: '/thumbnails/5.jpg',
-    title: '개그맨 박성호 인스타그램',
+    videoFile: '/videos/5.mp4',
+    thumbnail: '/thumbnails/5.jpg',
+    title: '최고의 남편ㅋㅋ',
     client: '박성호',
     category: '숏폼',
     year: 2025,
     vertical: true,
     details: [
-      { label: '기여도', value: '촬영 50%, 편집 100%' },
+      { label: '기여도', value: '개그맨 박성호 개그 채널 관리, 촬영 50%, 편집 100%' },
       { label: '사용 툴', value: '프리미어 프로' },
     ],
     equipment: {
