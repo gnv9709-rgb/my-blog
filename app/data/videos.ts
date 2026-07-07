@@ -175,6 +175,36 @@ export const videos: Video[] = [
       카메라: ['DJI Osmo Pocket 3 크리에이터 콤보'],
     },
   },
+  {
+    id: '19',
+    externalUrl: 'https://www.instagram.com/reel/DaCvuq4vbi_/',
+    videoFile: '/videos/19.mp4',
+    thumbnail: '/thumbnails/19.jpg',
+    title: '직원 퇴근 후, 원장님의 은밀한 비밀?',
+    client: '진주피부과',
+    category: '숏폼',
+    year: 2026,
+    vertical: true,
+    details: [
+      { label: '기여도', value: '기획 50%, 편집 100%' },
+      { label: '사용 툴', value: '프리미어 프로, 포토샵, 캡컷' },
+    ],
+  },
+  {
+    id: '20',
+    externalUrl: 'https://www.instagram.com/reel/DREjAQPgcZW/',
+    videoFile: '/videos/20.mp4',
+    thumbnail: '/thumbnails/20.jpg',
+    title: '이거 찾으려고 세 군데 돌아다녔어요 진짜ㅋㅋ',
+    client: '로로멜로',
+    category: '숏폼',
+    year: 2025,
+    vertical: true,
+    details: [
+      { label: '기여도', value: '촬영 100%, 기획 100%, 편집 100%' },
+      { label: '사용 툴', value: '프리미어 프로, 아이폰 15pro' },
+    ],
+  },
 
   // ── 예능 ──────────────────────────────────────────────────────
   {
