@@ -204,6 +204,7 @@ const NAME_KO: Record<string, string> = {
   '안티그래비티': 'Antigravity',
   '캡컷': 'CapCut',
   '아이폰 15pro': 'iPhone 15 Pro',
+  '타입캐스트': 'Typecast',
 };
 
 interface ToolLogoProps {
