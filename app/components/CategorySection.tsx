@@ -4,10 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import type { Video } from '../types';
 import { thumbSrc } from '../lib/thumb';
-import Squiggle from './decor/Squiggle';
 import ToolLogo from './ToolLogo';
-
-const SQUIGGLE_VARIANTS = ['a', 'b', 'c'] as const;
 
 // Map the Korean tool names used in video data → ToolLogo brand keys.
 const TOOL_ALIAS: Record<string, string> = {
