@@ -107,10 +107,22 @@ function DetailPanel({ video }: { video: Video }) {
                 borderRadius: '10px',
                 overflow: 'hidden',
                 border: '1px solid var(--border)',
-                background: 'var(--surface-hover)',
+                background: '#000',
               }}
             >
-              {thumb && <Image src={thumb} alt={video.title} fill className="object-cover" sizes="460px" />}
+              {video.videoFile ? (
+                <video
+                  controls
+                  playsInline
+                  preload="metadata"
+                  poster={thumb ?? undefined}
+                  style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+                >
+                  <source src={video.videoFile} type="video/mp4" />
+                </video>
+              ) : (
+                thumb && <SafeThumb src={thumb} alt={video.title} sizes="460px" />
+              )}
             </div>
             {video.externalUrl && (
               <a
