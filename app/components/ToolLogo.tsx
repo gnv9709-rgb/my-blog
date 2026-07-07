@@ -22,11 +22,6 @@ interface ToolSpec {
   custom?: (size: number) => ReactNode; // fully self-rendered mark (no tile chrome)
 }
 
-// Gemini's 4-point spark: a conic rainbow clipped to the star silhouette.
-const GEMINI_MASK = `url("data:image/svg+xml;utf8,${encodeURIComponent(
-  "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 3C54 28 72 46 97 50C72 54 54 72 50 97C46 72 28 54 3 50C28 46 46 28 50 3Z' fill='black'/></svg>",
-)}")`;
-
 const TOOLS: Record<string, ToolSpec> = {
   // ── Adobe: official app icons exported from the installed apps. mono kept as fallback. ──
   Photoshop: { bg: '#001e36', fg: '#31a8ff', mono: 'Ps', img: '/logos/photoshop.png', appIcon: true },
