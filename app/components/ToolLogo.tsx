@@ -201,6 +201,8 @@ const NAME_KO: Record<string, string> = {
   '나노바나나': 'Nano Banana',
   '클로드': 'Claude',
   '안티그래비티': 'Antigravity',
+  '캡컷': 'CapCut',
+  '아이폰 15pro': 'iPhone 15 Pro',
 };
 
 interface ToolLogoProps {
