@@ -32,7 +32,7 @@ const TONES: Record<'violet' | 'dark', CSSProperties> = {
  */
 export default function Marquee({
   items,
-  tone = 'crimson',
+  tone = 'violet',
   duration = 32,
   reverse = false,
 }: MarqueeProps) {
