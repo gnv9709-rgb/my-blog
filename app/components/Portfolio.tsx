@@ -276,7 +276,7 @@ export default function Portfolio({
               marginBottom: '1.75rem',
             }}
           >
-            같이 만들어볼까요?
+            다음 컷은, 당신의 팀에서
           </h2>
           <p
             style={{
@@ -286,7 +286,7 @@ export default function Portfolio({
               marginBottom: '3rem',
             }}
           >
-            영상 제작 협업 문의는 언제든 환영합니다.
+            기획부터 촬영, 편집, 음향까지 — 팀의 이야기를 끝까지 책임질 제작자를 찾고 계신다면, 지금 연락 주세요.
           </p>
           <a
             href={`mailto:${email}`}
