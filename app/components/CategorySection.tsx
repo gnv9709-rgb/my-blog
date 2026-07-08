@@ -5,6 +5,7 @@ import Image from 'next/image';
 import type { Video } from '../types';
 import { thumbSrc } from '../lib/thumb';
 import ToolLogo from './ToolLogo';
+import TiltCard from './three-d/TiltCard';
 
 // Map the Korean tool names used in video data → ToolLogo brand keys.
 const TOOL_ALIAS: Record<string, string> = {
