@@ -108,6 +108,10 @@ export default function Portfolio({
       </header>
 
       <main>
+        {/* Page 1 — PORTFOLIO cover */}
+        <CoverSection englishName="Lee Jeong Seok" photo={photo ?? '/profile.jpg'} />
+
+        {/* Page 2 (hero) + Page 3 (about) */}
         <IntroSection
           name={name}
           email={email}
