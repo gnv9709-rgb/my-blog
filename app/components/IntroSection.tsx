@@ -48,8 +48,9 @@ const labelStyle: CSSProperties = {
   fontFamily: monoFont,
 };
 
-/* Floating hashtag chips staged in 3D around the hero headline */
-const HERO_CHIPS: { text: string; style: CSSProperties }[] = [
+/* Floating hashtag chips staged in 3D around the hero headline.
+   `low` chips sit near the bottom copy and hide on narrow screens. */
+const HERO_CHIPS: { text: string; style: CSSProperties; low?: boolean }[] = [
   { text: '기획', style: { top: '16%', right: '14%', '--pz': '90px', '--rot': '-6deg', '--float-delay': '0s', '--par': 2.4 } as CSSProperties },
   { text: '촬영', style: { top: '34%', right: '5%', '--pz': '40px', '--rot': '4deg', '--float-delay': '1.4s', '--par': 1.4 } as CSSProperties },
   { text: '편집', style: { bottom: '30%', right: '20%', '--pz': '120px', '--rot': '-3deg', '--float-delay': '2.6s', '--par': 3 }, low: true },
