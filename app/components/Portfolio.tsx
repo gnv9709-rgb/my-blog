@@ -31,6 +31,14 @@ export default function Portfolio({
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Refresh always lands on the cover: disable browser scroll restoration.
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   // Scroll reveal: [data-reveal] elements stand up (rotateX) as they enter view.
   useEffect(() => {
     const els = document.querySelectorAll('[data-reveal]');
