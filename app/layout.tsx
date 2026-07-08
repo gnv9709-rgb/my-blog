@@ -83,6 +83,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
         />
+        {/* MaruBuri (Naver free serif) — SD 프시케 대체 폰트, 컨택트 헤드라인 */}
+        <link rel="stylesheet" href="https://hangeul.pstatic.net/hangeul_static/css/maru-buri.css" />
       </head>
       <body className="min-h-full antialiased">{children}</body>
     </html>
