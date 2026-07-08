@@ -342,7 +342,7 @@ export default function CategorySection({ category, videos, index }: CategorySec
           flexWrap: 'wrap',
           justifyContent: 'center',
           gap: 'clamp(1rem, 2vw, 1.75rem)',
-          padding: 'clamp(1.75rem, 3.5vw, 3rem) clamp(1.5rem, 4vw, 4rem) clamp(2.5rem, 5vw, 4.5rem)',
+          padding: 'clamp(1.75rem, 3.5vw, 3rem) clamp(1.5rem, 4vw, 4rem) var(--space-section)',
           alignItems: 'flex-start',
         }}
       >
