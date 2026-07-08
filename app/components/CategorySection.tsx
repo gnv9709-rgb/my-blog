@@ -46,8 +46,10 @@ const CATEGORY_EN: Record<string, string> = {
   '라이브 방송': 'LIVE BROADCAST',
 };
 
-/** Split a display title: first word solid cream, the rest outlined. */
-function DisplayTitle({ title }: { title: string }) {
+/** Split a display title: first word solid cream, the rest outlined.
+ *  The outlined part paints stroke UNDER an opaque fill (paint-order) so
+ *  overlapping glyph contours don't show internal stroke seams. */
+function DisplayTitle({ title, fill }: { title: string; fill: string }) {
   const [first, ...rest] = title.split(' ');
   return (
     <>
@@ -57,8 +59,9 @@ function DisplayTitle({ title }: { title: string }) {
           {' '}
           <span
             style={{
-              color: 'transparent',
-              WebkitTextStroke: '1.25px rgba(240,213,160,0.75)',
+              color: fill,
+              WebkitTextStroke: '2.5px rgba(240,213,160,0.75)',
+              paintOrder: 'stroke fill',
             }}
           >
             {rest.join(' ')}
