@@ -81,9 +81,10 @@ export default function Portfolio({
         <Link
           href="/"
           style={{
-            fontFamily: 'var(--font-display-stack)',
+            fontFamily: 'var(--font-pretendard)',
+            fontWeight: 700,
             fontSize: '1.0625rem',
-            letterSpacing: '0.08em',
+            letterSpacing: '0.02em',
             color: 'var(--cream)',
             textDecoration: 'none',
           }}
