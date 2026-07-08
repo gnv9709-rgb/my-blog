@@ -19,6 +19,13 @@ const archivo = Archivo({
   weight: ['500', '600', '700'],
   display: 'swap',
 });
+// Korean handwriting for the closing headline — readable pen script
+const nanumPen = Nanum_Pen_Script({
+  variable: '--font-nanum-pen',
+  weight: '400',
+  preload: false,
+  display: 'swap',
+});
 // Brush script for editorial accents ("Hi!", "Contact" — design ref lettering)
 const yellowtail = Yellowtail({
   variable: '--font-yellowtail',
