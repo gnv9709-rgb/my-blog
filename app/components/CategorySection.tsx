@@ -58,7 +58,7 @@ function DisplayTitle({ title }: { title: string }) {
           <span
             style={{
               color: 'transparent',
-              WebkitTextStroke: '1.5px rgba(240,213,160,0.75)',
+              WebkitTextStroke: '1.25px rgba(240,213,160,0.75)',
             }}
           >
             {rest.join(' ')}
