@@ -629,12 +629,15 @@ export default function IntroSection({
               }}
             >
               {techniques.map(({ key, lines }) => (
-                <li key={key} className="skill-disc" style={{ fontWeight: 700 }}>
+                <li
+                  key={key}
+                  className="skill-disc"
+                  style={{ fontWeight: 700, fontSize: 'clamp(0.625rem, 1.2vw, 0.75rem)' }}
+                >
                   <span style={{ display: 'block' }}>
-                    {lines.map((line, i) => (
-                      <span key={line} style={{ display: 'block', lineHeight: 1.25 }}>
+                    {lines.map((line) => (
+                      <span key={line} style={{ display: 'block', lineHeight: 1.3 }}>
                         {line}
-                        {i < lines.length - 1 ? '' : null}
                       </span>
                     ))}
                   </span>
