@@ -262,12 +262,12 @@ export default function CategorySection({ category, videos, index }: CategorySec
               fontSize: 'var(--text-label, 0.625rem)',
               letterSpacing: '0.5em',
               textTransform: 'uppercase',
-              color: 'var(--accent)',
+              color: 'var(--accent-bright)',
               fontFamily: 'var(--font-geist-mono, monospace)',
               marginBottom: 'clamp(0.5rem, 1.5vw, 1rem)',
             }}
           >
-            {indexStr} — Category <span style={{ color: 'var(--accent)' }}>★</span>
+            {indexStr} — Category <span style={{ color: 'var(--accent-bright)' }}>★</span>
           </p>
           <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
             <h2
