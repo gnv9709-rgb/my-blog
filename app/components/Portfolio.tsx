@@ -222,30 +222,6 @@ export default function Portfolio({
               zIndex: 0,
             }}
           />
-          <Squiggle
-            variant="a"
-            opacity={0.3}
-            style={{
-              position: 'absolute',
-              top: '18%',
-              right: '-6%',
-              width: '42%',
-              height: 'clamp(90px, 12vw, 160px)',
-              zIndex: 0,
-            }}
-          />
-          <Squiggle
-            variant="c"
-            opacity={0.22}
-            style={{
-              position: 'absolute',
-              bottom: '8%',
-              left: '-4%',
-              width: '38%',
-              height: 'clamp(80px, 10vw, 140px)',
-              zIndex: 0,
-            }}
-          />
           <div data-reveal style={{ position: 'relative', zIndex: 1 }}>
           <span
             className="script-accent"
