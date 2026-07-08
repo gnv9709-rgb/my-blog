@@ -577,17 +577,19 @@ export default function IntroSection({
           </div>
         </div>
 
-        {/* bottom spread: 기본 정보 · 제작 역량 · Software (design ref: Education / Languages / Software) */}
+        {/* bottom spread: 기본 정보 · 제작 역량 · Software — columns centered */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
             gap: 'clamp(2.5rem, 5vw, 4.5rem)',
             alignItems: 'start',
+            justifyItems: 'center',
             maxWidth: '1200px',
             margin: 'clamp(4rem, 7vw, 6rem) auto 0',
             paddingTop: 'clamp(2rem, 4vw, 3rem)',
             borderTop: '1px solid var(--border-faint)',
+            textAlign: 'center',
           }}
         >
           {/* 기본 정보 */}
@@ -595,7 +597,7 @@ export default function IntroSection({
             <p className="script-accent" style={{ fontSize: 'clamp(1.7rem, 3vw, 2.3rem)', marginBottom: '1.25rem' }}>
               Info
             </p>
-            <dl style={{ display: 'grid', gap: '1.1rem' }}>
+            <dl style={{ display: 'grid', gap: '1.1rem', width: 'fit-content', margin: '0 auto', textAlign: 'left' }}>
               {facts.map(({ dt, dd }) => (
                 <div key={dt} style={{ display: 'grid', gridTemplateColumns: '5.5em 1fr', gap: '0.75rem' }}>
                   <dt style={{ fontSize: 'var(--text-label, 0.625rem)', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--muted)', alignSelf: 'baseline', paddingTop: '0.2em' }}>
@@ -621,14 +623,21 @@ export default function IntroSection({
                 gridTemplateColumns: 'repeat(3, 1fr)',
                 gap: 'clamp(0.9rem, 2vw, 1.3rem)',
                 maxWidth: '440px',
+                margin: '0 auto',
                 listStyle: 'none',
                 padding: 0,
-                margin: 0,
               }}
             >
-              {techniques.map((item) => (
-                <li key={item} className="skill-disc" style={{ fontWeight: 700 }}>
-                  {item}
+              {techniques.map(({ key, lines }) => (
+                <li key={key} className="skill-disc" style={{ fontWeight: 700 }}>
+                  <span style={{ display: 'block' }}>
+                    {lines.map((line, i) => (
+                      <span key={line} style={{ display: 'block', lineHeight: 1.25 }}>
+                        {line}
+                        {i < lines.length - 1 ? '' : null}
+                      </span>
+                    ))}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -642,10 +651,11 @@ export default function IntroSection({
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-                justifyItems: 'start',
-                gap: 'clamp(1rem, 2vw, 1.5rem) clamp(0.8rem, 1.6vw, 1.2rem)',
-                maxWidth: '320px',
+                gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
+                justifyItems: 'center',
+                gap: 'clamp(1rem, 2vw, 1.5rem) clamp(0.6rem, 1.4vw, 1rem)',
+                maxWidth: '400px',
+                margin: '0 auto',
               }}
             >
               {toolGroups[0].items.map((item) => (
