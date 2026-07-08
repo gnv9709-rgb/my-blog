@@ -1,5 +1,13 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono, Yellowtail, Anton, Black_Han_Sans, Archivo } from 'next/font/google';
+import {
+  Geist,
+  Geist_Mono,
+  Yellowtail,
+  Anton,
+  Black_Han_Sans,
+  Archivo,
+  Nanum_Pen_Script,
+} from 'next/font/google';
 import './globals.css';
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
