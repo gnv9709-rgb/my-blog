@@ -75,7 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="ko"
-      className={`${geistSans.variable} ${geistMono.variable} ${yellowtail.variable} ${anton.variable} ${blackHanSans.variable} ${archivo.variable} h-full`}
+      className={`${geistSans.variable} ${geistMono.variable} ${yellowtail.variable} ${anton.variable} ${blackHanSans.variable} ${archivo.variable} ${nanumPen.variable} h-full`}
     >
       <head>
         {/* Pretendard variable (Korean-optimized grotesque) — category headings */}
