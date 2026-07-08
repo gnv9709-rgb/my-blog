@@ -464,20 +464,11 @@ export default function IntroSection({
           {/* Right: I'm 이정석! + statement + contact */}
           <div>
             <div data-reveal style={{ marginBottom: 'clamp(1.5rem, 3vw, 2.25rem)' }}>
-              <p style={{ display: 'flex', alignItems: 'baseline', gap: '0.35em', flexWrap: 'wrap' }}>
-                <span className="script-accent" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)' }}>
-                  I&rsquo;m
-                </span>
-                <span
-                  style={{
-                    fontFamily: displayFont,
-                    fontSize: 'clamp(2.4rem, 5vw, 4rem)',
-                    color: 'var(--cream)',
-                    lineHeight: 1,
-                  }}
-                >
-                  {name}!
-                </span>
+              <p
+                className="script-accent"
+                style={{ fontSize: 'clamp(2.1rem, 4.6vw, 3.6rem)', margin: 0, whiteSpace: 'nowrap' }}
+              >
+                I&rsquo;m <span style={{ color: 'var(--cream)' }}>Lee Jeong Seok</span>
               </p>
               {/* brush underline (design ref: underlined "I'm Thao!") */}
               <svg
