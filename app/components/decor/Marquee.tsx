@@ -2,7 +2,7 @@ import type { CSSProperties } from 'react';
 
 interface MarqueeProps {
   items: string[];
-  tone?: 'crimson' | 'cream';
+  tone?: 'violet' | 'dark';
   /** Seconds for one full loop. Lower = faster. */
   duration?: number;
   reverse?: boolean;
@@ -10,14 +10,14 @@ interface MarqueeProps {
 
 const STAR = '★'; // ★
 
-const TONES: Record<'crimson' | 'cream', CSSProperties> = {
-  crimson: {
-    background: 'var(--crimson)',
-    color: 'var(--on-crimson)',
-    borderTop: '1px solid var(--crimson-deep)',
-    borderBottom: '1px solid var(--crimson-deep)',
+const TONES: Record<'violet' | 'dark', CSSProperties> = {
+  violet: {
+    background: 'linear-gradient(100deg, var(--accent-deep) 0%, var(--accent) 55%, var(--accent-deep) 100%)',
+    color: 'var(--on-stage)',
+    borderTop: '1px solid var(--accent-deep)',
+    borderBottom: '1px solid var(--accent-deep)',
   },
-  cream: {
+  dark: {
     background: 'var(--surface)',
     color: 'var(--foreground)',
     borderTop: '1px solid var(--border)',
