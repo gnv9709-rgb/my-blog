@@ -272,6 +272,7 @@ export default function Portfolio({
               fontWeight: 400,
               lineHeight: 1.15,
               letterSpacing: '-0.02em',
+              wordBreak: 'keep-all',
               color: 'var(--cream)',
               marginBottom: '3rem',
             }}
