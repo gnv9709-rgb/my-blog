@@ -644,7 +644,15 @@ export default function IntroSection({
             <p className="script-accent" style={{ fontSize: 'clamp(1.7rem, 3vw, 2.3rem)', marginBottom: '1.25rem' }}>
               Software
             </p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'clamp(0.8rem, 1.6vw, 1.2rem)' }}>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+                justifyItems: 'start',
+                gap: 'clamp(1rem, 2vw, 1.5rem) clamp(0.8rem, 1.6vw, 1.2rem)',
+                maxWidth: '320px',
+              }}
+            >
               {toolGroups[0].items.map((item) => (
                 <ToolLogo key={item} name={item} size={44} />
               ))}
