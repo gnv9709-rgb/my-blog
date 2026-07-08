@@ -104,37 +104,7 @@ export default function CoverSection({ englishName }: CoverSectionProps) {
           Portfolio
         </h1>
 
-        {/* portrait — breaks through the type, fades into the stage floor */}
-        {!photoFailed && (
-          <div
-            className="hero-meta"
-            style={{
-              position: 'absolute',
-              bottom: 0,
-              left: '50%',
-              zIndex: 2,
-              width: 'clamp(240px, 44vmin, 460px)',
-              height: 'clamp(300px, 62vh, 640px)',
-              transform: 'translate3d(calc(-50% + var(--mx, 0) * 12px), calc(var(--my, 0) * 6px), 0)',
-              maskImage: 'linear-gradient(to bottom, black 78%, transparent 100%)',
-              WebkitMaskImage: 'linear-gradient(to bottom, black 78%, transparent 100%)',
-            }}
-          >
-            <Image
-              src={photo}
-              alt="이정석 프로필 사진"
-              fill
-              preload
-              fetchPriority="high"
-              unoptimized
-              sizes="(max-width: 768px) 70vw, 460px"
-              style={{ objectFit: 'cover', objectPosition: 'top center', filter: 'saturate(0.86) contrast(1.04)' }}
-              onError={() => setPhotoFailed(true)}
-            />
-          </div>
-        )}
-
-        {/* outline wordmark — in front, letters cross over the face */}
+        {/* outline wordmark — in front, doubling the solid type with a gold edge */}
         <p
           aria-hidden="true"
           className="hero-title"
