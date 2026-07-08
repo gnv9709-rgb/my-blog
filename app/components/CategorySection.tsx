@@ -384,9 +384,9 @@ export default function CategorySection({ category, videos, index }: CategorySec
                 <div className="mt-2.5">
                   <div className="min-w-0">
                     <h3
-                      className="text-sm font-medium leading-snug transition-colors duration-200 group-hover:text-[var(--accent)]"
+                      className="text-sm font-medium leading-snug transition-colors duration-200 group-hover:text-[var(--accent-bright)]"
                       style={{
-                        color: isOpen ? 'var(--accent)' : 'var(--foreground)',
+                        color: isOpen ? 'var(--accent-bright)' : 'var(--foreground)',
                         display: '-webkit-box',
                         WebkitLineClamp: 2,
                         WebkitBoxOrient: 'vertical',
