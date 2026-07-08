@@ -262,12 +262,12 @@ export default function CategorySection({ category, videos, index }: CategorySec
         background: index % 2 === 1 ? 'var(--surface)' : 'transparent',
       }}
     >
-      {/* Heading */}
+      {/* Heading — left-aligned Latin wordmark, Korean in the eyebrow */}
       <div
         style={{
           position: 'relative',
           overflow: 'hidden',
-          padding: 'clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 4rem) clamp(1.25rem, 2.5vw, 2rem)',
+          padding: 'var(--space-section) clamp(1.5rem, 4vw, 4rem) clamp(1.25rem, 2.5vw, 2rem)',
         }}
       >
         <span
@@ -275,23 +275,22 @@ export default function CategorySection({ category, videos, index }: CategorySec
           style={{
             position: 'absolute',
             right: 'clamp(1rem, 3vw, 3rem)',
-            top: '-0.1em',
-            fontFamily: 'var(--font-geist-mono, monospace)',
+            top: '0.2em',
+            fontFamily: 'var(--font-anton), system-ui, sans-serif',
             fontSize: 'clamp(5rem, 15vw, 15rem)',
-            fontWeight: 800,
             lineHeight: 1,
             color: 'transparent',
             WebkitTextStroke: '1px rgba(243,234,217,0.09)',
             pointerEvents: 'none',
             userSelect: 'none',
-            letterSpacing: '-0.05em',
+            letterSpacing: '-0.02em',
             zIndex: 0,
           }}
         >
           {indexStr}
         </span>
 
-        <div style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
+        <div style={{ position: 'relative', zIndex: 1 }}>
           <p
             style={{
               fontSize: 'var(--text-label, 0.625rem)',
@@ -299,24 +298,25 @@ export default function CategorySection({ category, videos, index }: CategorySec
               textTransform: 'uppercase',
               color: 'var(--accent-bright)',
               fontFamily: 'var(--font-geist-mono, monospace)',
-              marginBottom: 'clamp(0.5rem, 1.5vw, 1rem)',
+              marginBottom: 'clamp(0.75rem, 1.5vw, 1.25rem)',
             }}
           >
-            {indexStr} — Category <span style={{ color: 'var(--accent-bright)' }}>★</span>
+            {indexStr} — {category} <span style={{ color: 'var(--accent-bright)' }}>★</span>
           </p>
-          <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: '1.25rem', flexWrap: 'wrap' }}>
             <h2
               id={`cat-heading-${index}`}
               style={{
-                fontFamily: 'var(--font-display-stack)',
-                fontSize: 'clamp(2rem, 6vw, 5.5rem)',
+                fontFamily: 'var(--font-anton), system-ui, sans-serif',
+                fontSize: 'clamp(2.6rem, 7.5vw, 7rem)',
                 fontWeight: 400,
                 lineHeight: 0.95,
-                letterSpacing: '0',
+                letterSpacing: '0.01em',
+                textTransform: 'uppercase',
                 color: 'var(--cream)',
               }}
             >
-              {category}
+              <DisplayTitle title={CATEGORY_EN[category] ?? category} />
             </h2>
             <span
               style={{
