@@ -33,6 +33,42 @@ function getPlatformLabel(url: string): string {
   return 'External';
 }
 
+// English display titles for category headings (typography refs: bold Latin
+// wordmarks with a fill/outline mix). Korean stays in the eyebrow + nav.
+const CATEGORY_EN: Record<string, string> = {
+  '인터뷰 촬영': 'INTERVIEW',
+  '예능': 'ENTERTAINMENT',
+  'AI': 'AI FILM',
+  '스케치 코미디': 'SKETCH COMEDY',
+  '숏폼': 'SHORT-FORM',
+  '현장 스케치': 'ON-SITE SKETCH',
+  '모션그래픽': 'MOTION GRAPHICS',
+  '라이브 방송': 'LIVE BROADCAST',
+};
+
+/** Split a display title: first word solid cream, the rest outlined. */
+function DisplayTitle({ title }: { title: string }) {
+  const [first, ...rest] = title.split(' ');
+  return (
+    <>
+      {first}
+      {rest.length > 0 && (
+        <>
+          {' '}
+          <span
+            style={{
+              color: 'transparent',
+              WebkitTextStroke: '1.5px rgba(240,213,160,0.75)',
+            }}
+          >
+            {rest.join(' ')}
+          </span>
+        </>
+      )}
+    </>
+  );
+}
+
 /** Cover image that degrades to a neutral placeholder if the file is missing (e.g. not uploaded yet). */
 function SafeThumb({ src, alt, sizes }: { src: string; alt: string; sizes: string }) {
   const [failed, setFailed] = useState(false);
