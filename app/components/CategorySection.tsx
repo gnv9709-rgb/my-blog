@@ -134,7 +134,7 @@ function DetailPanel({ video }: { video: Video }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 mt-4 text-[11px] tracking-[0.2em] uppercase px-6 py-3 transition-colors duration-200"
-                style={{ border: '1px solid var(--accent)', color: 'var(--accent)', borderRadius: '4px' }}
+                style={{ border: '1px solid var(--accent)', color: 'var(--accent-bright)', borderRadius: '4px' }}
               >
                 {getPlatformLabel(video.externalUrl)}에서 보기
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-3.5 h-3.5">
