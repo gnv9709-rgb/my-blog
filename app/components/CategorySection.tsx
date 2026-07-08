@@ -278,7 +278,7 @@ export default function CategorySection({ category, videos, index }: CategorySec
                 fontWeight: 400,
                 lineHeight: 0.95,
                 letterSpacing: '0',
-                color: 'var(--foreground)',
+                color: 'var(--cream)',
               }}
             >
               {category}
