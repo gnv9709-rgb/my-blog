@@ -299,7 +299,9 @@ export default function IntroSection({
           }}
         >
           <div className="intro-body" style={{ display: 'flex', alignItems: 'center', gap: 'clamp(1rem, 2.5vw, 2rem)' }}>
-            <SpinBadge />
+            <span className="hero-badge">
+              <SpinBadge />
+            </span>
             <p
               style={{
                 fontSize: 'var(--text-label, 0.625rem)',
