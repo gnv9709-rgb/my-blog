@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import type { Video } from '../types';
 import { CATEGORIES } from '../data/videos';
 import IntroSection from './IntroSection';
