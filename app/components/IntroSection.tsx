@@ -14,22 +14,24 @@ interface IntroSectionProps {
   photo?: string;
 }
 
-// Software tools shown as brand logos, in the order requested; techniques listed as text.
+// Software tools shown as brand logos, in the requested row order
+// (3 per row: Pr–Ae–Ps / CapCut–NanoBanana–Midjourney / Kling–Higgsfield–Typecast
+//  / ChatGPT–Gemini–Claude / Antigravity); techniques listed as text.
 const toolGroups = [
   {
     label: 'Tools',
     items: [
       'Premiere Pro',
-      'Photoshop',
       'After Effects',
+      'Photoshop',
       '캡컷',
-      '힉스필드',
-      '클링',
       '나노바나나',
       'Midjourney',
-      'Gemini',
-      'ChatGPT',
+      '클링',
+      '힉스필드',
       '타입캐스트',
+      'ChatGPT',
+      'Gemini',
       '클로드',
       '안티그래비티',
     ],
