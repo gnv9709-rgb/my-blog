@@ -117,7 +117,7 @@ export default function Portfolio({
           email={email}
           videoCount={videos.length}
           videos={videos}
-          photo={photo}
+          photo={photo ?? '/profile.jpg'}
         />
 
         {/* Editorial marquee — rhythm break between intro and works */}
