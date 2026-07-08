@@ -36,8 +36,9 @@ export default function Marquee({
   duration = 32,
   reverse = false,
 }: MarqueeProps) {
-  // Duplicate the run so the -50% translate loops seamlessly.
-  const run = [...items, ...items];
+  // Four copies = two identical halves, so the -50% translate loops seamlessly
+  // and the rail never runs dry on ultra-wide viewports.
+  const run = [...items, ...items, ...items, ...items];
 
   return (
     <div
