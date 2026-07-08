@@ -7,7 +7,6 @@ import { CATEGORIES } from '../data/videos';
 import CoverSection from './CoverSection';
 import IntroSection from './IntroSection';
 import CategorySection from './CategorySection';
-import Squiggle from './decor/Squiggle';
 
 interface PortfolioProps {
   videos: Video[];
