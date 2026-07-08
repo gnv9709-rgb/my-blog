@@ -267,12 +267,13 @@ export default function Portfolio({
           </p>
           <h2
             style={{
-              fontFamily: 'var(--font-pretendard)',
-              fontSize: 'clamp(2.25rem, 6.5vw, 5.5rem)',
+              fontFamily: 'var(--font-nanum-pen), "Nanum Pen Script", cursive',
+              fontSize: 'clamp(3.2rem, 9vw, 8rem)',
               fontWeight: 400,
-              lineHeight: 1.15,
-              letterSpacing: '-0.02em',
+              lineHeight: 1.1,
+              letterSpacing: '0',
               wordBreak: 'keep-all',
+              textAlign: 'center',
               color: 'var(--cream)',
               marginBottom: '3rem',
             }}
