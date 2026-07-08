@@ -267,27 +267,17 @@ export default function Portfolio({
           </p>
           <h2
             style={{
-              fontFamily: 'var(--font-display-stack)',
-              fontSize: 'clamp(2.5rem, 8vw, 7rem)',
+              fontFamily: 'var(--font-pretendard)',
+              fontSize: 'clamp(2.25rem, 6.5vw, 5.5rem)',
               fontWeight: 400,
-              lineHeight: 0.95,
-              letterSpacing: '0',
+              lineHeight: 1.15,
+              letterSpacing: '-0.02em',
               color: 'var(--cream)',
-              marginBottom: '1.75rem',
-            }}
-          >
-            다음 컷은, 당신의 팀에서
-          </h2>
-          <p
-            style={{
-              fontSize: '0.9375rem',
-              lineHeight: 1.8,
-              color: 'var(--muted)',
               marginBottom: '3rem',
             }}
           >
-            기획부터 촬영, 편집, 음향까지 — 팀의 이야기를 끝까지 책임질 제작자를 찾고 계신다면, 지금 연락 주세요.
-          </p>
+            당신의 팀에 필요한 한 사람
+          </h2>
           <a
             href={`mailto:${email}`}
             style={{
