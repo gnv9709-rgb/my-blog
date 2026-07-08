@@ -39,7 +39,8 @@
   --on-stage-faint: rgba(243, 234, 217, 0.55);
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --space-section: clamp(4rem, 3rem + 5vw, 10rem);
+  /* Uniform vertical rhythm — every page/section shares this block padding */
+  --space-section: clamp(4.5rem, 3.5rem + 4vw, 8rem);
   --text-label: 0.6875rem;
 
   /* Display stack: Anton (Latin) → Black Han Sans (Korean) per-glyph fallback */
