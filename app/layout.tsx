@@ -60,8 +60,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="ko"
-      className={`${geistSans.variable} ${geistMono.variable} ${yellowtail.variable} ${anton.variable} ${blackHanSans.variable} h-full`}
+      className={`${geistSans.variable} ${geistMono.variable} ${yellowtail.variable} ${anton.variable} ${blackHanSans.variable} ${archivo.variable} h-full`}
     >
+      <head>
+        {/* Pretendard variable (Korean-optimized grotesque) — category headings */}
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+        />
+      </head>
       <body className="min-h-full antialiased">{children}</body>
     </html>
   );
