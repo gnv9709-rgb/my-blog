@@ -184,7 +184,7 @@ export default function WorkDetail({ video, prev, next }: WorkDetailProps) {
               lineHeight: 0.9,
               letterSpacing: '-0.04em',
               color: 'transparent',
-              WebkitTextStroke: '1px rgba(36,26,20,0.16)',
+              WebkitTextStroke: '1px rgba(243,234,217,0.14)',
             }}
           >
             {String(video.id).padStart(2, '0')}
