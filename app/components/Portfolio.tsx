@@ -203,7 +203,7 @@ export default function Portfolio({
             overflow: 'hidden',
             scrollMarginTop: '80px',
             borderTop: '1px solid var(--border-faint)',
-            padding: 'clamp(5rem, 10vw, 10rem) clamp(1.5rem, 4vw, 4rem)',
+            padding: 'var(--space-section) clamp(1.5rem, 4vw, 4rem)',
             textAlign: 'center',
           }}
         >
