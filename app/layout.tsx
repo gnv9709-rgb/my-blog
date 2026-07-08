@@ -1,9 +1,16 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono, Yellowtail, Anton, Black_Han_Sans } from 'next/font/google';
+import { Geist, Geist_Mono, Yellowtail, Anton, Black_Han_Sans, Archivo } from 'next/font/google';
 import './globals.css';
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] });
+// Neo-grotesque display for the PORTFOLIO wordmark / A CREATOR (cover type ref)
+const archivo = Archivo({
+  variable: '--font-archivo',
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+  display: 'swap',
+});
 // Brush script for editorial accents ("Hi!", "Contact" — design ref lettering)
 const yellowtail = Yellowtail({
   variable: '--font-yellowtail',
