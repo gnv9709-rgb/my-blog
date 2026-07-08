@@ -77,7 +77,7 @@ export default function Portfolio({
           transition: 'background 400ms, border-color 400ms',
         }}
       >
-        <a
+        <Link
           href="/"
           style={{
             fontFamily: 'var(--font-display-stack)',
@@ -88,7 +88,7 @@ export default function Portfolio({
           }}
         >
           {name}
-        </a>
+        </Link>
         <a
           href={`mailto:${email}`}
           style={{
