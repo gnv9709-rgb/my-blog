@@ -15,8 +15,8 @@ interface IntroSectionProps {
 }
 
 // Software tools shown as brand logos, in the requested row order
-// (3 per row: Pr–Ae–Ps / CapCut–NanoBanana–Midjourney / Kling–Higgsfield–Typecast
-//  / ChatGPT–Gemini–Claude / Antigravity); techniques listed as text.
+// (4 per row: Pr–Ae–Ps–CapCut / Higgsfield–NanoBanana–Midjourney–Kling
+//  / ChatGPT–Gemini–Claude–Typecast / Antigravity); techniques listed as text.
 const toolGroups = [
   {
     label: 'Tools',
@@ -25,19 +25,27 @@ const toolGroups = [
       'After Effects',
       'Photoshop',
       '캡컷',
+      '힉스필드',
       '나노바나나',
       'Midjourney',
       '클링',
-      '힉스필드',
-      '타입캐스트',
       'ChatGPT',
       'Gemini',
       '클로드',
+      '타입캐스트',
       '안티그래비티',
     ],
   },
 ];
-const techniques = ['기획', '촬영', '편집', '자막', '모션그래픽', '라이브 송출'];
+// Skill discs — explicit line breaks so every label sits balanced in its circle.
+const techniques: { key: string; lines: string[] }[] = [
+  { key: '기획', lines: ['기획'] },
+  { key: '촬영', lines: ['촬영'] },
+  { key: '편집', lines: ['편집'] },
+  { key: '자막', lines: ['자막'] },
+  { key: '모션그래픽', lines: ['모션', '그래픽'] },
+  { key: '라이브 송출', lines: ['라이브', '송출'] },
+];
 
 const displayFont = 'var(--font-display-stack)';
 const monoFont = 'var(--font-geist-mono, monospace)';
