@@ -319,7 +319,10 @@ export default function CategorySection({ category, videos, index }: CategorySec
                 color: 'var(--cream)',
               }}
             >
-              <DisplayTitle title={CATEGORY_EN[category] ?? category} />
+              <DisplayTitle
+                title={CATEGORY_EN[category] ?? category}
+                fill={index % 2 === 1 ? 'var(--surface)' : 'var(--background)'}
+              />
             </h2>
             <span
               style={{
