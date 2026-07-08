@@ -264,11 +264,11 @@ export default function IntroSection({
           </p>
 
           {/* floating hashtag chips in 3D space */}
-          {HERO_CHIPS.map(({ text, style }) => (
+          {HERO_CHIPS.map(({ text, style, low }) => (
             <span
               key={text}
               aria-hidden="true"
-              className="float-chip glass intro-body"
+              className={`float-chip glass intro-body${low ? ' hero-chip-low' : ''}`}
               style={{
                 position: 'absolute',
                 zIndex: 3,
