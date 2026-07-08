@@ -241,15 +241,15 @@ export default function Portfolio({
             Contact
             <span style={{ marginLeft: '0.6em' }}>★</span>
           </p>
-          {/* SD 프시케 Italic (산돌구름) — 미설치 브라우저는 나눔펜으로 폴백.
-              방문자에게도 프시케로 보이려면 산돌구름 웹폰트 임베드 코드 필요. */}
+          {/* SD 프시케 Italic (산돌구름 로컬 설치 시) → 마루부리 이탤릭 폴백.
+              산돌 웹폰트 임베드 코드(webfont.sandollcloud.com/js/…)를 받으면 교체. */}
           <h2
             style={{
-              fontFamily: '"SD 프시케", "SD Psyche", SDPsyche, var(--font-nanum-pen), "Nanum Pen Script", cursive',
+              fontFamily: '"SD 프시케", "SD Psyche", MaruBuri, "MaruBuri-Regular", serif',
               fontStyle: 'italic',
-              fontSize: 'clamp(3rem, 8.5vw, 7.5rem)',
+              fontSize: 'clamp(2.1rem, 6vw, 5.25rem)',
               fontWeight: 400,
-              lineHeight: 1.15,
+              lineHeight: 1.2,
               letterSpacing: '0',
               wordBreak: 'keep-all',
               textAlign: 'center',
