@@ -472,20 +472,6 @@ export default function IntroSection({
               >
                 I&rsquo;m <span style={{ color: 'var(--cream)', marginLeft: '0.32em' }}>Lee Jeong Seok</span>
               </p>
-              {/* brush underline (design ref: underlined "I'm Thao!") */}
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 240 14"
-                style={{ width: 'min(280px, 60%)', height: 'auto', display: 'block', marginTop: '0.4rem' }}
-              >
-                <path
-                  d="M4 9 C 60 3, 150 3, 236 7"
-                  fill="none"
-                  stroke="var(--accent)"
-                  strokeWidth="5"
-                  strokeLinecap="round"
-                />
-              </svg>
             </div>
 
             <div data-reveal style={{ '--reveal-delay': '120ms' } as CSSProperties}>
