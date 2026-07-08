@@ -9,35 +9,49 @@
 }
 
 :root {
-  /* Warm cream + red editorial (light) */
-  --background: #f2eadd;
-  --foreground: #241a14;
-  --foreground-faint: rgba(36, 26, 20, 0.5);
-  --foreground-dim: rgba(36, 26, 20, 0.055);
-  --surface: #faf5ec;
-  --surface-hover: #f6efe2;
-  --muted: #6f6152;
-  --accent: #c01f2b;
-  --accent-dim: rgba(192, 31, 43, 0.1);
-  /* Signature red brand field (full-bleed hero / red sections) */
-  --crimson: #bb1e2a;
-  --crimson-deep: #9a1621;
-  --on-crimson: #f4ece0;
-  --on-crimson-soft: rgba(244, 236, 224, 0.85);
-  --on-crimson-faint: rgba(244, 236, 224, 0.62);
-  --border: #ddd0bd;
+  /* ── Dark cinematic stage (color ref: Animation Portfolio 2024) ── */
+  --background: #131016;
+  --foreground: #f3ead9;
+  --foreground-faint: rgba(243, 234, 217, 0.5);
+  --foreground-dim: rgba(243, 234, 217, 0.06);
+  --surface: #1b1720;
+  --surface-hover: #231d2b;
+  --muted: #a79c8d;
+  --border: rgba(243, 234, 217, 0.14);
+  --border-faint: rgba(243, 234, 217, 0.08);
+
+  /* ── Electric violet accent (design ref: portfolio 2025 graphic designer) ── */
+  --accent: #7c5cff;
+  --accent-bright: #a08bff;
+  --accent-deep: #4c2fd6;
+  --accent-dim: rgba(124, 92, 255, 0.14);
+
+  /* Warm golden-cream display type (color ref headline) */
+  --cream: #f0d5a0;
+  /* Sparse vivid pops (color ref) */
+  --pop-cyan: #43e2df;
+  --pop-pink: #ff5d8f;
+
+  /* Hero stage field */
+  --stage: #16111f;
+  --on-stage: #f3ead9;
+  --on-stage-soft: rgba(243, 234, 217, 0.82);
+  --on-stage-faint: rgba(243, 234, 217, 0.55);
+
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --space-section: clamp(4rem, 3rem + 5vw, 10rem);
   --text-label: 0.6875rem;
-  /* Display font stack: Anton (Latin) → Black Han Sans (Korean) per-glyph fallback */
+
+  /* Display stack: Anton (Latin) → Black Han Sans (Korean) per-glyph fallback */
   --font-display-stack: var(--font-anton), var(--font-black-han), system-ui, sans-serif;
+  /* Brush script accents (design ref "Hi!" / "Contact" lettering) */
+  --font-script: var(--font-yellowtail), "Brush Script MT", "Savoye LET", cursive;
+
   /* Fine film grain — desaturated fractal noise (site-wide atmosphere) */
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  /* Paper grain — coarser desaturated grain for colored surfaces (red field).
-     feComponentTransfer stretches contrast around mid-gray so the speckle
-     actually reads through an overlay blend instead of averaging to neutral. */
+  /* Coarse paper grain for colored surfaces (violet field, marquee) */
   --grain-paper: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='2.4' intercept='-0.7'/%3E%3CfeFuncG type='linear' slope='2.4' intercept='-0.7'/%3E%3CfeFuncB type='linear' slope='2.4' intercept='-0.7'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
-  /* Cloud mottle — low-frequency tonal variation for a hand-printed paper feel */
+  /* Cloud mottle — low-frequency tonal variation */
   --grain-mottle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.014' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)'/%3E%3C/svg%3E");
 }
 
@@ -49,6 +63,7 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
@@ -59,7 +74,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Site-wide paper texture on the warm cream field — fine grain + soft mottle */
+/* Site-wide film grain on the dark field */
 body::before {
   content: '';
   position: fixed;
@@ -68,13 +83,11 @@ body::before {
   pointer-events: none;
   background-image: var(--grain-mottle), var(--grain);
   background-size: 600px 600px, 300px 300px;
-  mix-blend-mode: multiply;
-  opacity: 0.08;
+  mix-blend-mode: overlay;
+  opacity: 0.1;
 }
 
-/* Localized paper texture on colored surfaces (e.g. crimson hero).
-   Overlay blend renders the desaturated grain as light/dark mottling that
-   actually reads on a saturated red field, unlike a soft-light film grain. */
+/* Localized paper texture on colored surfaces (violet stage, marquee band) */
 .grain::after {
   content: '';
   position: absolute;
@@ -84,42 +97,105 @@ body::before {
   background-image: var(--grain-mottle), var(--grain-paper);
   background-size: 520px 520px, 200px 200px;
   mix-blend-mode: overlay;
-  opacity: 0.62;
+  opacity: 0.4;
 }
 
-/* Hashtag / index-tag helpers */
+/* ── 3D system ─────────────────────────────────────── */
+
+/* Perspective stage — parents of tilting / z-translated children */
+.persp {
+  perspective: 1400px;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* Scroll reveal — cards stand up out of the page floor.
+   JS (Portfolio.tsx) observes [data-reveal] and adds .visible. */
+[data-reveal] {
+  opacity: 0;
+  transform: perspective(1200px) translateY(44px) rotateX(9deg);
+  transition:
+    opacity 900ms var(--ease-out-expo),
+    transform 900ms var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: transform, opacity;
+}
+[data-reveal].visible {
+  opacity: 1;
+  transform: perspective(1200px) translateY(0) rotateX(0deg);
+  will-change: auto;
+}
+
+/* Pointer-tilt card (TiltCard.tsx drives --rx / --ry / --pz) */
+.tilt-card {
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg))
+    translateZ(var(--pz, 0px));
+  transition: transform 500ms var(--ease-out-expo), box-shadow 500ms var(--ease-out-expo);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.tilt-card.tilting {
+  transition: transform 80ms linear;
+}
+
+/* Floating hero chip — gentle levitation, offset per chip via --float-delay */
+@keyframes float3d {
+  0%, 100% { transform: translate3d(var(--px, 0px), 0, var(--pz, 0px)) rotate(var(--rot, 0deg)); }
+  50%      { transform: translate3d(var(--px, 0px), -14px, var(--pz, 0px)) rotate(var(--rot, 0deg)); }
+}
+.float-chip {
+  animation: float3d 7s ease-in-out infinite;
+  animation-delay: var(--float-delay, 0s);
+  will-change: transform;
+}
+
+/* Slow-rotating circular badge */
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.spin-badge {
+  animation: spinSlow 22s linear infinite;
+  will-change: transform;
+}
+
+/* Dark glass panel */
+.glass {
+  background: rgba(27, 23, 32, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--border-faint);
+}
+
+/* ── Type helpers ──────────────────────────────────── */
+
+/* Brush-script accent (design ref: "Hi!", "Contact", "Software") */
+.script-accent {
+  font-family: var(--font-script);
+  font-weight: 400;
+  color: var(--accent-bright);
+  line-height: 1.1;
+}
+
+/* Hashtag helpers (hero) */
 .hash-tag {
   font-size: clamp(0.75rem, 1.1vw, 0.9375rem);
   letter-spacing: 0.02em;
-  color: var(--on-crimson);
+  color: var(--on-stage);
   display: inline-flex;
   align-items: center;
   gap: 0.3em;
 }
 .hash-tag > .hash-sign {
-  color: var(--on-crimson-faint);
+  color: var(--accent-bright);
 }
 
-/* Section index-table row hover */
-.index-row {
-  transition: background 240ms var(--ease-out-expo), padding-left 240ms var(--ease-out-expo);
-}
-.index-row:hover {
-  background: var(--foreground-dim);
-  padding-left: 0.75rem;
-}
-
-/* Category header: title (left) + index table (right) on wide screens */
-@media (min-width: 900px) {
-  .cat-header {
-    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr) !important;
-    align-items: start !important;
-  }
-}
+/* ── Interaction states ────────────────────────────── */
 
 /* Keyboard focus ring */
 :focus-visible {
-  outline: 1.5px solid var(--accent);
+  outline: 1.5px solid var(--accent-bright);
   outline-offset: 3px;
   border-radius: 1px;
 }
@@ -133,18 +209,26 @@ body::before {
   display: none;
 }
 
-/* Scroll reveal */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 700ms var(--ease-out-expo), transform 700ms var(--ease-out-expo);
+/* Card hover lift + violet glow */
+.slider-card {
+  transition: transform 400ms var(--ease-out-expo), box-shadow 400ms var(--ease-out-expo);
 }
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+.slider-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px -20px rgba(124, 92, 255, 0.35);
 }
 
-/* Hero entrance */
+/* Section index-table row hover */
+.index-row {
+  transition: background 240ms var(--ease-out-expo), padding-left 240ms var(--ease-out-expo);
+}
+.index-row:hover {
+  background: var(--foreground-dim);
+  padding-left: 0.75rem;
+}
+
+/* ── Entrance animations ───────────────────────────── */
+
 @keyframes heroFadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -154,23 +238,15 @@ body::before {
 .hero-meta  { animation: heroFadeUp 600ms var(--ease-out-expo) 540ms both; }
 .hero-play  { animation: heroFadeUp 500ms var(--ease-out-expo) 640ms both; }
 
-/* Intro entrance */
 @keyframes introFadeUp {
-  from { opacity: 0; transform: translateY(32px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(32px) rotateX(10deg); }
+  to   { opacity: 1; transform: translateY(0) rotateX(0deg); }
 }
 .intro-label  { animation: introFadeUp 800ms var(--ease-out-expo) 100ms both; }
 .intro-name   { animation: introFadeUp 1000ms var(--ease-out-expo) 240ms both; }
 .intro-role   { animation: introFadeUp 800ms var(--ease-out-expo) 440ms both; }
 .intro-body   { animation: introFadeUp 700ms var(--ease-out-expo) 600ms both; }
 .intro-stats  { animation: introFadeUp 700ms var(--ease-out-expo) 700ms both; }
-
-/* Category section entrance */
-@keyframes catSlideIn {
-  from { opacity: 0; transform: translateX(-20px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-.cat-heading { animation: catSlideIn 700ms var(--ease-out-expo) both; }
 
 /* WorkDetail entrance animations */
 @keyframes workFadeUp {
@@ -190,17 +266,9 @@ body::before {
 }
 .skeleton { animation: shimmer 1.8s ease-in-out infinite; }
 
-/* Slider card hover lift */
-.slider-card {
-  transition: transform 400ms var(--ease-out-expo);
-}
-.slider-card:hover {
-  transform: translateY(-4px);
-}
-
 /* ── Editorial decor ─────────────────────────────── */
 
-/* Running marquee band (see Marquee.tsx) */
+/* Running marquee band */
 @keyframes marqueeScroll {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
@@ -212,7 +280,7 @@ body::before {
   will-change: transform;
 }
 
-/* Circular skill badge (ref: VIDEO EDITING / MOTION GRAPHICS discs) */
+/* Circular skill badge */
 .skill-disc {
   display: grid;
   place-items: center;
@@ -220,7 +288,7 @@ body::before {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 1.5px solid var(--accent);
-  color: var(--accent);
+  color: var(--accent-bright);
   font-size: clamp(0.7rem, 1.4vw, 0.82rem);
   line-height: 1.25;
   letter-spacing: 0.02em;
@@ -230,28 +298,25 @@ body::before {
 }
 .skill-disc:hover {
   background: var(--accent);
-  color: var(--on-crimson);
+  color: var(--on-stage);
   transform: translateY(-3px) rotate(-3deg);
 }
 
-/* Editorial section eyebrow — italic serif script accent */
-.script-accent {
-  font-family: var(--font-playfair, Georgia, serif);
-  font-style: italic;
-  font-weight: 500;
-  color: var(--accent);
-  line-height: 1;
-}
-
-/* Polaroid-style framed accent card */
-.polaroid {
-  background: var(--surface);
-  padding: 0.6rem 0.6rem 1.4rem;
-  border: 1px solid var(--border);
-  box-shadow: 0 12px 30px -14px rgba(36, 26, 20, 0.35);
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation: none; }
-  html { scroll-behavior: auto; }
+  .marquee-track,
+  .float-chip,
+  .spin-badge {
+    animation: none;
+  }
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .tilt-card {
+    transform: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }
