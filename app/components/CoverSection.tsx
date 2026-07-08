@@ -11,23 +11,13 @@ interface CoverSectionProps {
 
 const monoFont = 'var(--font-geist-mono, monospace)';
 
-/* Figma-style selection handles around the wordmark (cover refs 3–4) */
-const HANDLES: CSSProperties[] = [
-  { top: -5, left: -5 },
-  { top: -5, left: '50%', marginLeft: -5 },
-  { top: -5, right: -5 },
-  { top: '50%', left: -5, marginTop: -5 },
-  { top: '50%', right: -5, marginTop: -5 },
-  { bottom: -5, left: -5 },
-  { bottom: -5, left: '50%', marginLeft: -5 },
-  { bottom: -5, right: -5 },
-];
-
+/* Neo-grotesque wordmark (cover type ref: clean Helvetica-like bold caps) */
 const WORDMARK: CSSProperties = {
-  fontFamily: 'var(--font-anton), system-ui, sans-serif',
-  fontSize: 'clamp(3.4rem, 14.5vw, 15rem)',
+  fontFamily: 'var(--font-archivo), system-ui, sans-serif',
+  fontWeight: 700,
+  fontSize: 'clamp(2.9rem, 12vw, 12.5rem)',
   lineHeight: 1,
-  letterSpacing: '0.01em',
+  letterSpacing: '-0.025em',
   textTransform: 'uppercase',
   whiteSpace: 'nowrap',
   margin: 0,
