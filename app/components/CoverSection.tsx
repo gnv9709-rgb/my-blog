@@ -203,9 +203,9 @@ export default function CoverSection({ englishName, photo }: CoverSectionProps) 
             position: 'absolute',
             zIndex: 4,
             bottom: 'clamp(3rem, 12vh, 7rem)',
-            left: 'calc(50% + clamp(2rem, 10vw, 9rem))',
+            left: 'calc(50% + clamp(0rem, 9vw, 9rem))',
             transform: 'translateX(-50%) rotate(-6deg)',
-            fontSize: 'clamp(1.9rem, 4.6vw, 3.8rem)',
+            fontSize: 'clamp(1.65rem, 4.6vw, 3.8rem)',
             whiteSpace: 'nowrap',
             textShadow: '0 10px 34px rgba(0,0,0,0.75)',
           }}
