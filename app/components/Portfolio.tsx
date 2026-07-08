@@ -116,7 +116,7 @@ export default function Portfolio({
 
       <main>
         {/* Page 1 — PORTFOLIO cover */}
-        <CoverSection englishName="Lee Jeong Seok" photo={photo ?? '/profile.jpg'} />
+        <CoverSection englishName="Lee Jeong Seok" />
 
         {/* Page 2 (hero) + Page 3 (about) */}
         <IntroSection
