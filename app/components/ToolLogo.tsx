@@ -172,11 +172,14 @@ const TOOLS: Record<string, ToolSpec> = {
     scale: 1.05,
   },
   '타입캐스트': {
-    bg: 'transparent',
+    // Transparent navy mark → gets lost on the dark stage. Sit it on a white
+    // rounded tile (like 나노바나나/캡컷) so it reads against the background.
+    bg: '#ffffff',
     fg: '#0d1b3a',
+    light: true,
     img: '/logos/typecast.png',
-    appIcon: true,
-    scale: 1,
+    fit: 'contain',
+    scale: 1.06,
   },
   '아이폰 15pro': {
     bg: '#1d1d1f',
