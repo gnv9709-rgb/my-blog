@@ -27,11 +27,9 @@ const WORDMARK: CSSProperties = {
  * the letters (cover refs: solid type behind the subject, outline type in
  * front) + brush-script signature, staged with mouse parallax.
  */
-export default function CoverSection({ englishName, photo }: CoverSectionProps) {
+export default function CoverSection({ englishName }: CoverSectionProps) {
   const stageRef = useRef<HTMLDivElement>(null);
   const frame = useRef<number>(0);
-  // If the portrait can't load, drop it entirely — never show a broken-image icon.
-  const [photoFailed, setPhotoFailed] = useState(false);
 
   const onStageMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
     const el = stageRef.current;
