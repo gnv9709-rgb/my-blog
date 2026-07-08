@@ -468,7 +468,7 @@ export default function IntroSection({
                 className="script-accent"
                 style={{ fontSize: 'clamp(2.1rem, 4.6vw, 3.6rem)', margin: 0, whiteSpace: 'nowrap' }}
               >
-                I&rsquo;m <span style={{ color: 'var(--cream)' }}>Lee Jeong Seok</span>
+                I&rsquo;m <span style={{ color: 'var(--cream)', marginLeft: '0.32em' }}>Lee Jeong Seok</span>
               </p>
               {/* brush underline (design ref: underlined "I'm Thao!") */}
               <svg
