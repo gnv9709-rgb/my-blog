@@ -138,24 +138,6 @@ export default function CoverSection({ englishName }: CoverSectionProps) {
           {englishName}
         </p>
 
-        {/* small spec tags (cover ref 3: IDEA / DESIGN markers) */}
-        <span
-          aria-hidden="true"
-          className="hero-meta"
-          style={{
-            position: 'absolute',
-            top: 'clamp(4rem, 14vh, 8rem)',
-            left: 'clamp(1.5rem, 7vw, 7rem)',
-            zIndex: 4,
-            fontFamily: monoFont,
-            fontSize: '0.625rem',
-            letterSpacing: '0.35em',
-            textTransform: 'uppercase',
-            color: 'var(--accent-bright)',
-          }}
-        >
-          ● Plan — Shoot — Edit
-        </span>
       </div>
 
       {/* bottom strip */}
