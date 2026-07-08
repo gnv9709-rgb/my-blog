@@ -1,14 +1,15 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono, Playfair_Display, Anton, Black_Han_Sans } from 'next/font/google';
+import { Geist, Geist_Mono, Yellowtail, Anton, Black_Han_Sans } from 'next/font/google';
 import './globals.css';
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] });
-const playfair = Playfair_Display({
-  variable: '--font-playfair',
+// Brush script for editorial accents ("Hi!", "Contact" — design ref lettering)
+const yellowtail = Yellowtail({
+  variable: '--font-yellowtail',
   subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  style: ['normal', 'italic'],
+  weight: '400',
+  display: 'swap',
 });
 // Bold condensed display — Anton covers Latin, Black Han Sans covers Korean (per-glyph fallback)
 const anton = Anton({ variable: '--font-anton', subsets: ['latin'], weight: '400' });
