@@ -79,7 +79,7 @@ export default function Marquee({
               style={{
                 marginLeft: 'clamp(1.5rem, 3.5vw, 3rem)',
                 fontSize: '0.7em',
-                color: tone === 'crimson' ? 'var(--on-crimson-faint)' : 'var(--accent)',
+                color: tone === 'violet' ? 'var(--on-stage-faint)' : 'var(--accent-bright)',
               }}
             >
               {STAR}
