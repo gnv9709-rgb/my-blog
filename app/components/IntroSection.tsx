@@ -103,6 +103,7 @@ function ProfilePhoto({ src, name }: { src: string; name: string }) {
       src={src}
       alt={`${name} 프로필 사진`}
       fill
+      unoptimized
       sizes="(max-width: 900px) 90vw, 480px"
       style={{ objectFit: 'cover' }}
       onError={() => setFailed(true)}
