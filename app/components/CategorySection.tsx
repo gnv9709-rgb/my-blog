@@ -246,7 +246,7 @@ export default function CategorySection({ category, videos, index }: CategorySec
             fontWeight: 800,
             lineHeight: 1,
             color: 'transparent',
-            WebkitTextStroke: '1px rgba(36,26,20,0.07)',
+            WebkitTextStroke: '1px rgba(243,234,217,0.09)',
             pointerEvents: 'none',
             userSelect: 'none',
             letterSpacing: '-0.05em',
