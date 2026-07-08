@@ -47,6 +47,8 @@
   --font-display-stack: var(--font-anton), var(--font-black-han), system-ui, sans-serif;
   /* Brush script accents (design ref "Hi!" / "Contact" lettering) */
   --font-script: var(--font-yellowtail), "Brush Script MT", "Savoye LET", cursive;
+  /* Korean-optimized grotesque (category headings) — loaded via CDN in layout */
+  --font-pretendard: "Pretendard Variable", Pretendard, var(--font-geist-sans), system-ui, sans-serif;
 
   /* Fine film grain — desaturated fractal noise (site-wide atmosphere) */
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
