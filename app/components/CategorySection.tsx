@@ -297,8 +297,8 @@ export default function CategorySection({ category, videos, index }: CategorySec
         </div>
       </div>
 
-      {/* Red separator */}
-      <div style={{ height: '2px', background: 'var(--accent)', margin: '0 clamp(1.5rem, 4vw, 4rem)', opacity: 0.85 }} />
+      {/* Violet separator */}
+      <div style={{ height: '2px', background: 'linear-gradient(90deg, var(--accent) 0%, transparent 100%)', margin: '0 clamp(1.5rem, 4vw, 4rem)', opacity: 0.85 }} />
 
       {/* Gallery — uniform cards, click to expand inline. Flex so few-item rows can center. */}
       <div
