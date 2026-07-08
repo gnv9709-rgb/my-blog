@@ -92,33 +92,6 @@ export default function CoverSection({ englishName, photo }: CoverSectionProps) 
           padding: '0 clamp(1rem, 3vw, 3rem)',
         }}
       >
-        {/* dashed selection frame with handles */}
-        <div
-          aria-hidden="true"
-          className="hero-meta"
-          style={{
-            position: 'absolute',
-            inset: 'clamp(0.5rem, 4vh, 3rem) clamp(0.75rem, 3vw, 3rem)',
-            border: '1px dashed rgba(243,234,217,0.25)',
-            zIndex: 5,
-            pointerEvents: 'none',
-          }}
-        >
-          {HANDLES.map((pos, i) => (
-            <span
-              key={i}
-              style={{
-                position: 'absolute',
-                width: 9,
-                height: 9,
-                background: 'var(--background)',
-                border: '1px solid rgba(243,234,217,0.6)',
-                ...pos,
-              }}
-            />
-          ))}
-        </div>
-
         {/* solid wordmark — behind the portrait */}
         <h1
           className="hero-title"
