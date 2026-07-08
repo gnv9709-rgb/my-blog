@@ -311,7 +311,7 @@ export const videos: Video[] = [
     externalUrl: 'https://www.instagram.com/reel/DX3XtBzz38z/',
     videoFile: '/videos/11.mp4',
     thumbnail: '/thumbnails/11.jpg',
-    title: '자취 5년 차도 모르는 꿀팁 5가지',
+    title: '__SWAP_TMP__',
     client: '개인 채널',
     category: 'AI',
     year: 2026,
