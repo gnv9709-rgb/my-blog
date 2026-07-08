@@ -311,7 +311,7 @@ export default function CategorySection({ category, videos, index }: CategorySec
           alignItems: 'flex-start',
         }}
       >
-        {videos.map((video) => {
+        {videos.map((video, vi) => {
           const isOpen = openId === video.id;
           const thumb = thumbSrc(video);
           const platform = video.youtubeId == null && video.externalUrl ? getPlatformLabel(video.externalUrl) : null;
@@ -322,6 +322,7 @@ export default function CategorySection({ category, videos, index }: CategorySec
                 onClick={() => setOpenId(isOpen ? null : video.id)}
                 aria-expanded={isOpen}
                 className="group"
+                data-reveal
                 style={{
                   display: 'block',
                   width: 'min(100%, 300px)',
@@ -331,9 +332,11 @@ export default function CategorySection({ category, videos, index }: CategorySec
                   border: 'none',
                   padding: 0,
                   cursor: 'pointer',
-                }}
+                  '--reveal-delay': `${(vi % 4) * 90}ms`,
+                } as React.CSSProperties}
               >
-                {/* Thumbnail (uniform) */}
+                {/* Thumbnail (uniform) — pointer-tracking 3D tilt */}
+                <TiltCard max={9} pop={16}>
                 <div
                   className="relative overflow-hidden slider-card"
                   style={{
@@ -354,7 +357,7 @@ export default function CategorySection({ category, videos, index }: CategorySec
                     )}
                     <div
                       className="absolute inset-0 flex items-center justify-center transition-opacity duration-300"
-                      style={{ background: 'rgba(36,26,20,0.32)', opacity: isOpen ? 1 : 0 }}
+                      style={{ background: 'rgba(8,6,12,0.5)', opacity: isOpen ? 1 : 0 }}
                     >
                       <span
                         className="flex items-center justify-center w-11 h-11 rounded-full"
@@ -368,13 +371,14 @@ export default function CategorySection({ category, videos, index }: CategorySec
                     {platform && (
                       <span
                         className="absolute top-2.5 right-2.5 text-[9px] tracking-widest uppercase px-2 py-1"
-                        style={{ background: 'rgba(250,245,236,0.9)', color: 'var(--foreground)', borderRadius: '3px' }}
+                        style={{ background: 'rgba(19,16,22,0.78)', color: 'var(--cream)', borderRadius: '3px', backdropFilter: 'blur(6px)' }}
                       >
                         {platform}
                       </span>
                     )}
                   </div>
                 </div>
+                </TiltCard>
 
                 {/* Title (real YouTube title) */}
                 <div className="mt-2.5">
