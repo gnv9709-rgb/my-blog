@@ -130,16 +130,6 @@ export default function CoverSection({ englishName, photo }: CoverSectionProps) 
             sizes="(max-width: 768px) 70vw, 460px"
             style={{ objectFit: 'cover', objectPosition: 'top center', filter: 'saturate(0.86) contrast(1.04)' }}
           />
-          {/* soften the photo edges into the stage */}
-          <span
-            aria-hidden="true"
-            style={{
-              position: 'absolute',
-              inset: 0,
-              boxShadow: 'inset 0 0 48px 34px rgba(16, 13, 21, 0.9)',
-              pointerEvents: 'none',
-            }}
-          />
         </div>
 
         {/* outline wordmark — in front, letters cross over the face */}
