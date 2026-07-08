@@ -53,7 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="ko"
-      className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${anton.variable} ${blackHanSans.variable} h-full`}
+      className={`${geistSans.variable} ${geistMono.variable} ${yellowtail.variable} ${anton.variable} ${blackHanSans.variable} h-full`}
     >
       <body className="min-h-full antialiased">{children}</body>
     </html>
