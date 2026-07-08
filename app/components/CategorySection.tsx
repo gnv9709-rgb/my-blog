@@ -196,7 +196,7 @@ function DetailPanel({ video }: { video: Video }) {
               <dl style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))', gap: 'clamp(1rem, 2vw, 1.5rem)' }}>
                 {(Object.entries(video.equipment) as [string, string[]][]).map(([key, items]) => (
                   <div key={key}>
-                    <dt style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--accent)', marginBottom: '0.4rem', letterSpacing: '0.02em' }}>
+                    <dt style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--accent-bright)', marginBottom: '0.4rem', letterSpacing: '0.02em' }}>
                       {key}
                     </dt>
                     <dd style={{ fontSize: '0.875rem', lineHeight: 1.7, color: 'var(--foreground)', opacity: 0.82 }}>
