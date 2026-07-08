@@ -621,8 +621,8 @@ export default function IntroSection({
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: 'clamp(0.9rem, 2vw, 1.3rem)',
-                maxWidth: '440px',
+                gap: 'clamp(0.75rem, 1.8vw, 1.1rem)',
+                maxWidth: '340px',
                 margin: '0 auto',
                 listStyle: 'none',
                 padding: 0,
