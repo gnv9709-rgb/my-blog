@@ -60,7 +60,6 @@ const metaLabel = {
 };
 
 function DetailPanel({ video }: { video: Video }) {
-  const isExternal = video.youtubeId == null;
   const thumb = thumbSrc(video, 'max');
 
   return (
