@@ -241,11 +241,10 @@ export default function Portfolio({
             Contact
             <span style={{ marginLeft: '0.6em' }}>★</span>
           </p>
-          {/* SD 프시케 Italic (산돌구름 로컬 설치 시) → 마루부리 이탤릭 폴백.
-              산돌 웹폰트 임베드 코드(webfont.sandollcloud.com/js/…)를 받으면 교체. */}
+          {/* 마루부리 이탤릭 — 작성자·방문자 모두 동일하게 보이도록 웹폰트만 사용 */}
           <h2
             style={{
-              fontFamily: '"SD 프시케", "SD Psyche", MaruBuri, "MaruBuri-Regular", serif',
+              fontFamily: 'MaruBuri, "MaruBuri-Regular", serif',
               fontStyle: 'italic',
               fontSize: 'clamp(2.1rem, 6vw, 5.25rem)',
               fontWeight: 400,
