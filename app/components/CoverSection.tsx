@@ -32,6 +32,8 @@ const WORDMARK: CSSProperties = {
 export default function CoverSection({ englishName, photo }: CoverSectionProps) {
   const stageRef = useRef<HTMLDivElement>(null);
   const frame = useRef<number>(0);
+  // If the portrait can't load, drop it entirely — never show a broken-image icon.
+  const [photoFailed, setPhotoFailed] = useState(false);
 
   const onStageMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
     const el = stageRef.current;
