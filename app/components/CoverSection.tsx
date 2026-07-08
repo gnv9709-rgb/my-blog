@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useCallback, type CSSProperties } from 'react';
+import { useRef, useState, useCallback, type CSSProperties } from 'react';
 import Image from 'next/image';
 
 interface CoverSectionProps {
