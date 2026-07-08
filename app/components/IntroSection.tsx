@@ -236,11 +236,11 @@ export default function IntroSection({
           <h1
             className="intro-name"
             style={{
-              fontFamily: displayFont,
-              fontSize: 'clamp(3rem, 10.5vw, 11rem)',
-              fontWeight: 400,
-              lineHeight: 0.9,
-              letterSpacing: '0.01em',
+              fontFamily: 'var(--font-archivo), system-ui, sans-serif',
+              fontSize: 'clamp(2.7rem, 9.5vw, 10rem)',
+              fontWeight: 700,
+              lineHeight: 0.95,
+              letterSpacing: '-0.02em',
               color: 'var(--cream)',
               textTransform: 'uppercase',
               textShadow: '0 30px 60px rgba(0,0,0,0.5)',
