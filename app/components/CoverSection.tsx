@@ -1,12 +1,10 @@
 'use client';
 
-import { useRef, useState, useCallback, type CSSProperties } from 'react';
-import Image from 'next/image';
+import { useRef, useCallback, type CSSProperties } from 'react';
 
 interface CoverSectionProps {
   /** English display name rendered as the script signature. */
   englishName: string;
-  photo: string;
 }
 
 const monoFont = 'var(--font-geist-mono, monospace)';
