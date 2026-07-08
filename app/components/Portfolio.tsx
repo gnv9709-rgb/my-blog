@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import type { Video } from '../types';
 import { CATEGORIES } from '../data/videos';
+import CoverSection from './CoverSection';
 import IntroSection from './IntroSection';
 import CategorySection from './CategorySection';
 import Marquee from './decor/Marquee';
