@@ -19,6 +19,7 @@ export default function Portfolio({
   videos,
   name = '이정석',
   email = 'gnv9709@gmail.com',
+  photo,
 }: PortfolioProps) {
   const [headerSolid, setHeaderSolid] = useState(false);
 
@@ -27,6 +28,24 @@ export default function Portfolio({
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // Scroll reveal: [data-reveal] elements stand up (rotateX) as they enter view.
+  useEffect(() => {
+    const els = document.querySelectorAll('[data-reveal]');
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.1 },
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, [videos]);
 
   const categorySections = CATEGORIES.filter((c) => c !== 'ALL')
     .map((cat) => ({
@@ -50,22 +69,21 @@ export default function Portfolio({
           alignItems: 'center',
           justifyContent: 'space-between',
           padding: '0 clamp(1.5rem, 4vw, 4rem)',
-          background: headerSolid ? 'rgba(242,234,221,0.92)' : 'transparent',
+          background: headerSolid ? 'rgba(19, 16, 22, 0.78)' : 'transparent',
           backdropFilter: headerSolid ? 'blur(20px)' : 'none',
           WebkitBackdropFilter: headerSolid ? 'blur(20px)' : 'none',
-          borderBottom: headerSolid ? '1px solid var(--border)' : '1px solid transparent',
+          borderBottom: headerSolid ? '1px solid var(--border-faint)' : '1px solid transparent',
           transition: 'background 400ms, border-color 400ms',
         }}
       >
         <a
           href="/"
           style={{
-            fontFamily: 'var(--font-playfair, Georgia, serif)',
+            fontFamily: 'var(--font-display-stack)',
             fontSize: '1.0625rem',
             letterSpacing: '0.08em',
-            color: headerSolid ? 'var(--foreground)' : 'var(--on-crimson)',
+            color: 'var(--cream)',
             textDecoration: 'none',
-            transition: 'color 400ms',
           }}
         >
           {name}
@@ -76,24 +94,30 @@ export default function Portfolio({
             fontSize: '0.6875rem',
             letterSpacing: '0.3em',
             textTransform: 'uppercase',
-            color: headerSolid ? 'var(--muted)' : 'var(--on-crimson-faint)',
+            color: 'var(--on-stage-faint)',
             textDecoration: 'none',
             transition: 'color 200ms',
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent)')}
-          onMouseLeave={(e) => (e.currentTarget.style.color = headerSolid ? 'var(--muted)' : 'var(--on-crimson-faint)')}
+          onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent-bright)')}
+          onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--on-stage-faint)')}
         >
           Contact
         </a>
       </header>
 
       <main>
-        <IntroSection name={name} email={email} videoCount={videos.length} videos={videos} />
+        <IntroSection
+          name={name}
+          email={email}
+          videoCount={videos.length}
+          videos={videos}
+          photo={photo}
+        />
 
         {/* Editorial marquee — rhythm break between intro and works */}
         <Marquee
           items={['기획', '촬영', '편집', '연출', 'STORYTELLING', 'MOTION', 'COLOR', 'LIVE']}
-          tone="crimson"
+          tone="violet"
           duration={34}
         />
 
@@ -104,11 +128,11 @@ export default function Portfolio({
             position: 'sticky',
             top: '64px',
             zIndex: 30,
-            background: 'rgba(242,234,221,0.92)',
+            background: 'rgba(19, 16, 22, 0.78)',
             backdropFilter: 'blur(12px)',
             WebkitBackdropFilter: 'blur(12px)',
-            borderTop: '1px solid var(--border)',
-            borderBottom: '1px solid var(--border)',
+            borderTop: '1px solid var(--border-faint)',
+            borderBottom: '1px solid var(--border-faint)',
           }}
         >
           <div
@@ -126,7 +150,7 @@ export default function Portfolio({
                 fontSize: 'var(--text-label, 0.625rem)',
                 letterSpacing: '0.35em',
                 textTransform: 'uppercase',
-                color: 'var(--accent)',
+                color: 'var(--accent-bright)',
                 fontFamily: 'var(--font-geist-mono, monospace)',
                 flexShrink: 0,
               }}
@@ -147,7 +171,7 @@ export default function Portfolio({
                   flexShrink: 0,
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.color = 'var(--accent)';
+                  e.currentTarget.style.color = 'var(--accent-bright)';
                   e.currentTarget.style.opacity = '1';
                 }}
                 onMouseLeave={(e) => {
@@ -172,12 +196,12 @@ export default function Portfolio({
             position: 'relative',
             overflow: 'hidden',
             scrollMarginTop: '80px',
-            borderTop: '1px solid var(--border)',
+            borderTop: '1px solid var(--border-faint)',
             padding: 'clamp(5rem, 10vw, 10rem) clamp(1.5rem, 4vw, 4rem)',
             textAlign: 'center',
           }}
         >
-          {/* soft red blob + squiggles filling the negative space */}
+          {/* violet glow + squiggles filling the negative space */}
           <span
             aria-hidden="true"
             style={{
@@ -187,7 +211,7 @@ export default function Portfolio({
               width: 'clamp(180px, 26vw, 420px)',
               height: 'clamp(180px, 26vw, 420px)',
               borderRadius: '50%',
-              background: 'var(--accent-dim)',
+              background: 'radial-gradient(circle, var(--accent-dim) 0%, transparent 70%)',
               zIndex: 0,
             }}
           />
@@ -215,7 +239,7 @@ export default function Portfolio({
               zIndex: 0,
             }}
           />
-          <div style={{ position: 'relative', zIndex: 1 }}>
+          <div data-reveal style={{ position: 'relative', zIndex: 1 }}>
           <span
             className="script-accent"
             style={{ display: 'block', fontSize: 'clamp(1.75rem, 4vw, 3rem)', marginBottom: '0.5rem' }}
@@ -227,7 +251,7 @@ export default function Portfolio({
               fontSize: '0.6875rem',
               letterSpacing: '0.4em',
               textTransform: 'uppercase',
-              color: 'var(--accent)',
+              color: 'var(--accent-bright)',
               marginBottom: '2rem',
             }}
           >
@@ -242,7 +266,7 @@ export default function Portfolio({
               fontWeight: 400,
               lineHeight: 0.95,
               letterSpacing: '0',
-              color: 'var(--foreground)',
+              color: 'var(--cream)',
               marginBottom: '1.75rem',
             }}
           >
@@ -269,21 +293,24 @@ export default function Portfolio({
               textTransform: 'uppercase',
               padding: '1.125rem 2.75rem',
               border: '1px solid var(--border)',
+              borderRadius: '999px',
               color: 'var(--foreground)',
               textDecoration: 'none',
-              transition: 'background 300ms, border-color 300ms, color 300ms',
+              transition: 'background 300ms, border-color 300ms, color 300ms, box-shadow 300ms',
             }}
             onMouseEnter={(e) => {
               const el = e.currentTarget;
               el.style.background = 'var(--accent)';
               el.style.borderColor = 'var(--accent)';
-              el.style.color = '#f0ece6';
+              el.style.color = '#fff';
+              el.style.boxShadow = '0 20px 50px -18px rgba(124,92,255,0.65)';
             }}
             onMouseLeave={(e) => {
               const el = e.currentTarget;
               el.style.background = 'transparent';
               el.style.borderColor = 'var(--border)';
               el.style.color = 'var(--foreground)';
+              el.style.boxShadow = 'none';
             }}
           >
             메일 보내기
@@ -308,7 +335,7 @@ export default function Portfolio({
       {/* Footer */}
       <footer
         style={{
-          borderTop: '1px solid var(--border)',
+          borderTop: '1px solid var(--border-faint)',
           padding: '2.5rem clamp(1.5rem, 4vw, 4rem)',
           display: 'flex',
           flexWrap: 'wrap',
@@ -337,7 +364,7 @@ export default function Portfolio({
             textDecoration: 'none',
             transition: 'color 200ms',
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent)')}
+          onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent-bright)')}
           onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--muted)')}
         >
           {email}
