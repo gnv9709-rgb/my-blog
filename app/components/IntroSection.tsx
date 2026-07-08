@@ -385,7 +385,7 @@ export default function IntroSection({
         style={{
           scrollMarginTop: '120px',
           borderTop: '1px solid var(--border-faint)',
-          padding: 'clamp(4rem, 8vw, 8rem) clamp(1.5rem, 4vw, 4rem)',
+          padding: 'var(--space-section) clamp(1.5rem, 4vw, 4rem)',
         }}
       >
         {/* top spread: photo + Hi! (left) · intro + contact (right) */}
