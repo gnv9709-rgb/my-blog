@@ -610,15 +610,15 @@ export default function IntroSection({
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: 'clamp(0.75rem, 1.8vw, 1.1rem)',
-                maxWidth: '340px',
+                gap: 'clamp(0.9rem, 2vw, 1.3rem)',
+                maxWidth: '440px',
                 listStyle: 'none',
                 padding: 0,
                 margin: 0,
               }}
             >
               {techniques.map((item) => (
-                <li key={item} className="skill-disc" style={{ fontWeight: 600 }}>
+                <li key={item} className="skill-disc" style={{ fontWeight: 700 }}>
                   {item}
                 </li>
               ))}
