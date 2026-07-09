@@ -166,15 +166,6 @@ export default function VideoCard({ video, large = false, sliderMode = false }: 
             </p>
           )}
         </div>
-        <span
-          className="shrink-0 text-xs tabular-nums mt-0.5"
-          style={{
-            color: 'var(--muted)',
-            fontFamily: 'var(--font-geist-mono, monospace)',
-          }}
-        >
-          {video.year}
-        </span>
       </div>
 
       {/* Meta caption — direct-link shorts only (contribution + tools) */}
