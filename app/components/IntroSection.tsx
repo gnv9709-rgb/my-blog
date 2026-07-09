@@ -393,9 +393,9 @@ export default function IntroSection({
       {/* ── 02 ABOUT (page 2) — "Hi! I'm ___" profile spread (design ref layout) ── */}
       <div
         id="about"
-        className="persp"
+        className="persp snap-sec"
         style={{
-          scrollMarginTop: '120px',
+          scrollMarginTop: '0px',
           borderTop: '1px solid var(--border-faint)',
           padding: 'var(--space-section) clamp(1.5rem, 4vw, 4rem)',
         }}
