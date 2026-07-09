@@ -310,7 +310,7 @@ export const videos: Video[] = [
     id: '11',
     externalUrl: 'https://www.instagram.com/reel/DXvAaPMz3Qm/',
     videoFile: '/videos/11.mp4',
-    thumbnail: '/thumbnails/11.jpg',
+    thumbnail: '/thumbnails/11.jpg?v=2',
     title: '전자레인지로 3분 만에 계란찜 완성?!',
     client: '개인 채널',
     category: 'AI',
