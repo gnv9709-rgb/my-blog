@@ -621,8 +621,8 @@ export default function IntroSection({
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: 'clamp(0.75rem, 1.8vw, 1.1rem)',
-                maxWidth: '340px',
+                gap: 'clamp(1rem, 2.2vw, 1.6rem)',
+                maxWidth: '680px',
                 margin: '0 auto',
                 listStyle: 'none',
                 padding: 0,
@@ -632,11 +632,15 @@ export default function IntroSection({
                 <li
                   key={key}
                   className="skill-disc"
-                  style={{ fontWeight: 700, fontSize: 'clamp(0.625rem, 1.2vw, 0.75rem)' }}
+                  style={{
+                    fontWeight: 700,
+                    fontSize: 'clamp(1.1rem, 2.3vw, 1.5rem)',
+                    padding: 'clamp(0.75rem, 1.8vw, 1.5rem)',
+                  }}
                 >
                   <span style={{ display: 'block' }}>
                     {lines.map((line) => (
-                      <span key={line} style={{ display: 'block', lineHeight: 1.3 }}>
+                      <span key={line} style={{ display: 'block', lineHeight: 1.35 }}>
                         {line}
                       </span>
                     ))}
