@@ -48,7 +48,7 @@ export default function CoverSection({ englishName }: CoverSectionProps) {
     <section
       ref={stageRef}
       aria-label="커버"
-      className="grain persp"
+      className="grain persp snap-page"
       onPointerMove={onStageMove}
       style={{
         position: 'relative',
