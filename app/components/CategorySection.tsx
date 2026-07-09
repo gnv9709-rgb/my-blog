@@ -201,9 +201,6 @@ function DetailPanel({ video }: { video: Video }) {
             <span style={{ fontSize: 'clamp(1.0625rem, 1.6vw, 1.3rem)', fontWeight: 700, color: 'var(--foreground)', letterSpacing: '-0.01em' }}>
               {video.client}
             </span>
-            <span style={{ fontSize: '0.8125rem', color: 'var(--muted)', fontFamily: 'var(--font-geist-mono, monospace)' }}>
-              {video.year}
-            </span>
           </div>
         )}
 
