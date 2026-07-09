@@ -325,7 +325,7 @@ export const videos: Video[] = [
     id: '12',
     externalUrl: 'https://www.instagram.com/reel/DX3XtBzz38z/',
     videoFile: '/videos/12.mp4',
-    thumbnail: '/thumbnails/12.jpg',
+    thumbnail: '/thumbnails/12.jpg?v=2',
     title: '자취 5년 차도 모르는 꿀팁 5가지',
     client: '개인 채널',
     category: 'AI',
