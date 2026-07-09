@@ -89,12 +89,6 @@ export default function VideoModal({ video, onClose }: VideoModalProps) {
               >
                 {video.title}
               </h2>
-              <span
-                className="shrink-0 text-3xl font-light tabular-nums"
-                style={{ color: 'var(--muted)', fontFamily: 'var(--font-playfair, Georgia, serif)' }}
-              >
-                {video.year}
-              </span>
             </div>
 
             {/* Tags */}
