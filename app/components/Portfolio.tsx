@@ -259,52 +259,6 @@ export default function Portfolio({
           >
             당신의 팀에 필요한 한 사람
           </h2>
-          <a
-            href={`mailto:${email}`}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.75rem',
-              fontSize: '0.6875rem',
-              letterSpacing: '0.3em',
-              textTransform: 'uppercase',
-              padding: '1.125rem 2.75rem',
-              border: '1px solid var(--border)',
-              borderRadius: '999px',
-              color: 'var(--foreground)',
-              textDecoration: 'none',
-              transition: 'background 300ms, border-color 300ms, color 300ms, box-shadow 300ms',
-            }}
-            onMouseEnter={(e) => {
-              const el = e.currentTarget;
-              el.style.background = 'var(--accent)';
-              el.style.borderColor = 'var(--accent)';
-              el.style.color = '#fff';
-              el.style.boxShadow = '0 20px 50px -18px rgba(124,92,255,0.65)';
-            }}
-            onMouseLeave={(e) => {
-              const el = e.currentTarget;
-              el.style.background = 'transparent';
-              el.style.borderColor = 'var(--border)';
-              el.style.color = 'var(--foreground)';
-              el.style.boxShadow = 'none';
-            }}
-          >
-            메일 보내기
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={1.5}
-              style={{ width: '1rem', height: '1rem' }}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
-              />
-            </svg>
-          </a>
           </div>
         </section>
       </main>
