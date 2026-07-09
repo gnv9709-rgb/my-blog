@@ -77,9 +77,6 @@ export default function Hero({ video, onPlay }: HeroProps) {
                 {video.client}
               </span>
             )}
-            <span className="text-xs tracking-widest uppercase" style={{ color: 'var(--muted)' }}>
-              {video.year}
-            </span>
           </div>
         </div>
       </div>
