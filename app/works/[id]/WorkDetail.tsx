@@ -203,7 +203,7 @@ export default function WorkDetail({ video, prev, next }: WorkDetailProps) {
             className="work-title text-[10px] tracking-[0.35em] uppercase mb-5"
             style={{ color: 'var(--accent)' }}
           >
-            Work — {video.year}
+            Work
           </p>
           <h1
             className="work-title leading-[1.05] mb-5"
