@@ -259,8 +259,9 @@ export default function CategorySection({ category, videos, index }: CategorySec
     <section
       id={`category-${index}`}
       aria-labelledby={`cat-heading-${index}`}
+      className="snap-sec"
       style={{
-        scrollMarginTop: '120px',
+        scrollMarginTop: '64px',
         borderTop: '1px solid var(--border)',
         background: index % 2 === 1 ? 'var(--surface)' : 'transparent',
       }}
