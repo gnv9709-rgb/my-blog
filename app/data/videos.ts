@@ -296,7 +296,7 @@ export const videos: Video[] = [
     id: '10',
     externalUrl: 'https://www.instagram.com/reel/DV7cmt2jzA3/',
     videoFile: '/videos/10.mp4',
-    thumbnail: '/thumbnails/10.jpg',
+    thumbnail: '/thumbnails/10.jpg?v=2',
     title: '색소의 종결자, 색소 치료 레이저 크롬레이저(CHROME LASER)',
     client: '메디우스',
     category: 'AI',
