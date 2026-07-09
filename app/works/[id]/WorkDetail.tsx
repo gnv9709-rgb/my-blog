@@ -233,16 +233,6 @@ export default function WorkDetail({ video, prev, next }: WorkDetailProps) {
             gap: 'clamp(2rem, 4vw, 3.5rem)',
           }}
         >
-          {/* 제작 연도 */}
-          <div>
-            <p className="text-[9px] tracking-[0.45em] uppercase mb-3" style={{ color: 'var(--accent)' }}>
-              제작 연도
-            </p>
-            <p className="text-sm" style={{ color: 'var(--foreground)', opacity: 0.8 }}>
-              {video.year}
-            </p>
-          </div>
-
           {/* details: 기여도 as text, 사용 툴 as chips */}
           {video.details?.map((d) => {
             const isTools = d.label.includes('툴');
