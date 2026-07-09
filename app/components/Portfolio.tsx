@@ -198,10 +198,11 @@ export default function Portfolio({
         {/* Contact CTA */}
         <section
           id="contact"
+          className="snap-sec"
           style={{
             position: 'relative',
             overflow: 'hidden',
-            scrollMarginTop: '80px',
+            scrollMarginTop: '0px',
             borderTop: '1px solid var(--border-faint)',
             padding: 'var(--space-section) clamp(1.5rem, 4vw, 4rem)',
             textAlign: 'center',
