@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props) {
   return {
     title: video ? `${video.title} — 이정석` : '이정석 — 영상 콘텐츠 제작자',
     description: video
-      ? `${video.client ?? ''} · ${video.year} · ${video.category}`
+      ? `${video.client ?? ''} · ${video.category}`
       : '',
   };
 }
