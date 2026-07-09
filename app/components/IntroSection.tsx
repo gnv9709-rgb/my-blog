@@ -157,7 +157,7 @@ export default function IntroSection({
       {/* ── 01 HERO — dark violet stage, floating 3D layers ── */}
       <div
         ref={stageRef}
-        className="grain persp"
+        className="grain persp snap-page"
         onPointerMove={onStageMove}
         style={{
           minHeight: '100svh',
