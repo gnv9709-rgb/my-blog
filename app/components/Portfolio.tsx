@@ -259,6 +259,66 @@ export default function Portfolio({
           >
             당신의 팀에 필요한 한 사람
           </h2>
+
+          {/* Colophon — 이 사이트도 Claude Code로 직접 제작했다는 역량 크레딧 */}
+          <div style={{ textAlign: 'center' }}>
+            <a
+              href="https://claude.com/claude-code"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="이 사이트는 Claude Code로 제작하였습니다"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                gap: '0.5em',
+                fontSize: 'clamp(0.75rem, 1.6vw, 0.875rem)',
+                letterSpacing: '0.02em',
+                color: 'var(--on-stage-faint, rgba(245,240,230,0.5))',
+                textDecoration: 'none',
+                transition: 'color 200ms',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--cream)')}
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.color = 'var(--on-stage-faint, rgba(245,240,230,0.5))')
+              }
+            >
+              <span>해당 사이트는</span>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.34em' }}>
+                <svg
+                  viewBox="0 0 100 100"
+                  aria-hidden="true"
+                  style={{ width: '1.2em', height: '1.2em', display: 'block' }}
+                >
+                  {Array.from({ length: 10 }).map((_, i) => (
+                    <rect
+                      key={i}
+                      x="45.5"
+                      y="7"
+                      width="9"
+                      height="34"
+                      rx="4.5"
+                      fill="#D97757"
+                      transform={`rotate(${i * 36} 50 50)`}
+                    />
+                  ))}
+                </svg>
+                <span
+                  style={{
+                    fontFamily: 'var(--font-playfair, Georgia, serif)',
+                    fontSize: '1.2em',
+                    fontWeight: 600,
+                    color: 'var(--cream)',
+                    letterSpacing: '-0.01em',
+                  }}
+                >
+                  Claude Code
+                </span>
+              </span>
+              <span>로 제작하였습니다</span>
+            </a>
+          </div>
           </div>
         </section>
       </main>
