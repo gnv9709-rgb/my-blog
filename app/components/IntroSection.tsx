@@ -144,10 +144,11 @@ export default function IntroSection({
 
   const facts = [
     { dt: '이름', dd: '이정석' },
-    { dt: '생년', dd: '1997년 (28세)' },
+    { dt: '생년', dd: '1997년 (29세)' },
     { dt: '성별', dd: '남' },
     { dt: '거주지', dd: '서울 금천구' },
-    { dt: '연락처', dd: email },
+    { dt: '연락처', dd: '010-4353-9709' },
+    { dt: '메일', dd: email },
   ];
 
   return (
