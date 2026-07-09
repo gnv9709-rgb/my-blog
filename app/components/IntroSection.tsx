@@ -546,14 +546,15 @@ export default function IntroSection({
                   </span>
                   {email}
                 </a>
-                <p
+                <a
+                  href="tel:010-4353-9709"
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '0.6rem',
                     fontSize: '0.9375rem',
                     color: 'var(--foreground)',
-                    margin: 0,
+                    textDecoration: 'none',
                   }}
                 >
                   <span
@@ -569,10 +570,10 @@ export default function IntroSection({
                       fontSize: '0.7rem',
                     }}
                   >
-                    ⌂
+                    ✆
                   </span>
-                  서울 금천구
-                </p>
+                  010-4353-9709
+                </a>
               </div>
             </div>
           </div>
