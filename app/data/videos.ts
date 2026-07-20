@@ -175,7 +175,7 @@ export const videos: Video[] = [
     videoFile: '/videos/5.mp4',
     thumbnail: '/thumbnails/5.jpg',
     title: '최고의 남편ㅋㅋ',
-    client: '박성호',
+    client: '개그맨 박성호',
     category: '숏폼',
     year: 2025,
     vertical: true,
