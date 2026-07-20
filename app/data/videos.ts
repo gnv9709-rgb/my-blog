@@ -144,6 +144,17 @@ export const videos: Video[] = [
 
   // ── 라이브 방송 ───────────────────────────────────────────────
   {
+    id: '21',
+    youtubeId: 'Zb1bER3hCvk',
+    title: 'MZ세대 무당에게 듣는 앞으로의 미래?ㅣ아침부터 쌉소리 EP.2',
+    client: '아침부터 쌉소리',
+    category: '라이브 방송',
+    year: 2025,
+    details: [
+      { label: '기여도', value: '라이브 송출, 기획 50%, 조연출, 게스트 섭외, 대본 작성' },
+    ],
+  },
+  {
     id: '4',
     youtubeId: 'jioH_jP6w5w',
     title: '꽈추형과 진중한(?) 꽈추 토크 시작합니다｜아침부터 쌉소리 EP.5',
