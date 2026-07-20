@@ -309,7 +309,8 @@ export default function CategorySection({ category, videos, index }: CategorySec
               marginBottom: 'clamp(0.75rem, 1.5vw, 1.25rem)',
             }}
           >
-            {indexStr} — {category} <span style={{ color: 'var(--accent-bright)' }}>★</span>
+            {indexStr} — {CATEGORY_LABEL[category] ?? category}{' '}
+            <span style={{ color: 'var(--accent-bright)' }}>★</span>
           </p>
           <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
             <h2
