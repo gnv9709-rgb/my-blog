@@ -43,7 +43,13 @@ const CATEGORY_EN: Record<string, string> = {
   '숏폼': 'SHORT-FORM',
   '현장 스케치': 'ON-SITE SKETCH',
   '모션그래픽': 'MOTION GRAPHICS',
-  '라이브 방송': 'LIVE BROADCAST',
+  '라이브 방송': 'SOOP LIVE BROADCAST',
+};
+
+// Korean heading labels for sections whose display name differs from the filter
+// key (the key stays stable so category filtering and nav keep working).
+const CATEGORY_LABEL: Record<string, string> = {
+  '라이브 방송': 'SOOP 라이브 방송',
 };
 
 /** Split a display title: first word solid cream, the rest outlined.
