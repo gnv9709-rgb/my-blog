@@ -73,7 +73,7 @@ export const videos: Video[] = [
     id: '18',
     youtubeId: 'mCmIunm-BP4',
     title: 'AI는 기미에 대해 어디까지 알고 있을까요? 이 정보 확실할까? 피부과 전문의가 검증해드리겠습니다!',
-    client: '하늘호수피부과',
+    client: '피부킹 김동하박사',
     category: '인터뷰 촬영',
     year: 2025,
     details: [
