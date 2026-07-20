@@ -19,7 +19,7 @@ export const videos: Video[] = [
     id: '1',
     youtubeId: 'UBF8lMbPLXQ',
     title: '엄마 말 들을걸! 엎질러진 물 여드름 흉터! 피부과 전문의가 확실히 닦아낼 방법을 알려드립니다.',
-    client: '셀로디피부과',
+    client: '피부멜로디 | 피부고민해결',
     category: '인터뷰 촬영',
     year: 2025,
     featured: true,
