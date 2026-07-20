@@ -287,7 +287,7 @@ export const videos: Video[] = [
     id: '9',
     youtubeId: '29HZdMjsRBk',
     title: 'Wellcomet at KIMES 2026',
-    client: '웰코멧',
+    client: 'LDM® OFFICIAL',
     category: '현장 스케치',
     year: 2026,
     details: [
