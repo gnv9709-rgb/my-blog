@@ -193,7 +193,7 @@ export const videos: Video[] = [
     videoFile: '/videos/19.mp4',
     thumbnail: '/thumbnails/19.jpg',
     title: '직원 퇴근 후, 원장님의 은밀한 비밀?',
-    client: '진주피부과',
+    client: '진주 미피부과성형외과',
     category: '숏폼',
     year: 2026,
     vertical: true,
