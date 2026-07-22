@@ -67,14 +67,14 @@
 html {
   scroll-behavior: smooth;
   color-scheme: dark;
-  /* One flick lands on the next page — sections opt in via .snap-page/.snap-sec */
-  scroll-snap-type: y mandatory;
+  /* Free scroll that gently aligns near section tops — sections opt in via .snap-page/.snap-sec.
+     proximity (not mandatory) so momentum carries through and the footer stays reachable */
+  scroll-snap-type: y proximity;
 }
 
-/* Full-viewport pages: always stop here, never skip past on a fast flick */
+/* Full-viewport pages: settle on the page top when the scroll ends nearby */
 .snap-page {
   scroll-snap-align: start;
-  scroll-snap-stop: always;
 }
 /* Tall sections (works galleries): snap to their top, then scroll freely inside */
 .snap-sec {
